@@ -18,6 +18,23 @@ class GovPortalSync:
         """
         self.gov_api_url = gov_api_url
         self.submission_log = []
+        self.registered_stores = []
+        # persistent registration record
+        self.registration_log_path = "data/gov_registered_stores.json"
+        try:
+            # ensure data directory exists
+            import os
+            os.makedirs(os.path.dirname(self.registration_log_path), exist_ok=True)
+            if not os.path.exists(self.registration_log_path):
+                with open(self.registration_log_path, 'w') as f:
+                    json.dump({"stores": []}, f, indent=2)
+            else:
+                with open(self.registration_log_path, 'r') as f:
+                    content = json.load(f)
+                    self.registered_stores = content.get("stores", [])
+        except Exception:
+            # non-fatal; keep in-memory
+            self.registered_stores = []
         
     def submit_high_risk_report(self, high_risk_items: List[Dict], store_id: str = "STORE_001") -> Dict:
         """
@@ -165,6 +182,49 @@ class GovPortalSync:
             List of submission records
         """
         return self.submission_log
+
+    def register_store(self, supermarket: Dict) -> Dict:
+        """
+        Register a supermarket with the government portal record store.
+
+        Args:
+            supermarket: Supermarket dictionary (as stored in users.json)
+
+        Returns:
+            Dictionary with registration status
+        """
+        if not supermarket or not supermarket.get("id"):
+            return {"status": "failed", "message": "Invalid supermarket data"}
+
+        # Check if already registered
+        for s in self.registered_stores:
+            if s.get("id") == supermarket.get("id"):
+                return {"status": "exists", "message": "Store already registered", "store_id": supermarket.get("id")}
+
+        record = {
+            "id": supermarket.get("id"),
+            "organization": supermarket.get("organization"),
+            "email": supermarket.get("email"),
+            "registered_at": supermarket.get("registered_at"),
+            "total_emissions": supermarket.get("total_emissions", 0),
+            "total_products": supermarket.get("total_products", 0)
+        }
+
+        self.registered_stores.append(record)
+
+        # persist to file if possible
+        try:
+            with open(self.registration_log_path, 'w') as f:
+                json.dump({"stores": self.registered_stores}, f, indent=2)
+        except Exception:
+            pass
+
+        # simulate gov API registration (could be extended to real API)
+        return {"status": "success", "message": "Store registered with government portal", "store_id": supermarket.get("id")}
+
+    def get_registered_stores(self) -> List[Dict]:
+        """Return the list of registered stores."""
+        return self.registered_stores
     
     def generate_compliance_certificate(self, store_id: str) -> Dict:
         """

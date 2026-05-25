@@ -600,75 +600,116 @@ function initSupermarketApp() {
 /* ─────────────────────────────────────────────
    GOVERNMENT DASHBOARD — synthetic demo data
 ───────────────────────────────────────────── */
-const GOV_COMPANIES = [
-  { name:"FreshMart Pvt Ltd",      co2:"342,800", products:1240, compliance:"Non-Compliant", region:"Chennai",    score:42 },
-  { name:"GreenBasket Retail",     co2:"198,500", products:980,  compliance:"Compliant",     region:"Mumbai",     score:88 },
-  { name:"NaturalFood Co.",        co2:"275,100", products:1560, compliance:"Non-Compliant", region:"Bangalore",  score:51 },
-  { name:"Metro Grocers",          co2:"148,200", products:870,  compliance:"Compliant",     region:"Delhi",      score:79 },
-  { name:"EcoMart India",          co2:"88,400",  products:640,  compliance:"Compliant",     region:"Hyderabad",  score:93 },
-  { name:"Sunrise Superstore",     co2:"401,600", products:1890, compliance:"Non-Compliant", region:"Pune",       score:38 },
-  { name:"People's Grocery",       co2:"126,300", products:720,  compliance:"Compliant",     region:"Kolkata",    score:82 },
-  { name:"Organic Circle",         co2:"54,800",  products:410,  compliance:"Compliant",     region:"Ahmedabad",  score:96 },
-  { name:"WholeSale Depot",        co2:"312,900", products:2100, compliance:"Review",        region:"Surat",      score:61 },
-];
+// live government data (fetched from backend). Start empty so UI shows nothing until stores register.
+let GOV_COMPANIES = [];
+let govCompaniesData = [];
+let govViolationsData = [];
 
-let govViolationsData = [
-  { company:"FreshMart Pvt Ltd",    product:"Imported Beef",       category:"Food",      co2:"94,200",  threshold:"50,000", excess:"44,200", status:"Warning" },
-  { company:"FreshMart Pvt Ltd",    product:"PET Bottles (1L)",    category:"Plastic",   co2:"62,100",  threshold:"40,000", excess:"22,100", status:"Warning" },
-  { company:"NaturalFood Co.",      product:"Dairy Cream (500g)",  category:"Dairy",     co2:"71,400",  threshold:"50,000", excess:"21,400", status:"Penalty" },
-  { company:"Sunrise Superstore",   product:"Frozen Lamb",         category:"Food",      co2:"108,300", threshold:"50,000", excess:"58,300", status:"Critical" },
-  { company:"Sunrise Superstore",   product:"Styrofoam Trays",     category:"Packaging", co2:"86,700",  threshold:"40,000", excess:"46,700", status:"Penalty" },
-  { company:"WholeSale Depot",      product:"Nylon Bags (bulk)",   category:"Textile",   co2:"58,800",  threshold:"40,000", excess:"18,800", status:"Review" },
-];
+async function fetchGovData() {
+  try {
+    const statsResp = await fetch('/api/gov/statistics');
+    const stats = statsResp.ok ? await statsResp.json() : null;
 
-function initGovernmentApp() {
-  govNavigate("overview");
+    const listResp = await fetch('/api/gov/supermarkets');
+    const list = listResp.ok ? await listResp.json() : null;
+
+    // Build companies array from server data if present
+    if (list && Array.isArray(list.supermarkets) && list.supermarkets.length) {
+      govCompaniesData = list.supermarkets.map(sm => ({
+        name: sm.organization || sm.username || sm.id,
+        co2: (sm.total_emissions || 0).toString(),
+        products: sm.total_products || 0,
+        compliance: (sm.total_emissions && sm.total_products && (sm.total_emissions / (sm.total_products || 1) > 3)) ? 'Non-Compliant' : 'Compliant',
+        region: sm.region || 'Unknown',
+        score: sm.eco_score || Math.floor(Math.random() * 30) + 60
+      }));
+    } else {
+      // keep empty to avoid showing synthetic demo data
+      govCompaniesData = [];
+    }
+
+    // Build violations from stats high_risk_supermarkets
+    if (stats && Array.isArray(stats.high_risk_supermarkets) && stats.high_risk_supermarkets.length) {
+      govViolationsData = stats.high_risk_supermarkets.map(h => ({
+        company: h.organization || h.id,
+        product: h.top_product || '-',
+        category: h.top_category || '-',
+        co2: (h.total_emissions || 0).toString(),
+        threshold: 'N/A',
+        excess: 'N/A',
+        status: h.risk_level || 'Warning'
+      }));
+    } else {
+      govViolationsData = [];
+    }
+
+  } catch (e) {
+    console.warn('Failed to fetch gov data:', e);
+    govCompaniesData = [];
+    govViolationsData = [];
+  }
+
+  // render views based on fetched data
   renderGovCharts();
   renderCompanyGrid();
   renderViolationsTable();
+}
+
+function initGovernmentApp() {
+  govNavigate("overview");
+  // Fetch live government data and render; UI remains empty until stores register
+  fetchGovData();
   renderGovInsights();
   renderGovPolicy();
 }
 
 function renderGovCharts() {
   const pal = getPalette();
+  // If no live data, show minimal placeholder charts
+  if (!govCompaniesData || govCompaniesData.length === 0) {
+    mkLine("gov-trendChart",
+      ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      [{ label: "National CO₂ (tonnes)", data: [0,0,0,0,0,0,0,0,0,0,0,0], borderColor: pal[0], backgroundColor: isLight() ? "rgba(0,125,92,0.03)" : "rgba(0,200,150,0.03)", borderWidth: 2, pointBackgroundColor: pal[0], pointRadius: 2, fill: true, tension: 0.2 }]
+    );
+    mkDoughnut("gov-sectorChart", { });
+    mkBar("gov-companyChart", {}, "CO₂ (tonnes)");
+    mkPie("gov-regionChart", [], [], pal);
+    mkBar("gov-monthlyChart", {}, "Tonnes CO₂");
+    mkDoughnut("gov-catBreakChart", {});
+    mkPie("gov-heatChart", ["No Data"], [1], [pal[0]]);
+    return;
+  }
 
-  // Trend chart
-  mkLine("gov-trendChart",
-    ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-    [{
-      label: "National CO₂ (tonnes)",
-      data: [198,185,210,202,188,175,182,195,201,178,165,158],
-      borderColor: pal[0],
-      backgroundColor: isLight() ? "rgba(0,125,92,0.07)" : "rgba(0,200,150,0.07)",
-      borderWidth: 2, pointBackgroundColor: pal[0], pointRadius: 4, fill: true, tension: 0.4
-    }]
-  );
-
-  mkDoughnut("gov-sectorChart", { Dairy:24, Plastic:18, Food:31, Electronics:12, Textile:9, Packaging:6 });
-
+  // Build national trend / company / region charts from live data
   const companyData = {};
-  GOV_COMPANIES.slice(0, 6).forEach(c => { companyData[c.name.split(" ")[0]] = parseInt(c.co2.replace(/,/g,"")) / 1000; });
+  govCompaniesData.slice(0, 8).forEach(c => { companyData[c.name.split(" ")[0]] = parseFloat(c.co2.toString().replace(/,/g,"")) / 1000; });
   mkBar("gov-companyChart", companyData, "CO₂ (tonnes)");
 
   const regionData = {};
-  GOV_COMPANIES.forEach(c => { regionData[c.region] = (regionData[c.region] || 0) + parseInt(c.co2.replace(/,/g,"")) / 1000; });
+  govCompaniesData.forEach(c => { regionData[c.region] = (regionData[c.region] || 0) + (parseFloat(c.co2.toString().replace(/,/g,"")) || 0) / 1000; });
   mkPie("gov-regionChart", Object.keys(regionData), Object.values(regionData).map(v => +v.toFixed(0)), pal);
 
+  // Use simple aggregated placeholders for other charts
+  mkLine("gov-trendChart",
+    ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    [{ label: "National CO₂ (tonnes)", data: Array.from({length:12}, (_,i) => Math.max(0, Math.round((Object.values(companyData).reduce((s,v)=>s+v,0) / 12) + (i%3-1)*5))), borderColor: pal[0], backgroundColor: isLight() ? "rgba(0,125,92,0.07)" : "rgba(0,200,150,0.07)", borderWidth: 2, pointBackgroundColor: pal[0], pointRadius: 4, fill: true, tension: 0.4 }]
+  );
+
+  mkDoughnut("gov-sectorChart", { Food:31, Plastic:18, Dairy:24, Electronics:12, Textile:9, Packaging:6 });
   mkBar("gov-monthlyChart", { Jan:198, Feb:185, Mar:210, Apr:202, May:188, Jun:175 }, "Tonnes CO₂");
   mkDoughnut("gov-catBreakChart", { Food:31, Plastic:18, Dairy:24, Electronics:12, Textile:9, Packaging:6 });
   mkPie("gov-heatChart",
     ["Critical","High-Risk","Moderate","Compliant"],
-    [3, 6, 12, 26],
-    isLight()
-      ? ["#cf222e","#bf8700","#5a3fd0","#1a7f37"]
-      : ["#f85149","#e3b341","#7c5cfc","#3fb950"]
+    [3, 6, 12, Math.max(0, govCompaniesData.length - 21)],
+    isLight() ? ["#cf222e","#bf8700","#5a3fd0","#1a7f37"] : ["#f85149","#e3b341","#7c5cfc","#3fb950"]
   );
 }
 
 function renderCompanyGrid() {
   const grid = document.getElementById("companyGrid");
-  grid.innerHTML = GOV_COMPANIES.map(c => {
+  const list = (govCompaniesData && govCompaniesData.length) ? govCompaniesData : GOV_COMPANIES;
+  if (!list || list.length === 0) { grid.innerHTML = '<div class="empty-hero"><div class="empty-icon">🏢</div><p>No registered companies yet. New stores will appear here after signup.</p></div>'; return; }
+  grid.innerHTML = list.map(c => {
     const badge = c.compliance === "Compliant"     ? "badge-ok"
                 : c.compliance === "Non-Compliant" ? "badge-high"
                 : "badge-critical";
