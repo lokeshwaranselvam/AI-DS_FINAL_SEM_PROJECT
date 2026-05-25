@@ -1,7 +1,10 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, send_file
 import os
 import pandas as pd
+from io import StringIO, BytesIO
+from datetime import datetime
 from recommender import CarbonRecommender
+from gov_portal_sync import GovPortalSync
 
 app = Flask(__name__)
 
@@ -12,8 +15,9 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 DATA_FOLDER = "data"
 os.makedirs(DATA_FOLDER, exist_ok=True)
 
-# Initialize Recommender
+# Initialize Recommender and Government Portal Sync
 recommender = CarbonRecommender()
+gov_portal = GovPortalSync()
 
 CARBON_TABLE = {
     "Dairy": 1.9,
@@ -22,6 +26,9 @@ CARBON_TABLE = {
     "Food": 2.1,
     "Textile": 4.0
 }
+
+# Store last analysis results for CSV downloads
+last_analysis_data = {}
 
 @app.route("/")
 def home():
@@ -69,7 +76,7 @@ def upload_file():
              units = float(row["Units_Sold"])
         except ValueError:
              units = 0
-             
+              
         product = str(row["Product"]).strip()
         prod_id = str(row["ProductID"]).strip() if has_id else "N/A"
         source = str(row["ProductionSource"]).strip() if has_source else "Unknown"
@@ -131,16 +138,132 @@ def upload_file():
     
     avg_emission = round(total_emission / total_units, 2) if total_units > 0 else 0
 
-    return jsonify({
+    # Store analysis data for CSV exports
+    global last_analysis_data
+    last_analysis_data = {
         "total_emission": round(total_emission, 2),
         "total_units": int(total_units),
         "avg_emission": avg_emission,
         "highest_impact": max_emission_product["name"],
         "risk_breakdown": risk_counts,
-        "category_emissions": category_emissions, # For Pie Chart
-        "source_emissions": source_emissions,     # For Bar Chart
-        "high_risk_report": high_risk_items,      # For Government Report Table
-        "suggestions": suggestions                # For Recommendations
+        "category_emissions": category_emissions,
+        "source_emissions": source_emissions,
+        "high_risk_report": high_risk_items,
+        "suggestions": suggestions,
+        "all_products": product_results,
+        "upload_date": datetime.now().isoformat()
+    }
+
+    # *** AUTO-SUBMIT TO GOVERNMENT PORTAL ***
+    gov_response = gov_portal.submit_high_risk_report(high_risk_items, store_id="SAMPLE_SUPERMARKET_001")
+    
+    response_data = {
+        "total_emission": round(total_emission, 2),
+        "total_units": int(total_units),
+        "avg_emission": avg_emission,
+        "highest_impact": max_emission_product["name"],
+        "risk_breakdown": risk_counts,
+        "category_emissions": category_emissions,
+        "source_emissions": source_emissions,
+        "high_risk_report": high_risk_items,
+        "suggestions": suggestions,
+        "gov_submission": gov_response
+    }
+    
+    return jsonify(response_data)
+
+@app.route("/download-compliance-report", methods=["GET"])
+def download_compliance_report():
+    """Download Compliance Report (High-Risk Items) as CSV"""
+    if not last_analysis_data or not last_analysis_data.get("high_risk_report"):
+        return jsonify({"error": "No analysis data available. Please upload and analyze data first."}), 400
+    
+    high_risk_items = last_analysis_data.get("high_risk_report", [])
+    
+    df = pd.DataFrame(high_risk_items)
+    csv_buffer = StringIO()
+    df.to_csv(csv_buffer, index=False)
+    
+    return send_file(
+        BytesIO(csv_buffer.getvalue().encode()),
+        mimetype="text/csv",
+        as_attachment=True,
+        download_name=f"compliance_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    )
+
+@app.route("/download-full-emission-report", methods=["GET"])
+def download_full_emission_report():
+    """Download Full Emission Report (All Products) as CSV"""
+    if not last_analysis_data or not last_analysis_data.get("all_products"):
+        return jsonify({"error": "No analysis data available. Please upload and analyze data first."}), 400
+    
+    all_products = last_analysis_data.get("all_products", [])
+    
+    # Add summary at the top
+    summary_data = {
+        "Total CO₂ (kg)": last_analysis_data.get("total_emission", 0),
+        "Total Units Sold": last_analysis_data.get("total_units", 0),
+        "Avg Emission/Unit": last_analysis_data.get("avg_emission", 0),
+        "Analysis Date": last_analysis_data.get("upload_date", ""),
+        "": "",  # Empty row for separation
+    }
+    
+    df_summary = pd.DataFrame([summary_data])
+    df_products = pd.DataFrame(all_products)
+    
+    csv_buffer = StringIO()
+    csv_buffer.write("=== EMISSION SUMMARY ===\n")
+    df_summary.to_csv(csv_buffer, index=False)
+    csv_buffer.write("\n=== ALL PRODUCTS ===\n")
+    df_products.to_csv(csv_buffer, index=False)
+    
+    return send_file(
+        BytesIO(csv_buffer.getvalue().encode()),
+        mimetype="text/csv",
+        as_attachment=True,
+        download_name=f"full_emission_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    )
+
+@app.route("/download-ai-recommendations-report", methods=["GET"])
+def download_ai_recommendations_report():
+    """Download AI Recommendations Report as CSV"""
+    if not last_analysis_data or not last_analysis_data.get("suggestions"):
+        return jsonify({"error": "No recommendations available. Please upload and analyze data first."}), 400
+    
+    suggestions = last_analysis_data.get("suggestions", [])
+    
+    # Flatten the nested structure for CSV
+    csv_data = []
+    for suggestion in suggestions:
+        csv_data.append({
+            "Original Product": suggestion.get("original_product", ""),
+            "Category": suggestion.get("category", ""),
+            "Alternative Product": suggestion.get("alternative_product", ""),
+            "Current Emission (kg CO₂e)": suggestion.get("reduction_potential", 0),
+            "Reduction Potential (%)": suggestion.get("reduction_pct", 0),
+            "Risk Analysis": suggestion.get("risk_analysis", ""),
+            "Confidence": suggestion.get("confidence", ""),
+            "Recommendation": suggestion.get("narrative", "").replace("<strong>", "").replace("</strong>", "")
+        })
+    
+    df = pd.DataFrame(csv_data)
+    csv_buffer = StringIO()
+    df.to_csv(csv_buffer, index=False)
+    
+    return send_file(
+        BytesIO(csv_buffer.getvalue().encode()),
+        mimetype="text/csv",
+        as_attachment=True,
+        download_name=f"ai_recommendations_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    )
+
+@app.route("/gov-submission-status", methods=["GET"])
+def gov_submission_status():
+    """Get status of government portal submissions"""
+    submission_log = gov_portal.get_submission_history()
+    return jsonify({
+        "submissions": submission_log,
+        "total_submissions": len(submission_log)
     })
 
 if __name__ == "__main__":
