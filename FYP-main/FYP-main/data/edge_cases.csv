@@ -1,0 +1,51 @@
+ProductID,Product,Category,Units_Sold,ProductionSource
+P0001,Cutlery,Plastic,0,Local Manufacturer
+P0002,Car Travel,Transport,5000,Local Farm
+P0003,???,Unknown Category,-50,Factory B
+P0004,???,Food,100,Local Manufacturer
+P0005,Packaging,Plastic,abc,Imported (China)
+P0006,Chicken,Food,100,Local Manufacturer
+P0007,Cardboard Box,Packaging,-50,Imported (USA)
+P0008,Styrofoam,Packaging,-50,Local Manufacturer
+P0009,???,Electronics,-50,Factory A
+P0010,Bottle,Plastic,abc,Local Manufacturer
+P0011,Bag,Plastic,0,Imported (China)
+P0012,Skirt,Textile,100,Factory B
+P0013,Styrofoam,Unknown Category,0,Factory A
+P0014,Yogurt,Dairy,-50,Local Farm
+P0015,Monitor,Unknown Category,abc,Factory B
+P0016,???,Textile,0,Factory A
+P0017,Phone,Electronics,5000,Factory B
+P0018,Laptop,Electronics,0,Imported (China)
+P0019,Battery,Electronics,5000,Factory A
+P0020,Chicken,Food,5000,Local Farm
+P0021,???,Textile,abc,Local Manufacturer
+P0022,Car Travel,Transport,100,Factory A
+P0023,Styrofoam,Packaging,5000,Local Manufacturer
+P0024,Plastic Wrap,Packaging,-50,Local Manufacturer
+P0025,???,Dairy,5000,Factory B
+P0026,Bag,Plastic,-50,Factory B
+P0027,???,Transport,0,Imported (China)
+P0028,Laptop,Electronics,abc,Local Manufacturer
+P0029,Laptop,Electronics,100,Factory B
+P0030,Tablet,Electronics,abc,Factory A
+P0031,???,Packaging,abc,Imported (China)
+P0032,???,Unknown Category,-50,Local Farm
+P0033,???,Unknown Category,100,Local Farm
+P0034,Cutlery,Plastic,5000,Factory B
+P0035,Butter,Dairy,100,Imported (USA)
+P0036,Styrofoam,Packaging,-50,Factory A
+P0037,Plastic Wrap,Packaging,5000,Factory B
+P0038,T-Shirt,Unknown Category,-50,Local Farm
+P0039,???,Unknown Category,0,Imported (USA)
+P0040,???,Food,5000,Imported (USA)
+P0041,Milk,Dairy,abc,Imported (China)
+P0042,Jeans,Unknown Category,-50,Factory A
+P0043,Plastic Wrap,Packaging,abc,Imported (USA)
+P0044,Lamb,Food,100,Imported (China)
+P0045,Plastic Wrap,Packaging,0,Factory A
+P0046,Truck Delivery,Transport,100,Factory A
+P0047,Cutlery,Plastic,-50,Imported (USA)
+P0048,Monitor,Electronics,-50,Imported (USA)
+P0049,Cardboard Box,Packaging,5000,Imported (China)
+P0050,Car Travel,Transport,5000,Imported (China)

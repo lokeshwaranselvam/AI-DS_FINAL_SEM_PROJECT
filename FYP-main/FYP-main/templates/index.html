@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CarbonLens — Emission Intelligence Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Nunito:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     AUTH OVERLAY
+══════════════════════════════════════════════ -->
+<div id="authOverlay">
+  <div class="auth-bg-grid"></div>
+  <div class="auth-orb auth-orb-1"></div>
+  <div class="auth-orb auth-orb-2"></div>
+
+  <!-- Theme Toggle on Auth Screen -->
+  <div class="auth-theme-toggle">
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeToggleBtn">
+      <span class="toggle-icon">🌙</span> Dark
+    </button>
+  </div>
+
+  <div class="auth-wrapper">
+    <!-- LEFT PANEL -->
+    <div class="auth-left">
+      <div class="auth-brand">Carbon<span>Lens</span></div>
+      <p class="auth-left-tag">Emission Intelligence<br>Platform</p>
+      <div class="auth-left-stats">
+        <div class="al-stat"><span class="al-num">14K+</span><span class="al-lbl">Products Tracked</span></div>
+        <div class="al-stat"><span class="al-num">98%</span><span class="al-lbl">Accuracy</span></div>
+        <div class="al-stat"><span class="al-num">50+</span><span class="al-lbl">Retailers</span></div>
+      </div>
+      <div class="auth-left-badge">🌱 Carbon-Neutral Certified 2025</div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="auth-right">
+      <!-- Role Selector -->
+      <div class="role-selector" id="roleSelector">
+        <p class="role-title">Select your portal</p>
+        <div class="role-cards">
+          <div class="role-card" onclick="selectRole('supermarket')">
+            <div class="role-icon">🛒</div>
+            <div>
+              <div class="role-name">Supermarket</div>
+              <div class="role-desc">Retailer dashboard & product management</div>
+            </div>
+          </div>
+          <div class="role-card" onclick="selectRole('government')">
+            <div class="role-icon">🏛️</div>
+            <div>
+              <div class="role-name">Government</div>
+              <div class="role-desc">National oversight & compliance analytics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Auth Forms -->
+      <div id="authForms" style="display:none">
+        <div class="auth-back" onclick="backToRoles()">← Back</div>
+        <div class="auth-role-badge" id="authRoleBadge"></div>
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Sign In</button>
+          <button class="auth-tab" id="tabSignup" onclick="switchTab('signup')">Sign Up</button>
+        </div>
+
+        <!-- LOGIN -->
+        <div id="loginForm">
+          <div class="input-group">
+            <span class="input-icon">👤</span>
+            <input type="text" id="loginUser" placeholder="Username" autocomplete="username"/>
+          </div>
+          <div class="input-group">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="loginPass" placeholder="Password" autocomplete="current-password"/>
+          </div>
+          <button class="auth-submit" onclick="handleLogin()">Sign In →</button>
+          <div class="auth-msg" id="loginMsg"></div>
+          <p class="auth-hint">Demo — Supermarket: <code>demo / demo123</code> | Govt: <code>gov / gov123</code></p>
+        </div>
+
+        <!-- SIGNUP -->
+        <div id="signupForm" style="display:none">
+          <div class="input-group">
+            <span class="input-icon">👤</span>
+            <input type="text" id="signupUser" placeholder="Username"/>
+          </div>
+          <div class="input-group" id="orgGroup">
+            <span class="input-icon">🏢</span>
+            <input type="text" id="signupOrg" placeholder="Organisation name"/>
+          </div>
+          <div class="input-group">
+            <span class="input-icon">@</span>
+            <input type="email" id="signupEmail" placeholder="Email address"/>
+          </div>
+          <div class="input-group">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="signupPass" placeholder="Password (min 6 chars)"/>
+          </div>
+          <button class="auth-submit" onclick="handleSignup()">Create Account →</button>
+          <div class="auth-msg" id="signupMsg"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SUPERMARKET APP
+══════════════════════════════════════════════ -->
+<div id="appSupermarket" style="display:none">
+  <aside class="sidebar" id="smSidebar">
+    <div class="sidebar-logo">Carbon<span>Lens</span></div>
+    <div class="sidebar-role-badge">🛒 Supermarket</div>
+    <nav class="sidebar-nav">
+      <a class="nav-item active" onclick="smNavigate('dashboard')" data-page="dashboard">
+        <span class="nav-icon">⬡</span> Dashboard
+      </a>
+      <a class="nav-item" onclick="smNavigate('upload')" data-page="upload">
+        <span class="nav-icon">⊕</span> Upload Data
+      </a>
+      <a class="nav-item" onclick="smNavigate('products')" data-page="products">
+        <span class="nav-icon">◈</span> Products
+      </a>
+      <a class="nav-item" onclick="smNavigate('recommendations')" data-page="recommendations">
+        <span class="nav-icon">✦</span> AI Recommendations
+      </a>
+      <a class="nav-item" onclick="smNavigate('compliance')" data-page="compliance">
+        <span class="nav-icon">◉</span> Compliance
+      </a>
+      <a class="nav-item" onclick="smNavigate('reports')" data-page="reports">
+        <span class="nav-icon">▤</span> Reports
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-pill-side">
+        <div class="user-avatar-sm" id="smAvatar">?</div>
+        <div>
+          <div class="user-name-sm" id="smName">user</div>
+          <div class="user-org-sm" id="smOrg">Organisation</div>
+        </div>
+      </div>
+      <button class="logout-btn-side" onclick="handleLogout()">↩ Logout</button>
+    </div>
+  </aside>
+
+  <div class="app-body">
+    <header class="topbar-slim">
+      <div class="page-title-top" id="smPageTitle">Dashboard</div>
+      <div class="topbar-actions">
+        <div class="topbar-date" id="smDate"></div>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeToggleSM">
+          <span class="toggle-icon">🌙</span> <span class="toggle-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-scroll">
+      <!-- DASHBOARD PAGE -->
+      <section id="sm-page-dashboard" class="page-section active">
+        <div class="page-hero">
+          <h1 class="page-h1">Emission Overview</h1>
+          <p class="page-sub">Monitor your store's carbon footprint in real-time</p>
+        </div>
+        <div class="stats-row">
+          <div class="stat-card teal"><div class="stat-label">Total CO₂</div><div class="stat-value" id="sm-totalEmission">—</div><div class="stat-sub">kilograms emitted</div></div>
+          <div class="stat-card orange"><div class="stat-label">Total Units</div><div class="stat-value" id="sm-totalUnits">—</div><div class="stat-sub">products tracked</div></div>
+          <div class="stat-card red"><div class="stat-label">Avg / Unit</div><div class="stat-value" id="sm-avgEmission">—</div><div class="stat-sub">kg per unit sold</div></div>
+          <div class="stat-card purple"><div class="stat-label">Top Emitter</div><div class="stat-value stat-value--sm" id="sm-highestImpact">—</div><div class="stat-sub">highest impact item</div></div>
+        </div>
+        <div class="charts-row-3">
+          <div class="chart-card"><h3 class="chart-title">BY CATEGORY</h3><div class="chart-wrap"><canvas id="sm-emissionChart"></canvas></div></div>
+          <div class="chart-card"><h3 class="chart-title">BY SOURCE</h3><div class="chart-wrap"><canvas id="sm-sourceChart"></canvas></div></div>
+          <div class="chart-card"><h3 class="chart-title">RISK DISTRIBUTION</h3><div class="chart-wrap"><canvas id="sm-riskChart"></canvas></div></div>
+        </div>
+        <div class="charts-row-2">
+          <div class="chart-card"><h3 class="chart-title">TOP 8 PRODUCTS — EMISSION INTENSITY</h3><div class="chart-wrap chart-wrap--tall"><canvas id="sm-intensityChart"></canvas></div></div>
+          <div class="chart-card"><h3 class="chart-title">PARETO — CUMULATIVE IMPACT</h3><div class="chart-wrap chart-wrap--tall"><canvas id="sm-paretoChart"></canvas></div></div>
+        </div>
+      </section>
+
+      <!-- UPLOAD PAGE -->
+      <section id="sm-page-upload" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">Upload Data</h1>
+          <p class="page-sub">Import your product emission dataset (.csv / .xlsx)</p>
+        </div>
+        <div class="upload-card">
+          <div class="upload-zone" id="uploadZone">
+            <div class="upload-icon">⊕</div>
+            <div class="upload-text">Drag & drop your file here</div>
+            <div class="upload-sub">or click to browse — .csv / .xlsx accepted</div>
+            <label for="fileInput" class="upload-btn-label">Select File</label>
+            <input type="file" id="fileInput" accept=".csv,.xls,.xlsx" hidden/>
+            <div class="upload-filename" id="fileName">No file selected</div>
+          </div>
+          <button class="analyze-btn" id="analyzeBtn" disabled onclick="runAnalysis()">
+            <span class="btn-icon">▶</span> Analyze Emissions
+          </button>
+        </div>
+        <div class="upload-guide">
+          <h3 class="guide-title">Expected Columns</h3>
+          <div class="guide-cols">
+            <div class="guide-col"><code>product_id</code> Unique item ID</div>
+            <div class="guide-col"><code>product_name</code> Product label</div>
+            <div class="guide-col"><code>category</code> e.g. Dairy, Plastic</div>
+            <div class="guide-col"><code>emission_source</code> Transport, Manufacturing…</div>
+            <div class="guide-col"><code>units_sold</code> Quantity</div>
+            <div class="guide-col"><code>emission_per_unit</code> kg CO₂e</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS PAGE -->
+      <section id="sm-page-products" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">Products</h1>
+          <p class="page-sub">Full list of tracked products and emission data</p>
+        </div>
+        <div class="panel full-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">ALL PRODUCTS</h3>
+            <input class="search-input" type="text" placeholder="Search products…" oninput="filterProductTable(this.value)"/>
+          </div>
+          <div class="report-table-wrap">
+            <table class="report-table" id="fullProductTable">
+              <thead><tr><th>ID</th><th>Product</th><th>Category</th><th>Source</th><th>Units</th><th>CO₂/unit</th><th>Total CO₂</th><th>Risk</th></tr></thead>
+              <tbody id="fullProductBody"><tr><td colspan="8" class="table-empty">Upload data to view products.</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- RECOMMENDATIONS PAGE -->
+      <section id="sm-page-recommendations" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">AI Recommendations</h1>
+          <p class="page-sub">Intelligent substitution suggestions powered by CarbonLens AI</p>
+        </div>
+        <div id="aiRecommendationsContainer">
+          <div class="empty-hero">
+            <div class="empty-icon">✦</div>
+            <p>Upload and analyze data to generate AI-powered recommendations</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMPLIANCE PAGE -->
+      <section id="sm-page-compliance" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">Compliance</h1>
+          <p class="page-sub">High-risk and critical emission items requiring action</p>
+        </div>
+        <div class="panel full-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">HIGH-RISK ITEMS</h3>
+            <button class="export-btn" onclick="exportCSV()">⬇ Export CSV</button>
+          </div>
+          <div class="report-table-wrap">
+            <table class="report-table">
+              <thead><tr><th>ID</th><th>Product</th><th>Source</th><th>CO₂ (kg)</th><th>Risk</th></tr></thead>
+              <tbody id="reportTableBody"><tr><td colspan="5" class="table-empty">No data yet.</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- REPORTS PAGE -->
+      <section id="sm-page-reports" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">Reports</h1>
+          <p class="page-sub">Downloadable compliance and emission reports</p>
+        </div>
+        <div class="reports-grid">
+          <div class="report-tile" onclick="exportCSV()">
+            <div class="rt-icon">📊</div>
+            <div class="rt-name">Compliance Report</div>
+            <div class="rt-desc">High-risk items CSV export</div>
+            <div class="rt-action">Download →</div>
+          </div>
+          <div class="report-tile" onclick="alert('Full report coming soon!')">
+            <div class="rt-icon">📋</div>
+            <div class="rt-name">Full Emission Report</div>
+            <div class="rt-desc">All products with emission data</div>
+            <div class="rt-action">Download →</div>
+          </div>
+          <div class="report-tile" onclick="alert('AI report coming soon!')">
+            <div class="rt-icon">✦</div>
+            <div class="rt-name">AI Recommendations</div>
+            <div class="rt-desc">Substitution suggestions PDF</div>
+            <div class="rt-action">Download →</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     GOVERNMENT APP
+══════════════════════════════════════════════ -->
+<div id="appGovernment" style="display:none">
+  <aside class="sidebar gov-sidebar" id="govSidebar">
+    <div class="sidebar-logo">Carbon<span>Lens</span></div>
+    <div class="sidebar-role-badge gov-badge">🏛️ Government</div>
+    <nav class="sidebar-nav">
+      <a class="nav-item active" onclick="govNavigate('overview')" data-page="overview">
+        <span class="nav-icon">⬡</span> National Overview
+      </a>
+      <a class="nav-item" onclick="govNavigate('companies')" data-page="companies">
+        <span class="nav-icon">🏢</span> Companies
+      </a>
+      <a class="nav-item" onclick="govNavigate('violations')" data-page="violations">
+        <span class="nav-icon">⚠</span> Violations
+      </a>
+      <a class="nav-item" onclick="govNavigate('analytics')" data-page="analytics">
+        <span class="nav-icon">◈</span> Deep Analytics
+      </a>
+      <a class="nav-item" onclick="govNavigate('policy')" data-page="policy">
+        <span class="nav-icon">◉</span> Policy Insights
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-pill-side">
+        <div class="user-avatar-sm gov-avatar" id="govAvatar">?</div>
+        <div>
+          <div class="user-name-sm" id="govName">officer</div>
+          <div class="user-org-sm" id="govOrg">Ministry</div>
+        </div>
+      </div>
+      <button class="logout-btn-side" onclick="handleLogout()">↩ Logout</button>
+    </div>
+  </aside>
+
+  <div class="app-body">
+    <header class="topbar-slim gov-topbar">
+      <div class="page-title-top" id="govPageTitle">National Overview</div>
+      <div class="topbar-actions">
+        <div class="gov-alert-banner">⚡ 3 companies exceed emission thresholds</div>
+        <button class="theme-toggle" onclick="toggleTheme()" id="themeToggleGov">
+          <span class="toggle-icon">🌙</span> <span class="toggle-label">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-scroll">
+      <!-- OVERVIEW PAGE -->
+      <section id="gov-page-overview" class="page-section active">
+        <div class="page-hero">
+          <h1 class="page-h1">National Emission Dashboard</h1>
+          <p class="page-sub">Aggregate carbon intelligence across all registered supermarkets</p>
+        </div>
+        <div class="stats-row">
+          <div class="stat-card teal"><div class="stat-label">National CO₂</div><div class="stat-value">2.4M</div><div class="stat-sub">kg total this year</div></div>
+          <div class="stat-card orange"><div class="stat-label">Retailers</div><div class="stat-value">47</div><div class="stat-sub">registered companies</div></div>
+          <div class="stat-card red"><div class="stat-label">Non-Compliant</div><div class="stat-value">3</div><div class="stat-sub">above threshold</div></div>
+          <div class="stat-card purple"><div class="stat-label">Avg Reduction</div><div class="stat-value">12%</div><div class="stat-sub">YoY improvement</div></div>
+        </div>
+        <div class="charts-row-2">
+          <div class="chart-card"><h3 class="chart-title">NATIONAL EMISSION TREND</h3><div class="chart-wrap chart-wrap--tall"><canvas id="gov-trendChart"></canvas></div></div>
+          <div class="chart-card"><h3 class="chart-title">EMISSION BY SECTOR</h3><div class="chart-wrap chart-wrap--tall"><canvas id="gov-sectorChart"></canvas></div></div>
+        </div>
+        <div class="charts-row-2">
+          <div class="chart-card"><h3 class="chart-title">TOP POLLUTING COMPANIES</h3><div class="chart-wrap chart-wrap--tall"><canvas id="gov-companyChart"></canvas></div></div>
+          <div class="chart-card"><h3 class="chart-title">COMPLIANCE RATE BY REGION</h3><div class="chart-wrap chart-wrap--tall"><canvas id="gov-regionChart"></canvas></div></div>
+        </div>
+      </section>
+
+      <!-- COMPANIES PAGE -->
+      <section id="gov-page-companies" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">Registered Companies</h1>
+          <p class="page-sub">All supermarkets and their emission profiles</p>
+        </div>
+        <div class="company-grid" id="companyGrid"></div>
+      </section>
+
+      <!-- VIOLATIONS PAGE -->
+      <section id="gov-page-violations" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">Emission Violations</h1>
+          <p class="page-sub">Companies and products flagged for exceeding thresholds</p>
+        </div>
+        <div class="panel full-panel">
+          <div class="panel-header">
+            <h3 class="panel-title">VIOLATION LOG</h3>
+            <button class="export-btn" onclick="exportGovCSV()">⬇ Export</button>
+          </div>
+          <div class="report-table-wrap">
+            <table class="report-table" id="violationsTable">
+              <thead><tr><th>Company</th><th>Product</th><th>Category</th><th>CO₂ (kg)</th><th>Threshold</th><th>Excess</th><th>Status</th></tr></thead>
+              <tbody id="violationsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANALYTICS PAGE -->
+      <section id="gov-page-analytics" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">Deep Analytics</h1>
+          <p class="page-sub">Advanced emission analysis and predictive insights</p>
+        </div>
+        <div class="charts-row-3">
+          <div class="chart-card"><h3 class="chart-title">MONTHLY TREND</h3><div class="chart-wrap"><canvas id="gov-monthlyChart"></canvas></div></div>
+          <div class="chart-card"><h3 class="chart-title">CATEGORY BREAKDOWN</h3><div class="chart-wrap"><canvas id="gov-catBreakChart"></canvas></div></div>
+          <div class="chart-card"><h3 class="chart-title">RISK HEATMAP</h3><div class="chart-wrap"><canvas id="gov-heatChart"></canvas></div></div>
+        </div>
+        <div class="insight-panel">
+          <h3 class="panel-title" style="margin-bottom:16px">🔍 KEY INSIGHTS</h3>
+          <div class="insights-grid" id="govInsights"></div>
+        </div>
+      </section>
+
+      <!-- POLICY PAGE -->
+      <section id="gov-page-policy" class="page-section">
+        <div class="page-hero">
+          <h1 class="page-h1">Policy Insights</h1>
+          <p class="page-sub">AI-generated policy recommendations based on national data</p>
+        </div>
+        <div id="govPolicyContainer"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

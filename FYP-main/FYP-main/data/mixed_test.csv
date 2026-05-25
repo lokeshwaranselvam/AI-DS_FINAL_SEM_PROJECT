@@ -1,0 +1,201 @@
+ProductID,Product,Category,Units_Sold,ProductionSource
+P0001,Plastic Wrap,Packaging,423,Local Farm
+P0002,Polyester Fabric,Textile,88,Factory A
+P0003,Straws,Plastic,450,Local Farm
+P0004,Containers,Plastic,65,Imported (China)
+P0005,Bottle,Plastic,136,Factory B
+P0006,Truck Delivery,Transport,428,Local Manufacturer
+P0007,Polyester Fabric,Textile,491,Imported (USA)
+P0008,Bottle,Plastic,203,Local Manufacturer
+P0009,Flight,Transport,76,Factory B
+P0010,Flight,Transport,273,Local Farm
+P0011,Laptop,Electronics,13,Imported (USA)
+P0012,Truck Delivery,Transport,181,Imported (China)
+P0013,Polyester Fabric,Textile,137,Factory B
+P0014,Headphones,Electronics,179,Local Farm
+P0015,Car Travel,Transport,258,Imported (USA)
+P0016,Truck Delivery,Transport,90,Imported (USA)
+P0017,Flight,Transport,432,Factory B
+P0018,Wheat,Food,413,Local Manufacturer
+P0019,T-Shirt,Textile,169,Imported (USA)
+P0020,Processed Food,Food,160,Local Manufacturer
+P0021,Phone,Electronics,101,Imported (China)
+P0022,Ice Cream,Dairy,92,Factory A
+P0023,Tablet,Electronics,147,Imported (USA)
+P0024,Truck Delivery,Transport,418,Imported (USA)
+P0025,Containers,Plastic,496,Imported (USA)
+P0026,Jeans,Textile,466,Imported (USA)
+P0027,Beef,Food,421,Factory A
+P0028,Butter,Dairy,315,Imported (China)
+P0029,Cardboard Box,Packaging,118,Imported (China)
+P0030,Bottle,Plastic,424,Factory A
+P0031,Packaging,Plastic,68,Local Manufacturer
+P0032,Polyester Fabric,Textile,31,Local Farm
+P0033,Styrofoam,Packaging,458,Factory B
+P0034,Straws,Plastic,399,Local Manufacturer
+P0035,Plastic Wrap,Packaging,305,Imported (China)
+P0036,Milk,Dairy,475,Factory A
+P0037,Milk,Dairy,64,Factory A
+P0038,Flight,Transport,237,Local Farm
+P0039,Plastic Wrap,Packaging,33,Imported (USA)
+P0040,Yogurt,Dairy,240,Imported (China)
+P0041,Car Travel,Transport,486,Factory B
+P0042,Cardboard Box,Packaging,236,Imported (USA)
+P0043,Skirt,Textile,280,Local Farm
+P0044,Butter,Dairy,233,Factory A
+P0045,T-Shirt,Textile,382,Imported (China)
+P0046,Butter,Dairy,101,Factory A
+P0047,Jacket,Textile,61,Factory B
+P0048,Milk,Dairy,88,Imported (China)
+P0049,Flight,Transport,165,Local Manufacturer
+P0050,Rice,Food,346,Imported (USA)
+P0051,T-Shirt,Textile,115,Imported (USA)
+P0052,Jeans,Textile,482,Factory B
+P0053,Milk,Dairy,285,Factory A
+P0054,Rice,Food,313,Factory B
+P0055,Laptop,Electronics,66,Factory B
+P0056,Processed Food,Food,440,Factory B
+P0057,Polyester Fabric,Textile,220,Factory B
+P0058,Beef,Food,181,Local Farm
+P0059,Battery,Electronics,499,Local Manufacturer
+P0060,Processed Food,Food,490,Factory A
+P0061,Pork,Food,67,Local Farm
+P0062,Bag,Plastic,217,Imported (China)
+P0063,Battery,Electronics,242,Local Manufacturer
+P0064,Butter,Dairy,300,Factory B
+P0065,Cardboard Box,Packaging,269,Local Farm
+P0066,Bottle,Plastic,215,Imported (USA)
+P0067,Truck Delivery,Transport,479,Local Farm
+P0068,Battery,Electronics,465,Local Manufacturer
+P0069,Pork,Food,22,Factory B
+P0070,Bottle,Plastic,40,Imported (China)
+P0071,Monitor,Electronics,220,Factory A
+P0072,Car Travel,Transport,279,Factory A
+P0073,Polyester Fabric,Textile,272,Factory B
+P0074,Jacket,Textile,287,Factory B
+P0075,Cardboard Box,Packaging,17,Factory B
+P0076,Lamb,Food,42,Imported (USA)
+P0077,Truck Delivery,Transport,383,Imported (China)
+P0078,Wheat,Food,338,Local Farm
+P0079,Beef,Food,111,Imported (China)
+P0080,Bag,Plastic,46,Local Manufacturer
+P0081,Beef,Food,435,Imported (China)
+P0082,Headphones,Electronics,264,Imported (China)
+P0083,Flight,Transport,150,Factory A
+P0084,Battery,Electronics,324,Local Manufacturer
+P0085,Bag,Plastic,405,Imported (China)
+P0086,Bag,Plastic,423,Local Farm
+P0087,Laptop,Electronics,225,Local Farm
+P0088,Butter,Dairy,398,Factory A
+P0089,Phone,Electronics,88,Factory B
+P0090,Battery,Electronics,263,Imported (China)
+P0091,Rice,Food,349,Imported (China)
+P0092,Butter,Dairy,185,Imported (China)
+P0093,Ice Cream,Dairy,114,Factory B
+P0094,Straws,Plastic,200,Factory B
+P0095,Plastic Wrap,Packaging,113,Imported (China)
+P0096,Ice Cream,Dairy,302,Factory A
+P0097,Butter,Dairy,145,Imported (China)
+P0098,Butter,Dairy,468,Imported (USA)
+P0099,Car Travel,Transport,170,Factory A
+P0100,Cutlery,Plastic,155,Local Manufacturer
+P0101,Containers,Plastic,206,Imported (USA)
+P0102,Packaging,Plastic,297,Imported (USA)
+P0103,Dress,Textile,333,Imported (China)
+P0104,Yogurt,Dairy,462,Imported (USA)
+P0105,Monitor,Electronics,419,Imported (China)
+P0106,Chicken,Food,16,Imported (China)
+P0107,Butter,Dairy,314,Imported (USA)
+P0108,Straws,Plastic,313,Imported (USA)
+P0109,Pork,Food,224,Imported (China)
+P0110,T-Shirt,Textile,319,Local Manufacturer
+P0111,Lamb,Food,463,Imported (China)
+P0112,Butter,Dairy,10,Imported (China)
+P0113,Car Travel,Transport,121,Imported (China)
+P0114,Dress,Textile,25,Factory A
+P0115,Straws,Plastic,204,Imported (USA)
+P0116,Jeans,Textile,127,Factory B
+P0117,Plastic Wrap,Packaging,239,Local Farm
+P0118,Cutlery,Plastic,371,Factory B
+P0119,Flight,Transport,298,Imported (China)
+P0120,Skirt,Textile,397,Local Manufacturer
+P0121,Flight,Transport,219,Local Farm
+P0122,Plastic Wrap,Packaging,313,Imported (USA)
+P0123,Processed Food,Food,18,Factory A
+P0124,Battery,Electronics,398,Factory B
+P0125,Jacket,Textile,287,Factory B
+P0126,Milk,Dairy,137,Imported (USA)
+P0127,Wheat,Food,135,Imported (USA)
+P0128,Lamb,Food,236,Imported (China)
+P0129,Flight,Transport,31,Factory B
+P0130,Battery,Electronics,87,Local Manufacturer
+P0131,Styrofoam,Packaging,428,Local Manufacturer
+P0132,Beef,Food,110,Imported (USA)
+P0133,Containers,Plastic,388,Factory B
+P0134,T-Shirt,Textile,408,Imported (China)
+P0135,Plastic Wrap,Packaging,493,Imported (USA)
+P0136,T-Shirt,Textile,318,Factory B
+P0137,Headphones,Electronics,449,Local Farm
+P0138,Headphones,Electronics,431,Local Manufacturer
+P0139,Wheat,Food,297,Local Manufacturer
+P0140,Bottle,Plastic,225,Local Farm
+P0141,Polyester Fabric,Textile,198,Imported (China)
+P0142,Truck Delivery,Transport,494,Local Manufacturer
+P0143,Cheese,Dairy,285,Local Farm
+P0144,Butter,Dairy,162,Factory B
+P0145,Tablet,Electronics,324,Imported (USA)
+P0146,Truck Delivery,Transport,280,Imported (USA)
+P0147,Skirt,Textile,183,Factory A
+P0148,Bottle,Plastic,259,Factory A
+P0149,Cardboard Box,Packaging,357,Local Manufacturer
+P0150,Truck Delivery,Transport,338,Imported (USA)
+P0151,Truck Delivery,Transport,362,Imported (USA)
+P0152,Jeans,Textile,137,Local Farm
+P0153,Yogurt,Dairy,340,Imported (USA)
+P0154,Plastic Wrap,Packaging,422,Factory B
+P0155,Skirt,Textile,414,Factory A
+P0156,Styrofoam,Packaging,14,Imported (China)
+P0157,Styrofoam,Packaging,387,Factory B
+P0158,Cheese,Dairy,464,Imported (USA)
+P0159,Cheese,Dairy,340,Factory A
+P0160,Cardboard Box,Packaging,229,Local Manufacturer
+P0161,Jeans,Textile,109,Local Manufacturer
+P0162,Milk,Dairy,303,Local Farm
+P0163,Packaging,Plastic,143,Factory A
+P0164,Containers,Plastic,457,Local Manufacturer
+P0165,Polyester Fabric,Textile,416,Factory A
+P0166,Phone,Electronics,175,Imported (China)
+P0167,Bottle,Plastic,236,Factory A
+P0168,Polyester Fabric,Textile,287,Local Manufacturer
+P0169,Car Travel,Transport,323,Imported (China)
+P0170,Ice Cream,Dairy,20,Local Farm
+P0171,Flight,Transport,32,Local Manufacturer
+P0172,Cardboard Box,Packaging,420,Local Farm
+P0173,Wheat,Food,132,Factory A
+P0174,Packaging,Plastic,180,Local Farm
+P0175,Pork,Food,62,Factory A
+P0176,T-Shirt,Textile,420,Factory A
+P0177,Monitor,Electronics,464,Factory B
+P0178,Styrofoam,Packaging,399,Imported (China)
+P0179,Flight,Transport,361,Local Farm
+P0180,Styrofoam,Packaging,116,Imported (China)
+P0181,Plastic Wrap,Packaging,161,Factory B
+P0182,Phone,Electronics,194,Factory B
+P0183,Flight,Transport,385,Factory B
+P0184,Chicken,Food,494,Imported (USA)
+P0185,Phone,Electronics,270,Imported (USA)
+P0186,T-Shirt,Textile,383,Factory B
+P0187,Truck Delivery,Transport,326,Factory B
+P0188,Chicken,Food,37,Imported (China)
+P0189,Flight,Transport,207,Imported (USA)
+P0190,Milk,Dairy,438,Imported (USA)
+P0191,Flight,Transport,390,Local Manufacturer
+P0192,Rice,Food,45,Imported (USA)
+P0193,Styrofoam,Packaging,149,Local Manufacturer
+P0194,Yogurt,Dairy,393,Local Manufacturer
+P0195,Jeans,Textile,149,Factory B
+P0196,Car Travel,Transport,15,Imported (China)
+P0197,Beef,Food,132,Factory A
+P0198,Cutlery,Plastic,313,Local Farm
+P0199,Milk,Dairy,277,Imported (USA)
+P0200,Plastic Wrap,Packaging,157,Imported (China)

@@ -1,0 +1,101 @@
+ProductID,Product,Category,Units_Sold,ProductionSource
+P0001,Milk,Dairy,596,Local Farm
+P0002,Bottle,Plastic,395,Local Manufacturer
+P0003,Tablet,Electronics,873,Factory B
+P0004,Battery,Electronics,266,Local Manufacturer
+P0005,Ice Cream,Dairy,953,Factory B
+P0006,Battery,Electronics,227,Imported (USA)
+P0007,Bottle,Plastic,328,Imported (USA)
+P0008,Packaging,Plastic,986,Imported (USA)
+P0009,Laptop,Electronics,610,Factory A
+P0010,Ice Cream,Dairy,209,Factory A
+P0011,Jacket,Textile,985,Factory B
+P0012,Monitor,Electronics,619,Factory B
+P0013,Jeans,Textile,674,Factory A
+P0014,Ice Cream,Dairy,520,Factory A
+P0015,Skirt,Textile,679,Imported (China)
+P0016,Skirt,Textile,708,Local Farm
+P0017,Tablet,Electronics,298,Factory B
+P0018,Polyester Fabric,Textile,513,Factory B
+P0019,Bag,Plastic,299,Factory A
+P0020,Skirt,Textile,215,Factory A
+P0021,Butter,Dairy,722,Imported (USA)
+P0022,T-Shirt,Textile,902,Factory B
+P0023,Dress,Textile,995,Imported (USA)
+P0024,Monitor,Electronics,782,Factory A
+P0025,Cheese,Dairy,480,Local Farm
+P0026,Packaging,Plastic,585,Imported (USA)
+P0027,Monitor,Electronics,510,Factory B
+P0028,Cheese,Dairy,823,Imported (USA)
+P0029,Containers,Plastic,876,Factory A
+P0030,Dress,Textile,400,Factory B
+P0031,Jeans,Textile,965,Factory B
+P0032,Milk,Dairy,963,Imported (China)
+P0033,Containers,Plastic,695,Local Farm
+P0034,Cheese,Dairy,795,Imported (USA)
+P0035,Milk,Dairy,751,Local Farm
+P0036,Headphones,Electronics,916,Imported (China)
+P0037,Straws,Plastic,254,Factory B
+P0038,Milk,Dairy,543,Local Farm
+P0039,Headphones,Electronics,745,Factory B
+P0040,T-Shirt,Textile,619,Local Farm
+P0041,T-Shirt,Textile,849,Local Manufacturer
+P0042,Jacket,Textile,421,Factory A
+P0043,Polyester Fabric,Textile,474,Imported (China)
+P0044,Bag,Plastic,711,Factory A
+P0045,Monitor,Electronics,780,Imported (USA)
+P0046,Dress,Textile,881,Local Farm
+P0047,T-Shirt,Textile,374,Local Manufacturer
+P0048,Ice Cream,Dairy,769,Local Manufacturer
+P0049,Straws,Plastic,457,Local Farm
+P0050,T-Shirt,Textile,592,Imported (USA)
+P0051,Straws,Plastic,960,Local Farm
+P0052,Bag,Plastic,975,Imported (China)
+P0053,Monitor,Electronics,611,Imported (USA)
+P0054,T-Shirt,Textile,845,Local Farm
+P0055,T-Shirt,Textile,476,Local Manufacturer
+P0056,Cutlery,Plastic,938,Factory B
+P0057,Cheese,Dairy,645,Imported (China)
+P0058,Cutlery,Plastic,778,Local Manufacturer
+P0059,Butter,Dairy,882,Imported (China)
+P0060,Yogurt,Dairy,436,Imported (China)
+P0061,Headphones,Electronics,708,Imported (USA)
+P0062,Straws,Plastic,471,Factory B
+P0063,Milk,Dairy,400,Local Farm
+P0064,Milk,Dairy,767,Factory A
+P0065,Containers,Plastic,980,Factory A
+P0066,Phone,Electronics,710,Factory B
+P0067,Ice Cream,Dairy,419,Imported (USA)
+P0068,Cheese,Dairy,607,Local Farm
+P0069,Milk,Dairy,312,Factory B
+P0070,T-Shirt,Textile,400,Local Farm
+P0071,Tablet,Electronics,616,Local Farm
+P0072,Packaging,Plastic,624,Local Farm
+P0073,Containers,Plastic,518,Factory A
+P0074,Jeans,Textile,310,Imported (USA)
+P0075,Battery,Electronics,573,Imported (USA)
+P0076,Polyester Fabric,Textile,452,Factory B
+P0077,Containers,Plastic,370,Imported (China)
+P0078,Ice Cream,Dairy,453,Factory A
+P0079,Bottle,Plastic,265,Factory A
+P0080,Milk,Dairy,370,Imported (China)
+P0081,Yogurt,Dairy,653,Imported (China)
+P0082,Cheese,Dairy,379,Factory A
+P0083,T-Shirt,Textile,856,Factory B
+P0084,Tablet,Electronics,212,Factory B
+P0085,Tablet,Electronics,542,Factory B
+P0086,Milk,Dairy,593,Factory B
+P0087,Cheese,Dairy,663,Local Farm
+P0088,Skirt,Textile,273,Imported (China)
+P0089,Cutlery,Plastic,626,Imported (USA)
+P0090,Headphones,Electronics,294,Imported (China)
+P0091,Bag,Plastic,948,Imported (USA)
+P0092,Butter,Dairy,992,Factory B
+P0093,T-Shirt,Textile,467,Local Farm
+P0094,Bottle,Plastic,286,Local Manufacturer
+P0095,Packaging,Plastic,894,Local Farm
+P0096,Packaging,Plastic,267,Factory B
+P0097,Bottle,Plastic,772,Imported (China)
+P0098,Yogurt,Dairy,392,Factory A
+P0099,Skirt,Textile,799,Local Manufacturer
+P0100,Laptop,Electronics,671,Factory A
