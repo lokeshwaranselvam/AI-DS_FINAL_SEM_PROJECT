@@ -49,6 +49,31 @@
         "Critical": 74,
         "High-Risk": 126
       }
+    },
+    {
+      "store_id": "SM-3BF2C785",
+      "organization": "rohanstores",
+      "email": "rohan15bio@gmail.com",
+      "username": "rohan",
+      "registered_at": "2026-05-26T07:28:41.306406",
+      "total_emission": 236724.8,
+      "compliance_status": "Non-Compliant",
+      "reports_submitted": 1,
+      "last_upload": "2026-05-26T07:29:05.288821",
+      "category_emissions": {
+        "Textile": 53068.0,
+        "Packaging": 0.0,
+        "Electronics": 107428.19999999998,
+        "Transport": 0.0,
+        "Dairy": 18606.699999999997,
+        "Food": 23013.9,
+        "Plastic": 34608.0
+      },
+      "risk_breakdown": {
+        "Normal": 300,
+        "Critical": 74,
+        "High-Risk": 126
+      }
     }
   ]
 }

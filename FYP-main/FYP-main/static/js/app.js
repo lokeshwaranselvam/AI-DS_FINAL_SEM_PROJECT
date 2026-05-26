@@ -32,12 +32,17 @@ let currentRole = '';
 function selectRole(role) {
   currentRole = role;
   document.getElementById('roleSelector').style.display = 'none';
-  document.getElementById('authForms').style.display = 'block';
+  const authForms = document.getElementById('authForms');
+  authForms.style.display = 'block';
+  authForms.setAttribute('data-role', role);
   document.getElementById('authRoleBadge').textContent = role === 'supermarket' ? '🛒 Supermarket Portal' : '🏛️ Government Portal';
+  const authTabs = document.getElementById('authTabs');
   if (role === 'government') {
     document.getElementById('tabSignup').style.display = 'none';
+    authTabs.style.display = 'none';
   } else {
     document.getElementById('tabSignup').style.display = '';
+    authTabs.style.display = 'flex';
   }
 }
 
