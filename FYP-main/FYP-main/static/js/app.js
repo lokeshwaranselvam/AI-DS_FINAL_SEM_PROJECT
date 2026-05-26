@@ -1,11 +1,14 @@
 // ════════════════════════════════════════════════════════
 // THEME
 // ════════════════════════════════════════════════════════
-let isDark = true;
+let isLight = false;
 function toggleTheme() {
-  isDark = !isDark;
-  document.body.classList.toggle('light', !isDark);
-  document.querySelectorAll('.toggle-icon').forEach(e => e.textContent = isDark ? '🌙' : '☀️');
+  isLight = !isLight;
+  document.body.classList.toggle('light', isLight);
+  document.querySelectorAll('.toggle-icon').forEach(e => e.textContent = isLight ? '☀️' : '🌙');
+  document.querySelectorAll('.theme-toggle').forEach(btn => {
+    btn.innerHTML = (isLight ? '☀️' : '🌙') + ' ' + (isLight ? 'Light' : 'Dark');
+  });
 }
 
 // ════════════════════════════════════════════════════════
@@ -591,11 +594,30 @@ function renderGovOverview(d) {
   });
 }
 
+// ── FIX 1: Populate Companies summary strip ──
 function renderGovCompanies(d) {
   const grid = document.getElementById('companyGrid');
   const stores = d.gov_stores || [];
+
+  // Populate summary strip cards
+  const totalStores       = stores.length;
+  const compliantStores   = stores.filter(s => s.compliance_status === 'Compliant').length;
+  const nonCompliantStores = stores.filter(s => s.compliance_status === 'Non-Compliant').length;
+  const avgCO2 = totalStores > 0
+    ? Math.round(stores.reduce((sum, s) => sum + (s.total_emission || 0), 0) / totalStores).toLocaleString()
+    : '0';
+
+  const stripTotal = document.getElementById('govStrip-total');
+  const stripCompliant = document.getElementById('govStrip-compliant');
+  const stripNonCompliant = document.getElementById('govStrip-noncompliant');
+  const stripAvg = document.getElementById('govStrip-avgco2');
+  if (stripTotal)       stripTotal.textContent       = totalStores;
+  if (stripCompliant)   stripCompliant.textContent   = compliantStores;
+  if (stripNonCompliant) stripNonCompliant.textContent = nonCompliantStores;
+  if (stripAvg)         stripAvg.textContent         = avgCO2 + ' kg';
+
   if (!stores.length) {
-    grid.innerHTML = '<div style="color:var(--text2);padding:40px;grid-column:1/-1;text-align:center">No supermarkets registered yet.</div>';
+    grid.innerHTML = '<div style="color:var(--muted);padding:40px;grid-column:1/-1;text-align:center">No supermarkets registered yet.</div>';
     return;
   }
   grid.innerHTML = stores.map(s => `
@@ -613,7 +635,35 @@ function renderGovCompanies(d) {
         <div class="cc-date">📋 Reports: ${s.reports_submitted||0}</div>
         <div class="cc-date">🕐 ${s.last_upload ? new Date(s.last_upload).toLocaleDateString() : 'No upload'}</div>
       </div>
+      <button
+        class="cc-delete-btn"
+        onclick="event.stopPropagation(); deleteStore('${s.store_id}', '${s.organization.replace(/'/g, "\\'")}')"
+        title="Delete this store"
+      >🗑 Delete Store</button>
     </div>`).join('');
+}
+
+
+async function deleteStore(storeId, orgName) {
+  if (!confirm(`Delete "${orgName}" (${storeId})?
+
+This will permanently remove the store and all its emission data from the platform.`)) return;
+
+  try {
+    const r = await fetch(`/api/gov/supermarket/${storeId}`, { method: 'DELETE' });
+    const d = await r.json();
+    if (r.ok && d.success) {
+      if (govStats && govStats.gov_stores) {
+        govStats.gov_stores = govStats.gov_stores.filter(s => s.store_id !== storeId);
+      }
+      await loadGovStats();
+    } else {
+      alert('Failed to delete store: ' + (d.message || 'Unknown error'));
+    }
+  } catch(e) {
+    alert('Server error while deleting store.');
+    console.error('deleteStore error:', e);
+  }
 }
 
 async function openStoreModal(storeId) {
@@ -626,7 +676,7 @@ async function openStoreModal(storeId) {
     const sm = await r.json();
     renderStoreModal(sm);
   } catch(e) {
-    document.getElementById('storeModalBox').innerHTML = '<div style="padding:40px;color:var(--text2)">Could not load store details.</div>';
+    document.getElementById('storeModalBox').innerHTML = '<div style="padding:40px;color:var(--muted)">Could not load store details.</div>';
   }
 }
 
@@ -641,7 +691,7 @@ function renderStoreModal(sm) {
     <div class="modal-header">
       <div>
         <div class="modal-title">${sm.organization}</div>
-        <div style="font-size:12px;color:var(--text2);font-family:monospace">${sm.id} · ${sm.email}</div>
+        <div style="font-size:12px;color:var(--muted);font-family:monospace">${sm.id} · ${sm.email}</div>
       </div>
       <button class="modal-close" onclick="document.getElementById('storeModal').style.display='none'">✕</button>
     </div>
@@ -651,10 +701,10 @@ function renderStoreModal(sm) {
       <div class="modal-stat"><div class="modal-stat-val" style="color:${sm.compliance_status==='Compliant'?'var(--teal)':'var(--red)'}">${sm.compliance_status||'—'}</div><div class="modal-stat-lbl">Compliance</div></div>
     </div>
     <div class="modal-section-title">Emission by Category</div>
-    ${cats.length ? `<div style="height:180px;margin-bottom:20px"><canvas id="modalCatChart"></canvas></div>` : '<div style="color:var(--text2);font-size:13px;margin-bottom:16px">No category data yet.</div>'}
+    ${cats.length ? `<div style="height:180px;margin-bottom:20px"><canvas id="modalCatChart"></canvas></div>` : '<div style="color:var(--muted);font-size:13px;margin-bottom:16px">No category data yet.</div>'}
     <div class="modal-section-title">Risk Breakdown</div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">
-      ${Object.entries(rb).map(([k,v]) => `<div style="background:var(--bg3);border-radius:8px;padding:12px 20px;text-align:center"><div style="font-size:22px;font-weight:800">${v}</div><div style="font-size:11px;color:var(--text2);margin-top:4px">${k}</div></div>`).join('')}
+      ${Object.entries(rb).map(([k,v]) => `<div style="background:var(--surface2);border-radius:8px;padding:12px 20px;text-align:center"><div style="font-size:22px;font-weight:800;color:var(--text-strong)">${v}</div><div style="font-size:11px;color:var(--muted);margin-top:4px">${k}</div></div>`).join('')}
     </div>
     <div class="modal-section-title">High-Risk Products (${(sm.high_risk_products||[]).length})</div>
     <div class="report-table-wrap">
@@ -678,16 +728,28 @@ function renderStoreModal(sm) {
   }
 }
 
+// ── FIX 2: Populate Violations summary cards ──
 function renderGovViolations(d) {
   const tbody = document.getElementById('violationsBody');
   const viols = d.violations || [];
+
+  // Populate violation summary cards
+  const highRiskCount = viols.filter(v => v.risk_level === 'High-Risk').length;
+  const criticalCount = viols.filter(v => v.risk_level === 'Critical').length;
+  const violCountEl    = document.getElementById('violCount');
+  const violHighRiskEl = document.getElementById('violHighRisk');
+  const violCriticalEl = document.getElementById('violCritical');
+  if (violCountEl)    violCountEl.textContent    = viols.length;
+  if (violHighRiskEl) violHighRiskEl.textContent = highRiskCount;
+  if (violCriticalEl) violCriticalEl.textContent = criticalCount;
+
   if (!viols.length) {
     tbody.innerHTML = '<tr><td colspan="6" class="table-empty">✓ No violations detected.</td></tr>';
     return;
   }
   tbody.innerHTML = viols.map(v => `
     <tr>
-      <td><strong>${v.company}</strong><br><code style="font-size:10px;color:var(--text2)">${v.store_id}</code></td>
+      <td><strong>${v.company}</strong><br><code style="font-size:10px;color:var(--muted)">${v.store_id}</code></td>
       <td>${v.product}</td>
       <td>${v.category}</td>
       <td><strong>${v.total_emission}</strong></td>

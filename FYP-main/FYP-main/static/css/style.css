@@ -827,3 +827,21 @@ body.light .risk-badge.Non-Compliant { background: rgba(207,34,46,0.07); border-
 .ar-retailer-meta { font-family: var(--font-body); font-size: 12px; color: var(--muted); font-weight: 500; }
 
 @media (max-width: 900px) { .add-retailer-layout { grid-template-columns: 1fr; } }
+.cc-delete-btn {
+  width: 100%;
+  margin-top: 14px;
+  padding: 8px 0;
+  background: transparent;
+  border: 1.5px solid rgba(248, 81, 73, 0.3);
+  border-radius: 8px;
+  color: var(--danger);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.cc-delete-btn:hover {
+  background: rgba(248, 81, 73, 0.08);
+  border-color: var(--danger);
+}

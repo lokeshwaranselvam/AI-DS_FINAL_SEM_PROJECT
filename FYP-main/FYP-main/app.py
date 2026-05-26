@@ -273,7 +273,7 @@ def upload_file():
         "compliance_status":  compliance_status
     }
 
-    # Persist to supermarket record (FIX: now saves all fields needed for restoration)
+    # Persist to supermarket record
     user_id = current_user_session.get("user_id")
     if user_id and not user_id.startswith("SM-DEMO"):
         db = load_supermarkets()
@@ -282,13 +282,13 @@ def upload_file():
             sm["total_emission"]     = round(total_emission, 2)
             sm["total_units"]        = int(total_units)
             sm["avg_emission"]       = avg_emission
-            sm["highest_impact"]     = highest_impact           # FIX: persist
+            sm["highest_impact"]     = highest_impact
             sm["last_upload"]        = datetime.now().isoformat()
             sm["risk_breakdown"]     = risk_counts
             sm["category_emissions"] = category_emissions
-            sm["source_emissions"]   = source_emissions         # FIX: persist
+            sm["source_emissions"]   = source_emissions
             sm["high_risk_products"] = high_risk_items
-            sm["suggestions"]        = suggestions              # FIX: persist
+            sm["suggestions"]        = suggestions
             sm["all_products"]       = product_results
             sm["compliance_status"]  = compliance_status
             db["supermarkets"][user_id] = sm
@@ -449,7 +449,7 @@ def get_supermarkets_list():
     return jsonify({"supermarkets": result})
 
 
-@app.route("/api/gov/supermarket/<sm_id>")
+@app.route("/api/gov/supermarket/<sm_id>", methods=["GET"])
 def get_supermarket_details(sm_id):
     db = load_supermarkets()
     sm = db["supermarkets"].get(sm_id)
@@ -457,6 +457,30 @@ def get_supermarket_details(sm_id):
         return jsonify({"error": "Not found"}), 404
     entry = {k: v for k, v in sm.items() if k != "password"}
     return jsonify(entry)
+
+
+# ──── NEW: DELETE STORE ────
+
+@app.route("/api/gov/supermarket/<sm_id>", methods=["DELETE"])
+def delete_supermarket(sm_id):
+    # 1. Remove from supermarkets.json
+    db = load_supermarkets()
+    if sm_id not in db["supermarkets"]:
+        return jsonify({"success": False, "message": "Store not found"}), 404
+
+    del db["supermarkets"][sm_id]
+    save_supermarkets(db)
+
+    # 2. Remove from gov_registered_stores.json
+    gov = load_gov_stores()
+    gov["stores"] = [s for s in gov["stores"] if s["store_id"] != sm_id]
+    save_gov_stores(gov)
+
+    # 3. Clear session if the deleted store is currently logged in
+    if current_user_session.get("user_id") == sm_id:
+        current_user_session.clear()
+
+    return jsonify({"success": True, "message": f"Store {sm_id} deleted successfully"})
 
 
 @app.route("/api/gov/violations")
