@@ -8,8 +8,33 @@
       "registered_at": "2026-05-25T06:53:55.379031",
       "total_emission": 236724.8,
       "compliance_status": "Non-Compliant",
+      "reports_submitted": 3,
+      "last_upload": "2026-05-25T12:26:01.931440",
+      "category_emissions": {
+        "Textile": 53068.0,
+        "Packaging": 0.0,
+        "Electronics": 107428.19999999998,
+        "Transport": 0.0,
+        "Dairy": 18606.699999999997,
+        "Food": 23013.9,
+        "Plastic": 34608.0
+      },
+      "risk_breakdown": {
+        "Normal": 300,
+        "Critical": 74,
+        "High-Risk": 126
+      }
+    },
+    {
+      "store_id": "SM-37BE22DE",
+      "organization": "dhineshstore",
+      "email": "dvdhinesh2005@gmail.com",
+      "username": "dhinesh",
+      "registered_at": "2026-05-25T12:09:44.110950",
+      "total_emission": 236724.8,
+      "compliance_status": "Non-Compliant",
       "reports_submitted": 1,
-      "last_upload": "2026-05-25T06:55:08.315368",
+      "last_upload": "2026-05-25T12:10:07.974253",
       "category_emissions": {
         "Textile": 53068.0,
         "Packaging": 0.0,

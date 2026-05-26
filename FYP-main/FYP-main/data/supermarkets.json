@@ -10,7 +10,6359 @@
       "total_emission": 236724.8,
       "total_units": 80716,
       "avg_emission": 2.93,
-      "last_upload": "2026-05-25T06:55:08.292557",
+      "last_upload": "2026-05-25T12:26:01.883476",
+      "risk_breakdown": {
+        "Normal": 300,
+        "Critical": 74,
+        "High-Risk": 126
+      },
+      "category_emissions": {
+        "Textile": 53068.0,
+        "Packaging": 0.0,
+        "Electronics": 107428.19999999998,
+        "Transport": 0.0,
+        "Dairy": 18606.699999999997,
+        "Food": 23013.9,
+        "Plastic": 34608.0
+      },
+      "high_risk_products": [
+        {
+          "id": "P0008",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 426.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 809.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0009",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 112.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 448.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0011",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 178.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 623.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0014",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 915.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 3202.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0016",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 119.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 476.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0023",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 742.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1409.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0024",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 168.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1377.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0025",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 866.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 3464.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0027",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 537.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 4403.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0035",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 321.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 1123.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0037",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 108.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 432.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0046",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 75.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 615.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0047",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 127.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1041.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0051",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 176.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 616.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0057",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 159.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1303.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0065",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 575.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2300.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0067",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 250.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1000.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0070",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 193.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1582.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0072",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 431.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1724.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0082",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 744.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 6100.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0083",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 161.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 563.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0084",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 920.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 7544.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0089",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 82.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 672.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0092",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 699.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1328.1,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0093",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 804.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 2814.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0102",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 517.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 1809.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0103",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 122.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1000.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0109",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 124.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 496.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0110",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 110.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 902.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0111",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 145.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 507.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0112",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 110.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 385.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0118",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 133.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1090.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0119",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 604.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1147.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0123",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 130.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1066.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0131",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 504.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2016.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0135",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 809.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1698.9,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0139",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 506.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2024.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0157",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 622.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1306.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0158",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 179.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1467.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0161",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 512.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1075.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0163",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 933.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 3732.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0176",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 597.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1253.7,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0179",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 283.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 2320.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0186",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 418.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 3427.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0188",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 118.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 413.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0193",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 148.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 592.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0196",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 183.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 732.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0199",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 117.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 468.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0202",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 615.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 2152.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0204",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 164.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 656.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0214",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 917.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1925.7,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0221",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 141.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1156.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0226",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 130.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 520.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0228",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 347.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1388.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0237",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 146.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 511.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0238",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 197.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 788.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0242",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 389.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 3189.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0243",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 142.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1164.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0244",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 170.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 595.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0248",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 742.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2968.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0251",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 139.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 486.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0257",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 326.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 2673.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0259",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 881.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 7224.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0261",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 150.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 600.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0264",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 562.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 4608.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0266",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 120.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 984.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0272",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 143.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 500.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0276",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 182.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1492.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0285",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 232.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 812.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0298",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 180.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1476.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0300",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 194.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 776.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0301",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 189.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 661.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0308",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 766.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 2681.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0310",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 150.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1230.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0323",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 116.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 464.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0324",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 246.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 516.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0325",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 319.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1276.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0329",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 684.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 5608.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0332",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 805.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 2817.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0333",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 154.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1262.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0339",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 318.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 1113.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0346",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 174.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 696.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0348",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 195.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 682.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0353",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 559.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 4583.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0354",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 172.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 602.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0360",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 117.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 409.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0361",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 197.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1615.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0363",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 761.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 6240.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0365",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 391.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1564.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0374",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 418.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 1463.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0376",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 434.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1736.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0383",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 174.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 696.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0390",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 276.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 524.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0394",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 359.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1436.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0395",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 158.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1295.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0397",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 164.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 656.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0406",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 101.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 353.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0410",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 577.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1096.3,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0421",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 807.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1694.7,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0423",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 101.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 404.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0427",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 474.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 995.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0432",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 703.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2812.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0436",
+          "product": "Beef",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 827.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1736.7,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0437",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 220.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1804.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0441",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 132.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 462.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0444",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 152.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 608.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0445",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 135.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1107.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0446",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 185.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1517.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0448",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 476.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 3903.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0449",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 123.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1008.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0450",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 990.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1881.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0453",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 133.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1090.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0457",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 175.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 700.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0458",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 107.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 877.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0465",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 438.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 919.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0468",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 178.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 712.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0474",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 885.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 3540.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0479",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 371.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1484.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0483",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 156.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1279.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0484",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 468.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 982.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0486",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 574.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 4706.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0492",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 168.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 588.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0493",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 432.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 820.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0494",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 195.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 682.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0496",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 67.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 549.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0500",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 810.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1539.0,
+          "risk_level": "High-Risk"
+        }
+      ],
+      "all_products": [
+        {
+          "id": "P0001",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 16.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 64.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0002",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 237.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0003",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 29.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 237.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0004",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 199.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0005",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 43.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 81.7,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0006",
+          "product": "Beef",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 11.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 23.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0007",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 27.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 94.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0008",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 426.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 809.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0009",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 112.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 448.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0010",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 26.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 104.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0011",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 178.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 623.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0012",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Factory B",
+          "units": 42.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0013",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 11.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 44.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0014",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 915.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 3202.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0015",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 12.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0016",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 119.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 476.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0017",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 77.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0018",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 854.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0019",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 12.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0020",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 41.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0021",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 32.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0022",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 15.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 52.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0023",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 742.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1409.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0024",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 168.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1377.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0025",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 866.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 3464.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0026",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 10.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 40.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0027",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 537.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 4403.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0028",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 65.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0029",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Imported (USA)",
+          "units": 36.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 68.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0030",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 16.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 30.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0031",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 158.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 331.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0032",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 192.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 364.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0033",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 36.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 144.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0034",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 73.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 153.3,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0035",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 321.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 1123.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0036",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 142.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0037",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 108.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 432.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0038",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 25.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0039",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 41.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 336.2,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0040",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 68.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 129.2,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0041",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 515.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0042",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 173.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0043",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 21.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 44.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0044",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 161.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 338.1,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0045",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 28.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 98.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0046",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 75.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 615.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0047",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 127.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1041.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0048",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 64.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 224.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0049",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 133.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0050",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 48.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 393.6,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0051",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 176.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 616.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0052",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 12.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 22.8,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0053",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 20.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 38.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0054",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 73.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 292.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0055",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 50.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 200.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0056",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 41.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0057",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 159.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1303.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0058",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 27.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 51.3,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0059",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 63.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0060",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 179.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0061",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 44.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 154.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0062",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 47.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0063",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 18.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 63.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0064",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 38.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 72.2,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0065",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 575.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2300.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0066",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 743.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0067",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 250.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1000.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0068",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 149.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0069",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 22.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 77.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0070",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 193.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1582.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0071",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 17.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 32.3,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0072",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 431.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1724.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0073",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 35.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 287.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0074",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 21.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 44.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0075",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 34.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0076",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 44.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0077",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 135.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 256.5,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0078",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 37.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 148.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0079",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 12.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 42.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0080",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 62.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 248.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0081",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 28.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0082",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 744.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 6100.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0083",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 161.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 563.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0084",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 920.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 7544.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0085",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 32.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 112.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0086",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 35.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0087",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 17.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 68.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0088",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 10.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0089",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 82.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 672.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0090",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 156.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 327.6,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0091",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 82.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0092",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 699.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1328.1,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0093",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 804.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 2814.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0094",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 108.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 205.2,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0095",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 39.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 136.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0096",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 11.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 44.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0097",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 39.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 156.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0098",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 46.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 161.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0099",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 29.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 116.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0100",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 48.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 192.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0101",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 109.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 228.9,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0102",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 517.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 1809.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0103",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 122.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1000.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0104",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Imported (USA)",
+          "units": 13.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 24.7,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0105",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 39.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 319.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0106",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 21.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 73.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0107",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 50.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 175.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0108",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 194.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0109",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 124.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 496.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0110",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 110.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 902.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0111",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 145.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 507.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0112",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 110.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 385.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0113",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 37.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 303.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0114",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 184.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0115",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 47.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 89.3,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0116",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 22.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 77.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0117",
+          "product": "Beef",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 33.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 69.3,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0118",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 133.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1090.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0119",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 604.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1147.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0120",
+          "product": "Wheat",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 30.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 63.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0121",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 14.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 29.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0122",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 116.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0123",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 130.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1066.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0124",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 20.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 80.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0125",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 33.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 115.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0126",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 37.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 303.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0127",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 789.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0128",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 10.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 35.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0129",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 51.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 178.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0130",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Imported (USA)",
+          "units": 926.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0131",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 504.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2016.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0132",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 26.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 104.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0133",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 92.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 368.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0134",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 35.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 140.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0135",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 809.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1698.9,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0136",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 25.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0137",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 40.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 140.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0138",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Imported (USA)",
+          "units": 39.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 74.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0139",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 506.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2024.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0140",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Imported (USA)",
+          "units": 31.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0141",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 28.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0142",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 82.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0143",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 131.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0144",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 53.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 434.6,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0145",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 15.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 31.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0146",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 26.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 49.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0147",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 23.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 43.7,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0148",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 115.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0149",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 106.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 201.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0150",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 50.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 410.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0151",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 33.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 132.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0152",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 46.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0153",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 33.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 115.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0154",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 833.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0155",
+          "product": "Wheat",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 189.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 396.9,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0156",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 45.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0157",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 622.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1306.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0158",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 179.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1467.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0159",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 63.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 252.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0160",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Imported (USA)",
+          "units": 22.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0161",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 512.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1075.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0162",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 50.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 95.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0163",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 933.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 3732.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0164",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 24.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0165",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 180.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0166",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 162.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0167",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 38.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 79.8,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0168",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 14.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 26.6,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0169",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Imported (USA)",
+          "units": 376.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0170",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 17.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 68.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0171",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 35.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 122.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0172",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Imported (USA)",
+          "units": 70.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0173",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 30.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 105.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0174",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 45.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0175",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 29.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 237.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0176",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 597.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1253.7,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0177",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 108.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 205.2,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0178",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Factory B",
+          "units": 68.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0179",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 283.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 2320.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0180",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 22.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0181",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 182.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0182",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 174.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0183",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 906.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0184",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 100.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 400.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0185",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 111.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0186",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 418.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 3427.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0187",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 128.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0188",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 118.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 413.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0189",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 161.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0190",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 145.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0191",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 10.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 35.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0192",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 200.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0193",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 148.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 592.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0194",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (USA)",
+          "units": 67.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 127.3,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0195",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 73.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0196",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 183.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 732.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0197",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 99.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0198",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 41.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 336.2,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0199",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 117.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 468.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0200",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 24.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 50.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0201",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 100.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0202",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 615.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 2152.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0203",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 47.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 188.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0204",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 164.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 656.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0205",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 10.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0206",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 25.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 100.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0207",
+          "product": "Wheat",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 195.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 409.5,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0208",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 170.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0209",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 66.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 125.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0210",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 29.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 237.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0211",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 50.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0212",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 91.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0213",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 96.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0214",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 917.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1925.7,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0215",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 27.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 221.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0216",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 25.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 87.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0217",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 11.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 38.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0218",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 10.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0219",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 104.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0220",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 119.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 249.9,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0221",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 141.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1156.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0222",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 90.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0223",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 75.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 157.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0224",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 119.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 226.1,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0225",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 37.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 129.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0226",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 130.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 520.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0227",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 75.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 157.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0228",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 347.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1388.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0229",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 36.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 126.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0230",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 56.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 196.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0231",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 14.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 49.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0232",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 10.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 40.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0233",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 79.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 165.9,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0234",
+          "product": "Wheat",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 26.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 54.6,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0235",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 48.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 91.2,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0236",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 16.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 64.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0237",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 146.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 511.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0238",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 197.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 788.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0239",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 188.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 357.2,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0240",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 77.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 308.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0241",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 17.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 68.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0242",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 389.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 3189.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0243",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 142.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1164.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0244",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 170.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 595.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0245",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 28.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 58.8,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0246",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 42.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 88.2,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0247",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 82.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0248",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 742.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2968.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0249",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 62.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0250",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 102.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 193.8,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0251",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 139.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 486.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0252",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 20.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 80.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0253",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 21.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 172.2,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0254",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 168.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 352.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0255",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 41.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 77.9,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0256",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 127.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 241.3,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0257",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 326.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 2673.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0258",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 108.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0259",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 881.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 7224.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0260",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 47.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 385.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0261",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 150.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 600.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0262",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 22.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0263",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 47.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0264",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 562.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 4608.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0265",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 11.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 20.9,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0266",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 120.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 984.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0267",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Imported (USA)",
+          "units": 34.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 64.6,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0268",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 28.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0269",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 25.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 47.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0270",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 46.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 87.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0271",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 72.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 252.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0272",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 143.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 500.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0273",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 688.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0274",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 10.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0275",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 29.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 55.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0276",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 182.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1492.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0277",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 28.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0278",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 571.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0279",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 72.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0280",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Imported (USA)",
+          "units": 34.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 64.6,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0281",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 59.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 112.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0282",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 50.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0283",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Factory B",
+          "units": 801.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0284",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 23.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0285",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 232.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 812.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0286",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 449.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0287",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 21.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 44.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0288",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 73.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 138.7,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0289",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 139.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0290",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 159.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 333.9,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0291",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 50.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 410.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0292",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 81.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0293",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 67.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0294",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 17.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0295",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 44.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 92.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0296",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 16.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 131.2,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0297",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 111.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0298",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 180.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1476.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0299",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 111.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0300",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 194.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 776.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0301",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 189.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 661.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0302",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Imported (USA)",
+          "units": 144.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0303",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 24.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0304",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 99.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 207.9,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0305",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 58.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 232.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0306",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 33.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0307",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 140.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0308",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 766.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 2681.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0309",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 93.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 176.7,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0310",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 150.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1230.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0311",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 21.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0312",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Imported (USA)",
+          "units": 144.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 273.6,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0313",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Factory B",
+          "units": 147.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0314",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 17.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 139.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0315",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 124.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0316",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 88.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0317",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 38.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 133.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0318",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 40.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 160.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0319",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 31.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 108.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0320",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 179.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0321",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 32.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 60.8,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0322",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 11.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 23.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0323",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 116.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 464.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0324",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 246.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 516.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0325",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 319.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1276.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0326",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 33.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0327",
+          "product": "Wheat",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 30.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 63.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0328",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Factory B",
+          "units": 33.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0329",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 684.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 5608.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0330",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 132.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 250.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0331",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 11.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 20.9,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0332",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 805.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 2817.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0333",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 154.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1262.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0334",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 20.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 70.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0335",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 35.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0336",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 103.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 216.3,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0337",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 175.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 332.5,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0338",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 37.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 70.3,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0339",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 318.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 1113.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0340",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 49.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 401.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0341",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 178.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 373.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0342",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 110.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0343",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 11.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0344",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 38.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 133.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0345",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 24.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 96.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0346",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 174.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 696.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0347",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 361.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0348",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 195.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 682.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0349",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 55.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0350",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 50.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0351",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 146.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0352",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 111.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 210.9,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0353",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 559.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 4583.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0354",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 172.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 602.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0355",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 26.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0356",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 147.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0357",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 777.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0358",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 43.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 81.7,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0359",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 69.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 131.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0360",
+          "product": "Straws",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 117.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 409.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0361",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 197.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1615.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0362",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 845.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0363",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 761.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 6240.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0364",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 740.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0365",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 391.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1564.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0366",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 10.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0367",
+          "product": "Cheese",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 56.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 106.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0368",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 19.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0369",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 19.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0370",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 24.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 50.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0371",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Farm",
+          "units": 120.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0372",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 114.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 239.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0373",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 10.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 82.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0374",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 418.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 1463.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0375",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 17.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 139.4,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0376",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 434.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1736.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0377",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 47.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 98.7,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0378",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 153.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 321.3,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0379",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 49.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 93.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0380",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 92.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 322.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0381",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Local Manufacturer",
+          "units": 48.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 168.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0382",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 129.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 270.9,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0383",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 174.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 696.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0384",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 42.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 79.8,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0385",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 85.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 340.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0386",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 55.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 104.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0387",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 254.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 482.6,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0388",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Imported (USA)",
+          "units": 33.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0389",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Factory B",
+          "units": 38.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0390",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 276.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 524.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0391",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 27.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 221.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0392",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 66.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 231.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0393",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 33.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 270.6,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0394",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 359.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1436.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0395",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 158.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1295.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0396",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 15.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 52.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0397",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 164.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 656.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0398",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 78.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 312.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0399",
+          "product": "Dress",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 76.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 304.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0400",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 38.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 152.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0401",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 131.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 275.1,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0402",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Imported (USA)",
+          "units": 80.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 152.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0403",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 149.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 283.1,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0404",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 45.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 157.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0405",
+          "product": "Beef",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 122.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 256.2,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0406",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Local Farm",
+          "units": 101.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 353.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0407",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 12.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 25.2,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0408",
+          "product": "Processed Food",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 21.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 44.1,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0409",
+          "product": "Beef",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 38.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 79.8,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0410",
+          "product": "Butter",
+          "category": "Dairy",
+          "source": "Factory A",
+          "units": 577.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1096.3,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0411",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 20.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 164.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0412",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 34.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0413",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 124.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 260.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0414",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 904.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0415",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 29.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0416",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 15.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0417",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 14.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 56.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0418",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 13.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 27.3,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0419",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 19.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 76.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0420",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 13.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 24.7,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0421",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 807.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1694.7,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0422",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 18.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 72.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0423",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Imported (China)",
+          "units": 101.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 404.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0424",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 23.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 188.6,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0425",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 112.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0426",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 27.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 221.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0427",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 474.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 995.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0428",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 181.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0429",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 13.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 52.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0430",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 61.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0431",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 173.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0432",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 703.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 2812.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0433",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 146.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0434",
+          "product": "Beef",
+          "category": "Food",
+          "source": "Factory A",
+          "units": 174.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 365.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0435",
+          "product": "Lamb",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 42.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 88.2,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0436",
+          "product": "Beef",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 827.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 1736.7,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0437",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 220.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1804.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0438",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 47.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0439",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 144.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 273.6,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0440",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 85.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0441",
+          "product": "Packaging",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 132.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 462.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0442",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory B",
+          "units": 141.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0443",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 49.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0444",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 152.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 608.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0445",
+          "product": "Monitor",
+          "category": "Electronics",
+          "source": "Local Farm",
+          "units": 135.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1107.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0446",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 185.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1517.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0447",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Local Manufacturer",
+          "units": 29.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 237.8,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0448",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 476.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 3903.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0449",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 123.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1008.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0450",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 990.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1881.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0451",
+          "product": "Styrofoam",
+          "category": "Packaging",
+          "source": "Factory B",
+          "units": 104.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0452",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 18.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0453",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Imported (USA)",
+          "units": 133.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1090.6,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0454",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 31.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 254.2,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0455",
+          "product": "Containers",
+          "category": "Plastic",
+          "source": "Factory B",
+          "units": 24.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 84.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0456",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 45.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 94.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0457",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 175.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 700.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0458",
+          "product": "Laptop",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 107.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 877.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0459",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 974.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0460",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Local Manufacturer",
+          "units": 159.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0461",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Local Manufacturer",
+          "units": 129.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 270.9,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0462",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 17.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0463",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 35.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 122.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0464",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Local Farm",
+          "units": 35.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0465",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Factory B",
+          "units": 438.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 919.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0466",
+          "product": "Beef",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 85.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 178.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0467",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 178.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0468",
+          "product": "Jacket",
+          "category": "Textile",
+          "source": "Local Manufacturer",
+          "units": 178.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 712.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0469",
+          "product": "Bottle",
+          "category": "Plastic",
+          "source": "Imported (USA)",
+          "units": 37.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 129.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0470",
+          "product": "Rice",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 90.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 189.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0471",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 178.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0472",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 36.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 144.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0473",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 50.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 95.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0474",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Factory A",
+          "units": 885.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 3540.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0475",
+          "product": "Phone",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 15.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 123.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0476",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Imported (China)",
+          "units": 105.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 199.5,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0477",
+          "product": "Ice Cream",
+          "category": "Dairy",
+          "source": "Local Manufacturer",
+          "units": 166.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 315.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0478",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 20.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 38.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0479",
+          "product": "Skirt",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 371.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 1484.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0480",
+          "product": "Headphones",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 32.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 262.4,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0481",
+          "product": "Jeans",
+          "category": "Textile",
+          "source": "Imported (USA)",
+          "units": 19.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 76.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0482",
+          "product": "Truck Delivery",
+          "category": "Transport",
+          "source": "Imported (USA)",
+          "units": 96.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0483",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Imported (China)",
+          "units": 156.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 1279.2,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0484",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Imported (USA)",
+          "units": 468.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 982.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0485",
+          "product": "Polyester Fabric",
+          "category": "Textile",
+          "source": "Factory B",
+          "units": 30.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 120.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0486",
+          "product": "Battery",
+          "category": "Electronics",
+          "source": "Factory A",
+          "units": 574.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 4706.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0487",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Imported (China)",
+          "units": 328.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0488",
+          "product": "Car Travel",
+          "category": "Transport",
+          "source": "Local Manufacturer",
+          "units": 38.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0489",
+          "product": "Flight",
+          "category": "Transport",
+          "source": "Factory A",
+          "units": 35.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0490",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 13.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0491",
+          "product": "Plastic Wrap",
+          "category": "Packaging",
+          "source": "Factory A",
+          "units": 32.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0492",
+          "product": "Bag",
+          "category": "Plastic",
+          "source": "Imported (China)",
+          "units": 168.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 588.0,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0493",
+          "product": "Yogurt",
+          "category": "Dairy",
+          "source": "Local Farm",
+          "units": 432.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 820.8,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0494",
+          "product": "Cutlery",
+          "category": "Plastic",
+          "source": "Factory A",
+          "units": 195.0,
+          "emission_per_unit": 3.5,
+          "total_emission": 682.5,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0495",
+          "product": "Pork",
+          "category": "Food",
+          "source": "Local Farm",
+          "units": 195.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 409.5,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0496",
+          "product": "Tablet",
+          "category": "Electronics",
+          "source": "Factory B",
+          "units": 67.0,
+          "emission_per_unit": 8.2,
+          "total_emission": 549.4,
+          "risk_level": "High-Risk"
+        },
+        {
+          "id": "P0497",
+          "product": "Chicken",
+          "category": "Food",
+          "source": "Imported (China)",
+          "units": 49.0,
+          "emission_per_unit": 2.1,
+          "total_emission": 102.9,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0498",
+          "product": "Cardboard Box",
+          "category": "Packaging",
+          "source": "Imported (China)",
+          "units": 23.0,
+          "emission_per_unit": 0,
+          "total_emission": 0.0,
+          "risk_level": "Normal"
+        },
+        {
+          "id": "P0499",
+          "product": "T-Shirt",
+          "category": "Textile",
+          "source": "Local Farm",
+          "units": 60.0,
+          "emission_per_unit": 4.0,
+          "total_emission": 240.0,
+          "risk_level": "Critical"
+        },
+        {
+          "id": "P0500",
+          "product": "Milk",
+          "category": "Dairy",
+          "source": "Factory B",
+          "units": 810.0,
+          "emission_per_unit": 1.9,
+          "total_emission": 1539.0,
+          "risk_level": "High-Risk"
+        }
+      ],
+      "compliance_status": "Non-Compliant",
+      "highest_impact": "Laptop",
+      "source_emissions": {
+        "Imported (USA)": 51417.0,
+        "Local Manufacturer": 43020.6,
+        "Factory A": 41576.0,
+        "Factory B": 29204.800000000003,
+        "Local Farm": 43904.2,
+        "Imported (China)": 27602.2
+      },
+      "suggestions": [
+        {
+          "original_product": "Ice Cream",
+          "category": "Dairy",
+          "alternative_product": "Plant-Based Alternatives",
+          "reduction_potential": 809.4,
+          "reduction_pct": 45,
+          "risk_analysis": "High CO\u2082 emitter at 809.4 kg",
+          "confidence": "High",
+          "narrative": "Switching from <strong>Ice Cream</strong> to <strong>Plant-Based Alternatives</strong> can reduce emissions by up to 45%."
+        },
+        {
+          "original_product": "Dress",
+          "category": "Textile",
+          "alternative_product": "Organic Cotton Products",
+          "reduction_potential": 448.0,
+          "reduction_pct": 35,
+          "risk_analysis": "High CO\u2082 emitter at 448.0 kg",
+          "confidence": "High",
+          "narrative": "Switching from <strong>Dress</strong> to <strong>Organic Cotton Products</strong> can reduce emissions by up to 35%."
+        },
+        {
+          "original_product": "Packaging",
+          "category": "Plastic",
+          "alternative_product": "Biodegradable Packaging",
+          "reduction_potential": 623.0,
+          "reduction_pct": 60,
+          "risk_analysis": "High CO\u2082 emitter at 623.0 kg",
+          "confidence": "High",
+          "narrative": "Switching from <strong>Packaging</strong> to <strong>Biodegradable Packaging</strong> can reduce emissions by up to 60%."
+        },
+        {
+          "original_product": "Cutlery",
+          "category": "Plastic",
+          "alternative_product": "Biodegradable Packaging",
+          "reduction_potential": 3202.5,
+          "reduction_pct": 60,
+          "risk_analysis": "High CO\u2082 emitter at 3202.5 kg",
+          "confidence": "High",
+          "narrative": "Switching from <strong>Cutlery</strong> to <strong>Biodegradable Packaging</strong> can reduce emissions by up to 60%."
+        },
+        {
+          "original_product": "Jeans",
+          "category": "Textile",
+          "alternative_product": "Organic Cotton Products",
+          "reduction_potential": 476.0,
+          "reduction_pct": 35,
+          "risk_analysis": "High CO\u2082 emitter at 476.0 kg",
+          "confidence": "High",
+          "narrative": "Switching from <strong>Jeans</strong> to <strong>Organic Cotton Products</strong> can reduce emissions by up to 35%."
+        }
+      ]
+    },
+    "SM-37BE22DE": {
+      "id": "SM-37BE22DE",
+      "username": "dhinesh",
+      "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+      "organization": "dhineshstore",
+      "email": "dvdhinesh2005@gmail.com",
+      "registered_at": "2026-05-25T12:09:44.067163",
+      "total_emission": 236724.8,
+      "total_units": 80716,
+      "avg_emission": 2.93,
+      "last_upload": "2026-05-25T12:10:07.905256",
       "risk_breakdown": {
         "Normal": 300,
         "Critical": 74,

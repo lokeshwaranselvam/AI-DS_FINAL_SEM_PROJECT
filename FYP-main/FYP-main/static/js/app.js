@@ -1,778 +1,783 @@
-/* ═══════════════════════════════════════════════
-   CARBONLENS app.js  v3.0
-   Auth · SPA Nav · Analysis · AI Reco · Gov Dashboard · Dark/Light Theme
-═══════════════════════════════════════════════ */
-
-/* ─────────────────────────────────────────────
-   THEME TOGGLE
-───────────────────────────────────────────── */
-const THEME_KEY = "carbonlens_theme";
-
-function applyTheme(theme) {
-  if (theme === "light") {
-    document.body.classList.add("light");
-  } else {
-    document.body.classList.remove("light");
-  }
-  // Update all toggle buttons
-  const isDark = theme === "dark";
-  document.querySelectorAll(".theme-toggle").forEach(btn => {
-    const icon = btn.querySelector(".toggle-icon");
-    const label = btn.querySelector(".toggle-label");
-    if (icon) icon.textContent = isDark ? "🌙" : "☀️";
-    if (label) label.textContent = isDark ? "Dark" : "Light";
-    // Auth toggle has no label span
-    if (!label) btn.innerHTML = `<span class="toggle-icon">${isDark ? "🌙" : "☀️"}</span> ${isDark ? "Dark" : "Light"}`;
-  });
-}
-
+// ════════════════════════════════════════════════════════
+// THEME
+// ════════════════════════════════════════════════════════
+let isDark = true;
 function toggleTheme() {
-  const isLight = document.body.classList.contains("light");
-  const next = isLight ? "dark" : "light";
-  localStorage.setItem(THEME_KEY, next);
-  applyTheme(next);
-  // Redraw charts with updated colors
-  if (currentRole === "supermarket" && allProductsData.length) {
-    // Re-render only if data exists
-  }
-  if (currentRole === "government") {
-    renderGovCharts();
-  }
+  isDark = !isDark;
+  document.body.classList.toggle('light', !isDark);
+  document.querySelectorAll('.toggle-icon').forEach(e => e.textContent = isDark ? '🌙' : '☀️');
 }
 
-// Load saved theme on page load
-(function() {
-  const saved = localStorage.getItem(THEME_KEY) || "dark";
-  applyTheme(saved);
-})();
+// ════════════════════════════════════════════════════════
+// CHART DEFAULTS
+// ════════════════════════════════════════════════════════
+Chart.defaults.color = '#8b949e';
+Chart.defaults.borderColor = '#2a3448';
+const PALETTE = ['#00d9a3','#ff8c42','#ff4d4f','#a78bfa','#58a6ff','#ffd666','#34d399','#f472b6'];
 
-/* ─────────────────────────────────────────────
-   AUTH — persisted in localStorage
-───────────────────────────────────────────── */
-const STORAGE_KEY = "carbonlens_users_v2";
-const SESSION_KEY = "carbonlens_session";
-
-function loadUsers() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    const base = {
-      demo: { password: "demo123", email: "demo@carbonlens.io", org: "Demo Supermarket", role: "supermarket" },
-      gov:  { password: "gov123",  email: "gov@ministry.gov",   org: "Ministry of Environment", role: "government" }
-    };
-    if (!raw) return base;
-    return Object.assign({}, base, JSON.parse(raw));
-  } catch { return {}; }
+function makeChart(id, cfg) {
+  const ctx = document.getElementById(id);
+  if (!ctx) return null;
+  if (ctx._chart) { ctx._chart.destroy(); }
+  const c = new Chart(ctx, cfg);
+  ctx._chart = c;
+  return c;
 }
 
-function saveUsers(db) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(db)); } catch {}
-}
+// ════════════════════════════════════════════════════════
+// AUTH
+// ════════════════════════════════════════════════════════
+let currentRole = '';
 
-function saveSession(username, role) {
-  try { localStorage.setItem(SESSION_KEY, JSON.stringify({ username, role })); } catch {}
-}
-
-function clearSession() {
-  try { localStorage.removeItem(SESSION_KEY); } catch {}
-}
-
-function restoreSession() {
-  try {
-    const raw = localStorage.getItem(SESSION_KEY);
-    if (!raw) return null;
-    return JSON.parse(raw);
-  } catch { return null; }
-}
-
-let USERS_DB = loadUsers();
-let currentUser = null;
-let currentRole = null;
-let selectedRole = null;
-
-/* ─────────────────────────────────────────────
-   ROLE SELECTION
-───────────────────────────────────────────── */
 function selectRole(role) {
-  selectedRole = role;
-  document.getElementById("roleSelector").style.display = "none";
-  document.getElementById("authForms").style.display = "block";
-  const badge = document.getElementById("authRoleBadge");
-  badge.textContent = role === "supermarket" ? "🛒 Supermarket Portal" : "🏛️ Government Portal";
-  document.getElementById("orgGroup").querySelector("input").placeholder =
-    role === "government" ? "Ministry / Department name" : "Organisation / Store name";
-  switchTab("login");
+  currentRole = role;
+  document.getElementById('roleSelector').style.display = 'none';
+  document.getElementById('authForms').style.display = 'block';
+  document.getElementById('authRoleBadge').textContent = role === 'supermarket' ? '🛒 Supermarket Portal' : '🏛️ Government Portal';
+  if (role === 'government') {
+    document.getElementById('tabSignup').style.display = 'none';
+  } else {
+    document.getElementById('tabSignup').style.display = '';
+  }
 }
 
 function backToRoles() {
-  selectedRole = null;
-  document.getElementById("roleSelector").style.display = "block";
-  document.getElementById("authForms").style.display = "none";
+  document.getElementById('roleSelector').style.display = 'block';
+  document.getElementById('authForms').style.display = 'none';
 }
 
 function switchTab(tab) {
-  document.getElementById("tabLogin").classList.toggle("active", tab === "login");
-  document.getElementById("tabSignup").classList.toggle("active", tab === "signup");
-  document.getElementById("loginForm").style.display  = tab === "login"  ? "block" : "none";
-  document.getElementById("signupForm").style.display = tab === "signup" ? "block" : "none";
+  document.getElementById('loginForm').style.display  = tab === 'login'  ? 'block' : 'none';
+  document.getElementById('signupForm').style.display = tab === 'signup' ? 'block' : 'none';
+  document.getElementById('tabLogin').classList.toggle('active',  tab === 'login');
+  document.getElementById('tabSignup').classList.toggle('active', tab === 'signup');
 }
 
-function handleLogin() {
-  const username = document.getElementById("loginUser").value.trim().toLowerCase();
-  const password = document.getElementById("loginPass").value;
-  const msg = document.getElementById("loginMsg");
-  msg.className = "auth-msg";
-  if (!username || !password) { msg.textContent = "Please fill in all fields."; return; }
-  const user = USERS_DB[username];
-  if (!user || user.password !== password) { msg.textContent = "Invalid username or password."; return; }
-  if (user.role !== selectedRole) { msg.textContent = `This account is registered as ${user.role}, not ${selectedRole}.`; return; }
-  msg.textContent = "";
-  currentUser = username;
-  currentRole = user.role;
-  saveSession(username, user.role);
-  launchApp(user);
+function clearAuthFields() {
+  ['loginUser', 'loginPass', 'signupUser', 'signupOrg', 'signupEmail', 'signupPass'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  ['loginMsg', 'signupMsg'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = ''; el.className = 'auth-msg'; }
+  });
 }
 
-function handleSignup() {
-  const username = document.getElementById("signupUser").value.trim().toLowerCase();
-  const org      = document.getElementById("signupOrg").value.trim();
-  const email    = document.getElementById("signupEmail").value.trim();
-  const password = document.getElementById("signupPass").value;
-  const msg = document.getElementById("signupMsg");
-  msg.className = "auth-msg";
-  if (!username || !org || !email || !password) { msg.textContent = "All fields are required."; return; }
-  if (password.length < 6) { msg.textContent = "Password must be at least 6 characters."; return; }
-  if (USERS_DB[username]) { msg.textContent = "Username already taken."; return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = "Enter a valid email."; return; }
-  USERS_DB[username] = { password, email, org, role: selectedRole };
-  saveUsers(USERS_DB);
-  msg.className = "auth-msg success";
-  msg.textContent = "✓ Account created! Signing you in…";
-  currentUser = username;
-  currentRole = selectedRole;
-  saveSession(username, selectedRole);
-  setTimeout(() => launchApp(USERS_DB[username]), 800);
-}
-
-function launchApp(user) {
-  document.getElementById("authOverlay").style.display = "none";
-  if (user.role === "supermarket") {
-    document.getElementById("appSupermarket").style.display = "flex";
-    document.getElementById("smAvatar").textContent = currentUser[0].toUpperCase();
-    document.getElementById("smName").textContent = currentUser;
-    document.getElementById("smOrg").textContent = user.org || "My Store";
-    initSupermarketApp();
-  } else {
-    document.getElementById("appGovernment").style.display = "flex";
-    document.getElementById("govAvatar").textContent = currentUser[0].toUpperCase();
-    document.getElementById("govName").textContent = currentUser;
-    document.getElementById("govOrg").textContent = user.org || "Ministry";
-    initGovernmentApp();
+async function handleLogin() {
+  const username = document.getElementById('loginUser').value.trim();
+  const password = document.getElementById('loginPass').value;
+  const msg = document.getElementById('loginMsg');
+  msg.className = 'auth-msg'; msg.textContent = 'Signing in…';
+  try {
+    const r = await fetch('/api/login', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({username, password, role: currentRole})
+    });
+    const d = await r.json();
+    if (d.success) {
+      msg.className = 'auth-msg success'; msg.textContent = '✓ Success';
+      clearAuthFields();
+      if (currentRole === 'supermarket') launchSupermarket(d);
+      else launchGovernment(d);
+    } else {
+      msg.className = 'auth-msg error'; msg.textContent = d.message || 'Invalid credentials';
+      document.getElementById('loginPass').value = '';
+    }
+  } catch(e) {
+    msg.className = 'auth-msg error'; msg.textContent = 'Server error';
   }
-  const d = new Date();
-  const dateStr = d.toLocaleDateString("en-GB", { weekday:"short", day:"2-digit", month:"short", year:"numeric" });
-  document.querySelectorAll(".topbar-date").forEach(el => el.textContent = dateStr);
+}
 
-  // Re-apply theme labels after app mount
-  const saved = localStorage.getItem(THEME_KEY) || "dark";
-  applyTheme(saved);
+async function handleSignup() {
+  const username     = document.getElementById('signupUser').value.trim();
+  const organization = document.getElementById('signupOrg').value.trim();
+  const email        = document.getElementById('signupEmail').value.trim();
+  const password     = document.getElementById('signupPass').value;
+  const msg = document.getElementById('signupMsg');
+  msg.className = 'auth-msg'; msg.textContent = 'Creating account…';
+  try {
+    const r = await fetch('/api/signup', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({username, password, organization, email, role: 'supermarket'})
+    });
+    const d = await r.json();
+    if (d.success) {
+      msg.className = 'auth-msg success';
+      msg.textContent = `✓ Account created (ID: ${d.supermarket_id}). You can now sign in.`;
+      clearAuthFields();
+      setTimeout(() => switchTab('login'), 1800);
+    } else {
+      msg.className = 'auth-msg error'; msg.textContent = d.message || 'Signup failed';
+    }
+  } catch(e) {
+    msg.className = 'auth-msg error'; msg.textContent = 'Server error';
+  }
 }
 
 function handleLogout() {
-  clearSession();
-  currentUser = null; currentRole = null; selectedRole = null;
-  document.getElementById("appSupermarket").style.display = "none";
-  document.getElementById("appGovernment").style.display  = "none";
-  document.getElementById("authOverlay").style.display    = "flex";
-  document.getElementById("authForms").style.display      = "none";
-  document.getElementById("roleSelector").style.display   = "block";
-  document.getElementById("loginMsg").textContent = "";
-  document.getElementById("loginUser").value = "";
-  document.getElementById("loginPass").value = "";
+  clearSupermarketData();
+  resetSupermarketUI();
+  document.getElementById('appSupermarket').style.display = 'none';
+  document.getElementById('appGovernment').style.display  = 'none';
+  document.getElementById('authOverlay').style.display    = 'flex';
+  clearAuthFields();
+  backToRoles();
+  switchTab('login');
 }
 
-/* ─────────────────────────────────────────────
-   SESSION RESTORE ON LOAD
-───────────────────────────────────────────── */
-window.addEventListener("DOMContentLoaded", () => {
-  const session = restoreSession();
-  if (session) {
-    const user = USERS_DB[session.username];
-    if (user && user.role === session.role) {
-      currentUser = session.username;
-      currentRole = session.role;
-      launchApp(user);
-      return;
-    }
-  }
-});
+// ════════════════════════════════════════════════════════
+// SUPERMARKET
+// ════════════════════════════════════════════════════════
+let smData = null;
 
-/* ─────────────────────────────────────────────
-   SUPERMARKET NAV
-───────────────────────────────────────────── */
-function smNavigate(page) {
-  document.querySelectorAll("#appSupermarket .nav-item").forEach(el => {
-    el.classList.toggle("active", el.dataset.page === page);
+function resetSupermarketUI() {
+  ['sm-totalEmission', 'sm-totalUnits', 'sm-avgEmission', 'sm-highestImpact'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = '—';
   });
-  document.querySelectorAll("#appSupermarket .page-section").forEach(el => {
-    el.classList.toggle("active", el.id === `sm-page-${page}`);
+
+  ['sm-emissionChart','sm-sourceChart','sm-riskChart','sm-intensityChart','sm-paretoChart'].forEach(id => {
+    const ctx = document.getElementById(id);
+    if (ctx && ctx._chart) { ctx._chart.destroy(); ctx._chart = null; }
   });
-  const titles = { dashboard:"Dashboard", upload:"Upload Data", products:"Products", recommendations:"AI Recommendations", compliance:"Compliance", reports:"Reports" };
-  document.getElementById("smPageTitle").textContent = titles[page] || page;
+
+  const prodBody = document.getElementById('fullProductBody');
+  if (prodBody) prodBody.innerHTML = '<tr><td colspan="8" class="table-empty">Upload data to view products.</td></tr>';
+
+  const rptBody = document.getElementById('reportTableBody');
+  if (rptBody) rptBody.innerHTML = '<tr><td colspan="5" class="table-empty">No data yet.</td></tr>';
+
+  const recCont = document.getElementById('aiRecommendationsContainer');
+  if (recCont) recCont.innerHTML = '<div class="empty-hero"><div class="empty-icon">✦</div><p>Upload and analyze data to generate AI-powered recommendations</p></div>';
+
+  const fileName = document.getElementById('fileName');
+  if (fileName) fileName.textContent = 'No file selected';
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  if (analyzeBtn) { analyzeBtn.disabled = true; analyzeBtn._file = null; }
+  const fileInput = document.getElementById('fileInput');
+  if (fileInput) fileInput.value = '';
+
+  smNavigate('dashboard');
+  allProducts = [];
 }
 
-/* ─────────────────────────────────────────────
-   GOVERNMENT NAV
-───────────────────────────────────────────── */
-function govNavigate(page) {
-  document.querySelectorAll("#appGovernment .nav-item").forEach(el => {
-    el.classList.toggle("active", el.dataset.page === page);
-  });
-  document.querySelectorAll("#appGovernment .page-section").forEach(el => {
-    el.classList.toggle("active", el.id === `gov-page-${page}`);
-  });
-  const titles = { overview:"National Overview", companies:"Companies", violations:"Violations", analytics:"Deep Analytics", policy:"Policy Insights" };
-  document.getElementById("govPageTitle").textContent = titles[page] || page;
+function clearSupermarketData() {
+  smData = null;
 }
 
-/* ─────────────────────────────────────────────
-   FILE INPUT
-───────────────────────────────────────────── */
-document.addEventListener("DOMContentLoaded", () => {
-  const fi = document.getElementById("fileInput");
-  if (fi) {
-    fi.addEventListener("change", function() {
-      const btn = document.getElementById("analyzeBtn");
-      if (this.files.length) {
-        document.getElementById("fileName").textContent = this.files[0].name;
-        btn.disabled = false;
-      } else {
-        document.getElementById("fileName").textContent = "No file selected";
-        btn.disabled = true;
+async function launchSupermarket(user) {
+  document.getElementById('authOverlay').style.display = 'none';
+  document.getElementById('appSupermarket').style.display = 'flex';
+  document.getElementById('smName').textContent  = user.username || 'User';
+  document.getElementById('smOrg').textContent   = user.organization || '';
+  document.getElementById('smAvatar').textContent = (user.username||'U')[0].toUpperCase();
+  document.getElementById('smDate').textContent  = new Date().toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'});
+  setupUploadZone();
+
+  const userId = user.id;
+  if (userId && !userId.startsWith('SM-DEMO')) {
+    try {
+      const r = await fetch(`/api/gov/supermarket/${userId}`);
+      if (r.ok) {
+        const saved = await r.json();
+        if (saved.total_emission && saved.total_emission > 0 && saved.all_products && saved.all_products.length > 0) {
+          smData = {
+            total_emission:     saved.total_emission,
+            total_units:        saved.total_units,
+            avg_emission:       saved.avg_emission,
+            highest_impact:     saved.highest_impact || '—',
+            risk_breakdown:     saved.risk_breakdown || {},
+            category_emissions: saved.category_emissions || {},
+            source_emissions:   saved.source_emissions || {},
+            high_risk_report:   saved.high_risk_products || [],
+            suggestions:        saved.suggestions || [],
+            all_products:       saved.all_products || []
+          };
+          renderSupermarketDashboard(smData);
+        }
       }
-    });
+    } catch(e) {
+      console.warn('Could not restore user data:', e);
+    }
   }
-});
-
-/* ─────────────────────────────────────────────
-   CHART THEME HELPERS
-───────────────────────────────────────────── */
-function isLight() {
-  return document.body.classList.contains("light");
 }
 
-function chartTextColor() {
-  return isLight() ? "#57606a" : "#8b949e";
+function setupUploadZone() {
+  const zone = document.getElementById('uploadZone');
+
+  const newZone = zone.cloneNode(true);
+  zone.parentNode.replaceChild(newZone, zone);
+
+  newZone.addEventListener('dragover', e => { e.preventDefault(); newZone.classList.add('drag-over'); });
+  newZone.addEventListener('dragleave', () => newZone.classList.remove('drag-over'));
+  newZone.addEventListener('drop', e => { e.preventDefault(); newZone.classList.remove('drag-over'); const f = e.dataTransfer.files[0]; if (f) setFile(f); });
+
+  const realFi = document.getElementById('fileInput');
+  if (realFi) {
+    realFi.addEventListener('change', () => { if (realFi.files[0]) setFile(realFi.files[0]); });
+  }
 }
 
-function chartGridColor() {
-  return isLight() ? "rgba(0,0,0,0.06)" : "rgba(255,255,255,0.05)";
+function setFile(f) {
+  document.getElementById('fileName').textContent = f.name;
+  document.getElementById('analyzeBtn').disabled = false;
+  document.getElementById('analyzeBtn')._file = f;
 }
 
-function chartBgColor() {
-  return isLight() ? "#ffffff" : "#161b22";
-}
-
-const PALETTE_DARK  = ["#00c896","#ff5a35","#7c5cfc","#e3b341","#f85149","#22d3ee","#a3e635","#fb923c"];
-const PALETTE_LIGHT = ["#007d5c","#d94f2b","#5a3fd0","#bf8700","#cf222e","#0969a6","#5a8a00","#c8521a"];
-
-function getPalette() {
-  return isLight() ? PALETTE_LIGHT : PALETTE_DARK;
-}
-
-/* ─────────────────────────────────────────────
-   CHART HELPERS
-───────────────────────────────────────────── */
-const CHART_INSTANCES = {};
-
-function destroyChart(id) {
-  if (CHART_INSTANCES[id]) { CHART_INSTANCES[id].destroy(); delete CHART_INSTANCES[id]; }
-}
-
-function getLegendOpts() {
-  return {
-    position: "bottom",
-    labels: {
-      color: chartTextColor(),
-      font: { size: 12, family: "'Nunito', sans-serif", weight: "600" },
-      padding: 14,
-      boxWidth: 10,
-      boxHeight: 10
+async function runAnalysis() {
+  const btn = document.getElementById('analyzeBtn');
+  const file = btn._file;
+  if (!file) return;
+  btn.textContent = '⏳ Analyzing…'; btn.disabled = true;
+  const fd = new FormData();
+  fd.append('file', file);
+  try {
+    const r = await fetch('/upload-file', {method:'POST', body: fd});
+    const d = await r.json();
+    if (d.error) { alert('Error: ' + d.error); }
+    else {
+      smData = d;
+      if (!smData.all_products) smData.all_products = d.high_risk_report || [];
+      renderSupermarketDashboard(d);
+      smNavigate('dashboard');
     }
-  };
+  } catch(e) { alert('Server error'); }
+  finally { btn.innerHTML = '<span class="btn-icon">▶</span> Analyze Emissions'; btn.disabled = false; }
 }
 
-function getTickStyle() {
-  return { color: chartTextColor(), font: { size: 11, family: "'Nunito', sans-serif", weight: "600" } };
-}
+function renderSupermarketDashboard(d) {
+  const products = smData?.all_products || d.all_products || d.high_risk_report || [];
 
-function mkDoughnut(id, data) {
-  destroyChart(id);
-  const pal = getPalette();
-  CHART_INSTANCES[id] = new Chart(document.getElementById(id), {
-    type: "doughnut",
+  // Stats
+  document.getElementById('sm-totalEmission').textContent = d.total_emission?.toLocaleString() ?? '—';
+  document.getElementById('sm-totalUnits').textContent    = d.total_units?.toLocaleString()    ?? '—';
+  document.getElementById('sm-avgEmission').textContent   = d.avg_emission ?? '—';
+  document.getElementById('sm-highestImpact').textContent = d.highest_impact ?? '—';
+
+  // Category doughnut
+  const cats = Object.keys(d.category_emissions || {});
+  const catVals = cats.map(k => d.category_emissions[k]);
+  makeChart('sm-emissionChart', {
+    type: 'doughnut',
+    data: { labels: cats, datasets: [{ data: catVals, backgroundColor: PALETTE, borderWidth: 0 }] },
+    options: { plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: {size:11} } } }, cutout: '65%' }
+  });
+
+  // Source bar
+  const srcs = Object.keys(d.source_emissions || {});
+  const srcVals = srcs.map(k => d.source_emissions[k]);
+  makeChart('sm-sourceChart', {
+    type: 'bar',
+    data: { labels: srcs, datasets: [{ data: srcVals, backgroundColor: PALETTE[1], borderRadius: 4 }] },
+    options: { plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#2a3448' } } } }
+  });
+
+  // Risk pie
+  const rb = d.risk_breakdown || {};
+  makeChart('sm-riskChart', {
+    type: 'pie',
+    data: { labels: Object.keys(rb), datasets: [{ data: Object.values(rb), backgroundColor: ['#00d9a3','#ff8c42','#ff4d4f'], borderWidth: 0 }] },
+    options: { plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 10, font: {size:11} } } } }
+  });
+
+  // Intensity bar (top 8)
+  const sorted = [...products].sort((a,b) => b.total_emission - a.total_emission).slice(0,8);
+  makeChart('sm-intensityChart', {
+    type: 'bar',
     data: {
-      labels: Object.keys(data),
-      datasets: [{ data: Object.values(data), backgroundColor: pal, borderWidth: 0, hoverOffset: 6 }]
+      labels: sorted.map(p => p.product.length > 14 ? p.product.slice(0,14)+'…' : p.product),
+      datasets: [{ data: sorted.map(p => p.total_emission), backgroundColor: sorted.map(p => p.risk_level === 'High-Risk' ? '#ff4d4f' : p.risk_level === 'Critical' ? '#ff8c42' : '#00d9a3'), borderRadius: 4 }]
     },
-    options: {
-      responsive: true, maintainAspectRatio: false, cutout: "68%",
-      plugins: { legend: getLegendOpts() }
-    }
+    options: { indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { grid: { color: '#2a3448' } }, y: { grid: { display: false } } } }
   });
-}
 
-function mkBar(id, data, label = "", horizontal = false) {
-  destroyChart(id);
-  const pal = getPalette();
-  CHART_INSTANCES[id] = new Chart(document.getElementById(id), {
-    type: "bar",
+  // Pareto
+  const paretoSorted = [...products].sort((a,b) => b.total_emission - a.total_emission);
+  const totalE = paretoSorted.reduce((s,p) => s + p.total_emission, 0);
+  let cumul = 0;
+  const cumPct = paretoSorted.map(p => { cumul += p.total_emission; return Math.round(cumul / totalE * 100); });
+  makeChart('sm-paretoChart', {
+    type: 'bar',
     data: {
-      labels: Object.keys(data),
-      datasets: [{ label, data: Object.values(data), backgroundColor: pal[0], borderRadius: 6, borderSkipped: false }]
-    },
-    options: {
-      indexAxis: horizontal ? "y" : "x",
-      responsive: true, maintainAspectRatio: false,
-      scales: {
-        x: { ticks: getTickStyle(), grid: horizontal ? { color: chartGridColor() } : { display: false } },
-        y: { beginAtZero: true, ticks: getTickStyle(), grid: horizontal ? { display: false } : { color: chartGridColor() } }
-      },
-      plugins: { legend: { display: false } }
-    }
-  });
-}
-
-function mkPie(id, labels, values, colors) {
-  destroyChart(id);
-  CHART_INSTANCES[id] = new Chart(document.getElementById(id), {
-    type: "pie",
-    data: { labels, datasets: [{ data: values, backgroundColor: colors, borderWidth: 0 }] },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: getLegendOpts() } }
-  });
-}
-
-function mkIntensity(id, items) {
-  destroyChart(id);
-  const pal = getPalette();
-  const sorted = [...items].sort((a, b) => b.total_emission - a.total_emission).slice(0, 8);
-  CHART_INSTANCES[id] = new Chart(document.getElementById(id), {
-    type: "bar",
-    data: {
-      labels: sorted.map(i => i.product.length > 14 ? i.product.slice(0, 14) + "…" : i.product),
-      datasets: [{
-        label: "Total Emission (kg)",
-        data: sorted.map(i => i.total_emission),
-        backgroundColor: sorted.map((_, idx) => pal[idx % pal.length]),
-        borderRadius: 6
-      }]
-    },
-    options: {
-      indexAxis: "y", responsive: true, maintainAspectRatio: false,
-      scales: {
-        x: { beginAtZero: true, ticks: getTickStyle(), grid: { color: chartGridColor() } },
-        y: { ticks: getTickStyle(), grid: { display: false } }
-      },
-      plugins: { legend: { display: false } }
-    }
-  });
-}
-
-function mkPareto(id, categoryData) {
-  destroyChart(id);
-  const pal = getPalette();
-  const sorted = Object.entries(categoryData).sort((a, b) => b[1] - a[1]);
-  const total = sorted.reduce((s, [, v]) => s + v, 0);
-  let cum = 0;
-  const cumPct = sorted.map(([, v]) => { cum += v; return +(cum / total * 100).toFixed(1); });
-  CHART_INSTANCES[id] = new Chart(document.getElementById(id), {
-    data: {
-      labels: sorted.map(([k]) => k),
+      labels: paretoSorted.map((p,i) => i + 1),
       datasets: [
-        { type: "bar",  label: "Emission (kg)",  data: sorted.map(([, v]) => v), backgroundColor: pal[2], borderRadius: 6, yAxisID: "y" },
-        { type: "line", label: "Cumulative %",    data: cumPct, borderColor: pal[1], backgroundColor: isLight() ? "rgba(217,79,43,0.07)" : "rgba(255,90,53,0.07)", borderWidth: 2, pointBackgroundColor: pal[1], pointRadius: 4, fill: true, tension: 0.35, yAxisID: "y2" }
+        { type:'bar', data: paretoSorted.map(p => p.total_emission), backgroundColor: '#58a6ff', borderRadius: 3, yAxisID: 'y' },
+        { type:'line', data: cumPct, borderColor: '#ff8c42', borderWidth: 2, pointRadius: 2, fill: false, yAxisID: 'y1' }
       ]
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
       scales: {
-        y:  { beginAtZero: true, ticks: getTickStyle(), grid: { color: chartGridColor() } },
-        y2: { position: "right", min: 0, max: 100, ticks: { ...getTickStyle(), color: pal[1], callback: v => v + "%" }, grid: { display: false } },
-        x:  { ticks: getTickStyle(), grid: { display: false } }
-      },
-      plugins: { legend: { labels: { color: chartTextColor(), font: { size: 12, family: "'Nunito', sans-serif", weight: "600" }, boxWidth: 10 } } }
+        y:  { grid: { color: '#2a3448' }, title: { display: true, text: 'CO₂ (kg)', font: {size:10} } },
+        y1: { position: 'right', max: 100, grid: { display: false }, ticks: { callback: v => v+'%' } }
+      }
     }
   });
+
+  // Products table
+  renderProductTable(products);
+  // Compliance table
+  renderComplianceTable(d.high_risk_report || []);
+
+  // ── AI Recommendations: merge backend suggestions + any risky products not yet covered ──
+  const baseSuggestions = d.suggestions || [];
+  const allRisky = products.filter(p => p.risk_level === 'High-Risk' || p.risk_level === 'Critical');
+  const suggestedNames = new Set(baseSuggestions.map(s => s.original_product));
+  const missingSugs = allRisky
+    .filter(p => !suggestedNames.has(p.product))
+    .map(p => ({
+      original_product:    p.product,
+      alternative_product: 'Lower-emission alternative',
+      category:            p.category,
+      risk_level:          p.risk_level,
+      reduction_pct:       '15–30',
+      reduction_potential: Math.round(p.total_emission * 0.2),
+      confidence:          'Moderate',
+      narrative:           `${p.product} contributes ${p.total_emission} kg CO₂ and is flagged as ${p.risk_level}. Consider sourcing a lower-emission alternative in the ${p.category} category to meaningfully reduce your store's carbon footprint for this product line.`
+    }));
+  renderRecommendations([...baseSuggestions, ...missingSugs]);
 }
 
-function mkLine(id, labels, datasets) {
-  destroyChart(id);
-  CHART_INSTANCES[id] = new Chart(document.getElementById(id), {
-    type: "line",
-    data: { labels, datasets },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      scales: {
-        x: { ticks: getTickStyle(), grid: { display: false } },
-        y: { beginAtZero: true, ticks: getTickStyle(), grid: { color: chartGridColor() } }
-      },
-      plugins: { legend: getLegendOpts() }
-    }
-  });
+let allProducts = [];
+function renderProductTable(products) {
+  allProducts = products;
+  const tbody = document.getElementById('fullProductBody');
+  if (!products.length) { tbody.innerHTML = '<tr><td colspan="8" class="table-empty">No products.</td></tr>'; return; }
+  tbody.innerHTML = products.map(p => `
+    <tr>
+      <td><code>${p.id}</code></td>
+      <td>${p.product}</td>
+      <td>${p.category}</td>
+      <td>${p.source}</td>
+      <td>${p.units}</td>
+      <td>${p.emission_per_unit}</td>
+      <td><strong>${p.total_emission}</strong></td>
+      <td><span class="risk-badge ${p.risk_level}">${p.risk_level}</span></td>
+    </tr>`).join('');
 }
 
-/* ─────────────────────────────────────────────
-   ANALYSIS
-───────────────────────────────────────────── */
-let currentReportData = [];
-let allProductsData = [];
-
-async function runAnalysis() {
-  const fileInput = document.getElementById("fileInput");
-  if (!fileInput.files.length) return;
-  const btn = document.getElementById("analyzeBtn");
-  btn.innerHTML = '<span class="spinner"></span>Analyzing…';
-  btn.disabled = true;
-
-  const formData = new FormData();
-  formData.append("file", fileInput.files[0]);
-
-  try {
-    const response = await fetch("/upload-file", { method: "POST", body: formData });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || "Server error");
-    populateSupermarketDashboard(data);
-    btn.innerHTML = "✓ Analysis Complete";
-    btn.disabled = false;
-  } catch (err) {
-    console.error(err);
-    alert("Error: " + err.message);
-    btn.innerHTML = '<span class="btn-icon">▶</span> Analyze Emissions';
-    btn.disabled = false;
-  }
+function filterProductTable(q) {
+  const lower = q.toLowerCase();
+  const filtered = allProducts.filter(p => p.product.toLowerCase().includes(lower) || p.category.toLowerCase().includes(lower) || p.source.toLowerCase().includes(lower));
+  renderProductTable(filtered);
 }
 
-function populateSupermarketDashboard(data) {
-  document.getElementById("sm-totalEmission").textContent = data.total_emission + " kg";
-  document.getElementById("sm-totalUnits").textContent    = data.total_units;
-  document.getElementById("sm-avgEmission").textContent   = data.avg_emission + " kg";
-  document.getElementById("sm-highestImpact").textContent = data.highest_impact;
-
-  mkDoughnut("sm-emissionChart", data.category_emissions);
-  mkBar("sm-sourceChart", data.source_emissions);
-  const rk = data.risk_breakdown;
-  const pal = getPalette();
-  mkPie("sm-riskChart", Object.keys(rk), Object.values(rk), [pal[0], pal[3], pal[4]]);
-  mkIntensity("sm-intensityChart", data.high_risk_report);
-  mkPareto("sm-paretoChart", data.category_emissions);
-
-  currentReportData = data.high_risk_report;
-  renderReport(data.high_risk_report);
-
-  allProductsData = data.all_products || data.high_risk_report;
-  renderFullProductTable(allProductsData);
-
-  renderAIRecommendations(data.suggestions);
+function renderComplianceTable(items) {
+  const tbody = document.getElementById('reportTableBody');
+  if (!items.length) { tbody.innerHTML = '<tr><td colspan="5" class="table-empty">No high-risk items. ✓</td></tr>'; return; }
+  tbody.innerHTML = items.map(p => `
+    <tr>
+      <td><code>${p.id}</code></td>
+      <td>${p.product}</td>
+      <td>${p.source}</td>
+      <td><strong>${p.total_emission}</strong></td>
+      <td><span class="risk-badge ${p.risk_level}">${p.risk_level}</span></td>
+    </tr>`).join('');
 }
 
-/* ─────────────────────────────────────────────
-   AI RECOMMENDATIONS
-───────────────────────────────────────────── */
-function renderAIRecommendations(suggestions) {
-  const container = document.getElementById("aiRecommendationsContainer");
-  if (!suggestions || suggestions.length === 0) {
-    container.innerHTML = `<div class="empty-hero"><div class="empty-icon">✦</div><p>No high-risk products found — your store's emission profile looks healthy!</p></div>`;
+// ════════════════════════════════════════════════════════
+// AI RECOMMENDATIONS — LLM-style UI
+// ════════════════════════════════════════════════════════
+function renderRecommendations(sugs) {
+  const cont = document.getElementById('aiRecommendationsContainer');
+  if (!sugs.length) {
+    cont.innerHTML = '<div class="empty-hero"><div class="empty-icon">✦</div><p>No high-risk items — no recommendations needed.</p></div>';
     return;
   }
 
-  const totalSavings = suggestions.reduce((s, r) => s + (parseFloat(r.reduction_potential) || 0), 0).toFixed(1);
-  const criticalCount = suggestions.filter(s => s.risk_analysis && s.risk_analysis.includes("High")).length;
+  const riskColor  = r => r === 'High-Risk' ? 'var(--danger)' : r === 'Critical' ? 'var(--warn)' : 'var(--success)';
+  const riskBg     = r => r === 'High-Risk' ? 'rgba(248,81,73,0.08)' : r === 'Critical' ? 'rgba(227,179,65,0.08)' : 'rgba(63,185,80,0.08)';
+  const riskBorder = r => r === 'High-Risk' ? 'rgba(248,81,73,0.25)' : r === 'Critical' ? 'rgba(227,179,65,0.25)' : 'rgba(63,185,80,0.25)';
 
-  let html = `
+  cont.innerHTML = `
     <div class="ai-reco-intro">
       <div class="ai-reco-intro-header">
-        <div class="ai-reco-badge">✦ CARBONLENS AI · ANALYSIS COMPLETE</div>
+        <span class="ai-reco-badge">✦ AI Analysis</span>
+        <span class="ai-reco-title">CarbonLens Recommendations</span>
       </div>
-      <div class="ai-reco-title">Emission Reduction Recommendations</div>
-      <p class="ai-reco-summary" style="margin-top:12px">
-        Based on your uploaded dataset, CarbonLens AI has identified <strong>${suggestions.length} products</strong>
-        with above-threshold emission profiles. By adopting the recommended substitutions below, your store
-        could achieve an estimated reduction of <strong>${totalSavings} kg CO₂e per sales cycle</strong>.
-        ${criticalCount > 0 ? `<strong>${criticalCount} items</strong> carry elevated risk and are recommended for immediate review.` : "All flagged items are in the moderate risk range."}
+      <p class="ai-reco-summary">
+        Identified <strong>${sugs.length} product${sugs.length !== 1 ? 's' : ''}</strong> with elevated emission risk.
+        Switching to the recommended alternatives below could significantly reduce your store's carbon footprint.
       </p>
-    </div>`;
+    </div>
 
-  suggestions.forEach(s => {
-    const riskClass = s.risk_analysis && s.risk_analysis.toLowerCase().includes("high") ? "risk-high"
-                    : s.risk_analysis && s.risk_analysis.toLowerCase().includes("mod") ? "risk-mod"
-                    : "risk-low";
-    html += `
-      <div class="reco-card">
+    ${sugs.map((s, i) => `
+      <div class="reco-card" style="animation-delay:${i * 0.06}s">
+
         <div class="reco-card-header">
           <div class="reco-product-row">
             <span class="reco-product-name">${s.original_product}</span>
             <span class="reco-arrow">→</span>
             <span class="reco-alt-name">${s.alternative_product}</span>
           </div>
-          <div class="reco-savings">↓ ${s.reduction_potential} kg/unit</div>
+          <span class="reco-savings">↓ ~${s.reduction_pct}% CO₂</span>
         </div>
-        <div class="reco-body">${s.narrative}</div>
-        <div class="reco-meta">
-          <span class="reco-tag ${riskClass}">${s.risk_analysis}</span>
-          <span class="reco-tag risk-low">Category: ${s.category}</span>
-          ${s.confidence ? `<span class="reco-tag risk-mod">Confidence: ${s.confidence}</span>` : ""}
+
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;">
+          <span style="
+            display:inline-flex;align-items:center;gap:5px;
+            font-size:11px;font-weight:700;padding:3px 10px;
+            border-radius:5px;
+            border:1px solid ${riskBorder(s.risk_level)};
+            color:${riskColor(s.risk_level)};
+            background:${riskBg(s.risk_level)};
+            font-family:var(--font-body);
+          ">⚠ ${s.risk_level}</span>
+
+          <span style="
+            display:inline-flex;align-items:center;gap:5px;
+            font-size:11px;font-weight:700;padding:3px 10px;
+            border-radius:5px;
+            border:1px solid var(--border2);
+            color:var(--muted);
+            background:var(--surface2);
+            font-family:var(--font-body);
+          ">📦 ${s.category}</span>
+
+          <span style="
+            display:inline-flex;align-items:center;gap:5px;
+            font-size:11px;font-weight:700;padding:3px 10px;
+            border-radius:5px;
+            border:1px solid var(--border2);
+            color:var(--muted);
+            background:var(--surface2);
+            font-family:var(--font-body);
+          ">📉 Save ~${s.reduction_potential} kg CO₂</span>
+
+          <span style="
+            display:inline-flex;align-items:center;gap:5px;
+            font-size:11px;font-weight:700;padding:3px 10px;
+            border-radius:5px;
+            border:1px solid rgba(0,200,150,0.2);
+            color:var(--accent);
+            background:rgba(0,200,150,0.07);
+            font-family:var(--font-body);
+          ">✦ Confidence: ${s.confidence}</span>
         </div>
-      </div>`;
-  });
 
-  container.innerHTML = html;
+        <div style="
+          border-left:3px solid var(--accent);
+          padding:12px 16px;
+          border-radius:0 8px 8px 0;
+          background:var(--surface2);
+          margin-bottom:0;
+        ">
+          <p class="reco-body" style="margin:0;line-height:1.8;">${s.narrative}</p>
+        </div>
+
+      </div>`).join('')}`;
 }
 
-/* ─────────────────────────────────────────────
-   TABLE RENDERERS
-───────────────────────────────────────────── */
-function renderReport(items) {
-  const tbody = document.getElementById("reportTableBody");
-  if (!items || items.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="5" class="table-empty">No high-risk items found.</td></tr>'; return;
+function smNavigate(page) {
+  document.querySelectorAll('#appSupermarket .page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#appSupermarket .nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById(`sm-page-${page}`).classList.add('active');
+  document.querySelector(`#appSupermarket [data-page="${page}"]`).classList.add('active');
+  const titles = {dashboard:'Dashboard',upload:'Upload Data',products:'Products',recommendations:'AI Recommendations',compliance:'Compliance',reports:'Reports'};
+  document.getElementById('smPageTitle').textContent = titles[page] || page;
+}
+
+function exportCSV() { window.location = '/download-compliance-report'; }
+function downloadReport(type) {
+  if (type === 'full') window.location = '/download-full-emission-report';
+  else window.location = '/download-ai-recommendations-report';
+}
+
+// ════════════════════════════════════════════════════════
+// GOVERNMENT
+// ════════════════════════════════════════════════════════
+let govStats = null;
+
+async function launchGovernment(user) {
+  document.getElementById('authOverlay').style.display = 'none';
+  document.getElementById('appGovernment').style.display = 'flex';
+  document.getElementById('govName').textContent = user.username || 'Officer';
+  document.getElementById('govOrg').textContent  = user.organization || 'Ministry';
+  document.getElementById('govAvatar').textContent = (user.username || 'G')[0].toUpperCase();
+  await loadGovStats();
+}
+
+async function loadGovStats() {
+  try {
+    const r = await fetch('/api/gov/statistics');
+    govStats = await r.json();
+    renderGovOverview(govStats);
+    renderGovCompanies(govStats);
+    renderGovViolations(govStats);
+    renderGovAnalytics(govStats);
+    renderGovPolicy(govStats);
+    const nc = govStats.non_compliant_count || 0;
+    document.getElementById('govAlertBanner').textContent =
+      nc > 0 ? `⚡ ${nc} compan${nc===1?'y':'ies'} exceed emission thresholds` : '✓ All companies within threshold';
+    document.getElementById('govAlertBanner').style.color = nc > 0 ? 'var(--red)' : 'var(--teal)';
+    document.getElementById('govAlertBanner').style.borderColor = nc > 0 ? 'rgba(255,77,79,.25)' : 'rgba(0,217,163,.25)';
+    document.getElementById('govAlertBanner').style.background = nc > 0 ? 'rgba(255,77,79,.08)' : 'rgba(0,217,163,.08)';
+  } catch(e) {
+    console.error('Gov stats error', e);
   }
-  tbody.innerHTML = items.map(i => `<tr>
-    <td>${i.id}</td><td>${i.product}</td><td>${i.source}</td><td>${i.total_emission}</td>
-    <td><span class="badge-high">${i.risk_level}</span></td>
-  </tr>`).join("");
 }
 
-function renderFullProductTable(items) {
-  const tbody = document.getElementById("fullProductBody");
-  if (!items || items.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="8" class="table-empty">No data.</td></tr>'; return;
+function govNavigate(page) {
+  document.querySelectorAll('#appGovernment .page-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#appGovernment .nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById(`gov-page-${page}`).classList.add('active');
+  document.querySelector(`#appGovernment [data-page="${page}"]`).classList.add('active');
+  const titles = {overview:'National Overview',companies:'Companies',violations:'Violations',analytics:'Deep Analytics',policy:'Policy Insights'};
+  document.getElementById('govPageTitle').textContent = titles[page] || page;
+  if (page === 'companies' && govStats) renderGovCompanies(govStats);
+  if (page === 'analytics' && govStats) renderGovAnalytics(govStats);
+}
+
+function renderGovOverview(d) {
+  document.getElementById('gov-totalEmission').textContent = (d.total_emission||0).toLocaleString();
+  document.getElementById('gov-totalStores').textContent   = d.total_stores || 0;
+  document.getElementById('gov-nonCompliant').textContent  = d.non_compliant_count || 0;
+  document.getElementById('gov-compliant').textContent     = d.compliant_count || 0;
+
+  const top = (d.top_emitters || []).slice(0,8);
+  makeChart('gov-companyChart', {
+    type: 'bar',
+    data: {
+      labels: top.map(s => s.organization),
+      datasets: [{
+        data: top.map(s => s.total_emission),
+        backgroundColor: top.map(s => s.compliance_status === 'Non-Compliant' ? '#ff4d4f' : '#58a6ff'),
+        borderRadius: 4
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x.toLocaleString()} kg CO₂` } } },
+      scales: { x: { grid: { color: '#2a3448' } }, y: { grid: { display: false } } }
+    }
+  });
+
+  const cats = Object.keys(d.category_emissions || {});
+  makeChart('gov-sectorChart', {
+    type: 'doughnut',
+    data: { labels: cats, datasets: [{ data: cats.map(k => d.category_emissions[k]), backgroundColor: PALETTE, borderWidth: 0 }] },
+    options: { cutout: '60%', plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, padding: 8, font:{size:11} } } } }
+  });
+
+  const cCount  = d.compliant_count || 0;
+  const ncCount = d.non_compliant_count || 0;
+  makeChart('gov-complianceChart', {
+    type: 'doughnut',
+    data: {
+      labels: ['Compliant', 'Non-Compliant'],
+      datasets: [{ data: [cCount, ncCount], backgroundColor: ['#00d9a3', '#ff4d4f'], borderWidth: 0 }]
+    },
+    options: { cutout: '65%', plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font:{size:11} } } } }
+  });
+
+  let totRisk = {Normal:0, Critical:0, 'High-Risk':0};
+  (d.gov_stores || []).forEach(store => {
+    const rb = store.risk_breakdown || {};
+    Object.keys(rb).forEach(k => { totRisk[k] = (totRisk[k]||0) + (rb[k]||0); });
+  });
+  makeChart('gov-riskChart', {
+    type: 'bar',
+    data: {
+      labels: Object.keys(totRisk),
+      datasets: [{ data: Object.values(totRisk), backgroundColor: ['#00d9a3','#ff8c42','#ff4d4f'], borderRadius: 4 }]
+    },
+    options: { plugins: { legend: { display: false } }, scales: { x: { grid: { display: false } }, y: { grid: { color: '#2a3448' } } } }
+  });
+}
+
+function renderGovCompanies(d) {
+  const grid = document.getElementById('companyGrid');
+  const stores = d.gov_stores || [];
+  if (!stores.length) {
+    grid.innerHTML = '<div style="color:var(--text2);padding:40px;grid-column:1/-1;text-align:center">No supermarkets registered yet.</div>';
+    return;
   }
-  tbody.innerHTML = items.map(i => {
-    const badge = i.risk_level === "High-Risk" ? "badge-high" : i.risk_level === "Critical" ? "badge-critical" : "badge-ok";
-    return `<tr>
-      <td>${i.id}</td><td>${i.product}</td><td>${i.category || "—"}</td><td>${i.source}</td>
-      <td>${i.units || "—"}</td><td>${i.emission_per_unit || "—"}</td><td>${i.total_emission}</td>
-      <td><span class="${badge}">${i.risk_level}</span></td>
-    </tr>`;
-  }).join("");
+  grid.innerHTML = stores.map(s => `
+    <div class="company-card" onclick="openStoreModal('${s.store_id}')">
+      <div class="cc-header">
+        <div>
+          <div class="cc-org">${s.organization}</div>
+          <div class="cc-id">${s.store_id}</div>
+        </div>
+        <span class="risk-badge ${s.compliance_status}">${s.compliance_status}</span>
+      </div>
+      <div class="cc-emission">${(s.total_emission||0).toLocaleString()}</div>
+      <div class="cc-unit">kg CO₂ emitted</div>
+      <div class="cc-footer">
+        <div class="cc-date">📋 Reports: ${s.reports_submitted||0}</div>
+        <div class="cc-date">🕐 ${s.last_upload ? new Date(s.last_upload).toLocaleDateString() : 'No upload'}</div>
+      </div>
+    </div>`).join('');
 }
 
-function filterProductTable(query) {
-  const rows = document.querySelectorAll("#fullProductTable tbody tr");
-  const q = query.toLowerCase();
-  rows.forEach(row => {
-    row.style.display = row.textContent.toLowerCase().includes(q) ? "" : "none";
-  });
+async function openStoreModal(storeId) {
+  if (!storeId || storeId === 'undefined') return;
+  document.getElementById('storeModal').style.display = 'flex';
+  document.getElementById('storeModalBox').innerHTML = '<div class="spinner-wrap"><div class="spinner"></div></div>';
+  try {
+    const r = await fetch(`/api/gov/supermarket/${storeId}`);
+    if (!r.ok) throw new Error('Not found');
+    const sm = await r.json();
+    renderStoreModal(sm);
+  } catch(e) {
+    document.getElementById('storeModalBox').innerHTML = '<div style="padding:40px;color:var(--text2)">Could not load store details.</div>';
+  }
 }
 
-/* ─────────────────────────────────────────────
-   EXPORT
-───────────────────────────────────────────── */
-function exportCSV() {
-  if (!currentReportData || !currentReportData.length) { alert("No data to export. Run an analysis first."); return; }
-  let csv = "Product ID,Product,Category,Source,Units,Total Emission (kg),Risk Level\n";
-  currentReportData.forEach(r => {
-    csv += `${r.id},${r.product},${r.category || ""},${r.source},${r.units || ""},${r.total_emission},${r.risk_level}\n`;
+function closeStoreModal(e) {
+  if (e.target === document.getElementById('storeModal')) document.getElementById('storeModal').style.display = 'none';
+}
+
+function renderStoreModal(sm) {
+  const cats = Object.keys(sm.category_emissions || {});
+  const rb   = sm.risk_breakdown || {};
+  document.getElementById('storeModalBox').innerHTML = `
+    <div class="modal-header">
+      <div>
+        <div class="modal-title">${sm.organization}</div>
+        <div style="font-size:12px;color:var(--text2);font-family:monospace">${sm.id} · ${sm.email}</div>
+      </div>
+      <button class="modal-close" onclick="document.getElementById('storeModal').style.display='none'">✕</button>
+    </div>
+    <div class="modal-stats">
+      <div class="modal-stat"><div class="modal-stat-val" style="color:var(--orange)">${(sm.total_emission||0).toLocaleString()}</div><div class="modal-stat-lbl">Total CO₂ (kg)</div></div>
+      <div class="modal-stat"><div class="modal-stat-val" style="color:var(--blue)">${(sm.total_units||0).toLocaleString()}</div><div class="modal-stat-lbl">Units Tracked</div></div>
+      <div class="modal-stat"><div class="modal-stat-val" style="color:${sm.compliance_status==='Compliant'?'var(--teal)':'var(--red)'}">${sm.compliance_status||'—'}</div><div class="modal-stat-lbl">Compliance</div></div>
+    </div>
+    <div class="modal-section-title">Emission by Category</div>
+    ${cats.length ? `<div style="height:180px;margin-bottom:20px"><canvas id="modalCatChart"></canvas></div>` : '<div style="color:var(--text2);font-size:13px;margin-bottom:16px">No category data yet.</div>'}
+    <div class="modal-section-title">Risk Breakdown</div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px">
+      ${Object.entries(rb).map(([k,v]) => `<div style="background:var(--bg3);border-radius:8px;padding:12px 20px;text-align:center"><div style="font-size:22px;font-weight:800">${v}</div><div style="font-size:11px;color:var(--text2);margin-top:4px">${k}</div></div>`).join('')}
+    </div>
+    <div class="modal-section-title">High-Risk Products (${(sm.high_risk_products||[]).length})</div>
+    <div class="report-table-wrap">
+      <table class="report-table">
+        <thead><tr><th>Product</th><th>Category</th><th>CO₂ (kg)</th><th>Risk</th></tr></thead>
+        <tbody>
+          ${(sm.high_risk_products||[]).length ? (sm.high_risk_products||[]).map(p=>`
+            <tr><td>${p.product}</td><td>${p.category}</td><td><strong>${p.total_emission}</strong></td><td><span class="risk-badge ${p.risk_level}">${p.risk_level}</span></td></tr>
+          `).join('') : '<tr><td colspan="4" class="table-empty">No high-risk products</td></tr>'}
+        </tbody>
+      </table>
+    </div>`;
+  if (cats.length) {
+    setTimeout(() => {
+      makeChart('modalCatChart', {
+        type: 'bar',
+        data: { labels: cats, datasets: [{ data: cats.map(k=>sm.category_emissions[k]), backgroundColor: PALETTE, borderRadius: 4 }] },
+        options: { plugins:{legend:{display:false}}, scales:{x:{grid:{display:false}},y:{grid:{color:'#2a3448'}}} }
+      });
+    }, 50);
+  }
+}
+
+function renderGovViolations(d) {
+  const tbody = document.getElementById('violationsBody');
+  const viols = d.violations || [];
+  if (!viols.length) {
+    tbody.innerHTML = '<tr><td colspan="6" class="table-empty">✓ No violations detected.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = viols.map(v => `
+    <tr>
+      <td><strong>${v.company}</strong><br><code style="font-size:10px;color:var(--text2)">${v.store_id}</code></td>
+      <td>${v.product}</td>
+      <td>${v.category}</td>
+      <td><strong>${v.total_emission}</strong></td>
+      <td><span class="risk-badge ${v.risk_level}">${v.risk_level}</span></td>
+      <td><span class="risk-badge Non-Compliant">Flagged</span></td>
+    </tr>`).join('');
+}
+
+function renderGovAnalytics(d) {
+  const cats = Object.keys(d.category_emissions || {});
+  makeChart('gov-catBreakChart', {
+    type: 'bar',
+    data: { labels: cats, datasets: [{ data: cats.map(k=>d.category_emissions[k]), backgroundColor: PALETTE, borderRadius: 4 }] },
+    options: { plugins:{legend:{display:false}}, scales:{x:{grid:{display:false}},y:{grid:{color:'#2a3448'}}} }
   });
-  const link = document.createElement("a");
-  link.href = "data:text/csv;charset=utf-8," + encodeURIComponent(csv);
-  link.download = "carbonlens_compliance_report.csv";
-  link.click();
+
+  const top5 = (d.top_emitters||[]).slice(0,5);
+  makeChart('gov-top5Chart', {
+    type: 'polarArea',
+    data: {
+      labels: top5.map(s=>s.organization),
+      datasets: [{ data: top5.map(s=>s.total_emission), backgroundColor: PALETTE.map(c=>c+'aa'), borderWidth: 0 }]
+    },
+    options: { plugins:{ legend:{ position:'bottom', labels:{ boxWidth:10, font:{size:10} } } } }
+  });
+
+  let totRisk = {Normal:0, Critical:0, 'High-Risk':0};
+  (d.gov_stores||[]).forEach(s=>{
+    const rb = s.risk_breakdown||{};
+    Object.keys(rb).forEach(k=>{ totRisk[k]=(totRisk[k]||0)+(rb[k]||0); });
+  });
+  makeChart('gov-heatChart', {
+    type: 'doughnut',
+    data: {
+      labels: Object.keys(totRisk),
+      datasets: [{ data: Object.values(totRisk), backgroundColor: ['#00d9a3','#ff8c42','#ff4d4f'], borderWidth: 0 }]
+    },
+    options: { cutout:'60%', plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:11}}}} }
+  });
+
+  const totalE = d.total_emission || 0;
+  const totalS = d.total_stores  || 0;
+  const nc     = d.non_compliant_count || 0;
+  const topE   = (d.top_emitters||[])[0];
+  document.getElementById('govInsights').innerHTML = `
+    <div class="insight-item"><div class="insight-num">${totalE.toLocaleString()} kg</div><div class="insight-txt">Total national CO₂ from all registered supermarkets</div></div>
+    <div class="insight-item"><div class="insight-num">${totalS}</div><div class="insight-txt">Supermarkets registered on the gov portal</div></div>
+    <div class="insight-item"><div class="insight-num">${nc}</div><div class="insight-txt">Companies currently exceeding emission thresholds</div></div>
+    <div class="insight-item"><div class="insight-num">${topE ? topE.organization : '—'}</div><div class="insight-txt">Highest-emitting company this reporting period</div></div>
+  `;
+}
+
+function renderGovPolicy(d) {
+  const nc = d.non_compliant_count || 0;
+  const cats = Object.keys(d.category_emissions || {}).sort((a,b)=>(d.category_emissions[b]-d.category_emissions[a]));
+  const topCat = cats[0] || 'N/A';
+
+  const policies = [
+    {
+      tag: 'IMMEDIATE ACTION',
+      title: `${nc} non-compliant retailer${nc!==1?'s require':'requires'} intervention`,
+      body: `${nc} registered supermarket${nc!==1?'s have':'has'} exceeded the emission threshold of 200 kg CO₂. Immediate inspection and corrective-action notices should be issued to these entities under Article 12 of the Carbon Reduction Act.`
+    },
+    {
+      tag: 'CATEGORY PRIORITY',
+      title: `${topCat} products drive the highest national emissions`,
+      body: `${topCat} is the single largest emission category across all retailers, accounting for a disproportionate share of national CO₂. The ministry should consider mandatory emission reduction targets and alternative-product incentives for this category.`
+    },
+    {
+      tag: 'REPORTING COMPLIANCE',
+      title: 'Mandatory quarterly emission reporting recommended',
+      body: `Currently ${d.total_stores||0} retailers submit emission reports. Enforcing quarterly mandatory reporting with standardised CSV templates will improve national data quality and enable earlier detection of threshold breaches.`
+    },
+    {
+      tag: 'INCENTIVE SCHEME',
+      title: 'Carbon credit scheme for compliant retailers',
+      body: `Retailers consistently maintaining emissions below 100 kg CO₂ should be eligible for government-backed carbon credits. This market-based incentive has been shown to accelerate voluntary emission reductions by up to 30% in comparable programmes.`
+    }
+  ];
+
+  document.getElementById('govPolicyContainer').innerHTML = policies.map(p => `
+    <div class="policy-card">
+      <div class="policy-tag">${p.tag}</div>
+      <div class="policy-title">${p.title}</div>
+      <div class="policy-body">${p.body}</div>
+    </div>`).join('');
 }
 
 function exportGovCSV() {
-  const rows = govViolationsData;
-  if (!rows.length) { alert("No violations data."); return; }
-  let csv = "Company,Product,Category,CO2 (kg),Threshold,Excess,Status\n";
-  rows.forEach(r => { csv += `${r.company},${r.product},${r.category},${r.co2},${r.threshold},${r.excess},${r.status}\n`; });
-  const link = document.createElement("a");
-  link.href = "data:text/csv;charset=utf-8," + encodeURIComponent(csv);
-  link.download = "carbonlens_violations.csv";
-  link.click();
-}
-
-/* ─────────────────────────────────────────────
-   SUPERMARKET INIT
-───────────────────────────────────────────── */
-function initSupermarketApp() {
-  smNavigate("dashboard");
-}
-
-/* ─────────────────────────────────────────────
-   GOVERNMENT DASHBOARD — synthetic demo data
-───────────────────────────────────────────── */
-// live government data (fetched from backend). Start empty so UI shows nothing until stores register.
-let GOV_COMPANIES = [];
-let govCompaniesData = [];
-let govViolationsData = [];
-
-async function fetchGovData() {
-  try {
-    const statsResp = await fetch('/api/gov/statistics');
-    const stats = statsResp.ok ? await statsResp.json() : null;
-
-    const listResp = await fetch('/api/gov/supermarkets');
-    const list = listResp.ok ? await listResp.json() : null;
-
-    // Build companies array from server data if present
-    if (list && Array.isArray(list.supermarkets) && list.supermarkets.length) {
-      govCompaniesData = list.supermarkets.map(sm => ({
-        name: sm.organization || sm.username || sm.id,
-        co2: (sm.total_emissions || 0).toString(),
-        products: sm.total_products || 0,
-        compliance: (sm.total_emissions && sm.total_products && (sm.total_emissions / (sm.total_products || 1) > 3)) ? 'Non-Compliant' : 'Compliant',
-        region: sm.region || 'Unknown',
-        score: sm.eco_score || Math.floor(Math.random() * 30) + 60
-      }));
-    } else {
-      // keep empty to avoid showing synthetic demo data
-      govCompaniesData = [];
-    }
-
-    // Build violations from stats high_risk_supermarkets
-    if (stats && Array.isArray(stats.high_risk_supermarkets) && stats.high_risk_supermarkets.length) {
-      govViolationsData = stats.high_risk_supermarkets.map(h => ({
-        company: h.organization || h.id,
-        product: h.top_product || '-',
-        category: h.top_category || '-',
-        co2: (h.total_emissions || 0).toString(),
-        threshold: 'N/A',
-        excess: 'N/A',
-        status: h.risk_level || 'Warning'
-      }));
-    } else {
-      govViolationsData = [];
-    }
-
-  } catch (e) {
-    console.warn('Failed to fetch gov data:', e);
-    govCompaniesData = [];
-    govViolationsData = [];
-  }
-
-  // render views based on fetched data
-  renderGovCharts();
-  renderCompanyGrid();
-  renderViolationsTable();
-}
-
-function initGovernmentApp() {
-  govNavigate("overview");
-  // Fetch live government data and render; UI remains empty until stores register
-  fetchGovData();
-  renderGovInsights();
-  renderGovPolicy();
-}
-
-function renderGovCharts() {
-  const pal = getPalette();
-  // If no live data, show minimal placeholder charts
-  if (!govCompaniesData || govCompaniesData.length === 0) {
-    mkLine("gov-trendChart",
-      ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-      [{ label: "National CO₂ (tonnes)", data: [0,0,0,0,0,0,0,0,0,0,0,0], borderColor: pal[0], backgroundColor: isLight() ? "rgba(0,125,92,0.03)" : "rgba(0,200,150,0.03)", borderWidth: 2, pointBackgroundColor: pal[0], pointRadius: 2, fill: true, tension: 0.2 }]
-    );
-    mkDoughnut("gov-sectorChart", { });
-    mkBar("gov-companyChart", {}, "CO₂ (tonnes)");
-    mkPie("gov-regionChart", [], [], pal);
-    mkBar("gov-monthlyChart", {}, "Tonnes CO₂");
-    mkDoughnut("gov-catBreakChart", {});
-    mkPie("gov-heatChart", ["No Data"], [1], [pal[0]]);
-    return;
-  }
-
-  // Build national trend / company / region charts from live data
-  const companyData = {};
-  govCompaniesData.slice(0, 8).forEach(c => { companyData[c.name.split(" ")[0]] = parseFloat(c.co2.toString().replace(/,/g,"")) / 1000; });
-  mkBar("gov-companyChart", companyData, "CO₂ (tonnes)");
-
-  const regionData = {};
-  govCompaniesData.forEach(c => { regionData[c.region] = (regionData[c.region] || 0) + (parseFloat(c.co2.toString().replace(/,/g,"")) || 0) / 1000; });
-  mkPie("gov-regionChart", Object.keys(regionData), Object.values(regionData).map(v => +v.toFixed(0)), pal);
-
-  // Use simple aggregated placeholders for other charts
-  mkLine("gov-trendChart",
-    ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-    [{ label: "National CO₂ (tonnes)", data: Array.from({length:12}, (_,i) => Math.max(0, Math.round((Object.values(companyData).reduce((s,v)=>s+v,0) / 12) + (i%3-1)*5))), borderColor: pal[0], backgroundColor: isLight() ? "rgba(0,125,92,0.07)" : "rgba(0,200,150,0.07)", borderWidth: 2, pointBackgroundColor: pal[0], pointRadius: 4, fill: true, tension: 0.4 }]
-  );
-
-  mkDoughnut("gov-sectorChart", { Food:31, Plastic:18, Dairy:24, Electronics:12, Textile:9, Packaging:6 });
-  mkBar("gov-monthlyChart", { Jan:198, Feb:185, Mar:210, Apr:202, May:188, Jun:175 }, "Tonnes CO₂");
-  mkDoughnut("gov-catBreakChart", { Food:31, Plastic:18, Dairy:24, Electronics:12, Textile:9, Packaging:6 });
-  mkPie("gov-heatChart",
-    ["Critical","High-Risk","Moderate","Compliant"],
-    [3, 6, 12, Math.max(0, govCompaniesData.length - 21)],
-    isLight() ? ["#cf222e","#bf8700","#5a3fd0","#1a7f37"] : ["#f85149","#e3b341","#7c5cfc","#3fb950"]
-  );
-}
-
-function renderCompanyGrid() {
-  const grid = document.getElementById("companyGrid");
-  const list = (govCompaniesData && govCompaniesData.length) ? govCompaniesData : GOV_COMPANIES;
-  if (!list || list.length === 0) { grid.innerHTML = '<div class="empty-hero"><div class="empty-icon">🏢</div><p>No registered companies yet. New stores will appear here after signup.</p></div>'; return; }
-  grid.innerHTML = list.map(c => {
-    const badge = c.compliance === "Compliant"     ? "badge-ok"
-                : c.compliance === "Non-Compliant" ? "badge-high"
-                : "badge-critical";
-    return `<div class="company-card">
-      <div class="cc-name">${c.name}</div>
-      <div class="cc-stat-row"><span class="cc-label">Total CO₂ (kg)</span><span class="cc-value">${c.co2}</span></div>
-      <div class="cc-stat-row"><span class="cc-label">Products</span><span class="cc-value">${c.products}</span></div>
-      <div class="cc-stat-row"><span class="cc-label">Region</span><span class="cc-value">${c.region}</span></div>
-      <div class="cc-stat-row"><span class="cc-label">Eco-Score</span><span class="cc-value">${c.score}/100</span></div>
-      <div class="cc-status"><span class="${badge}">${c.compliance}</span></div>
-    </div>`;
-  }).join("");
-}
-
-function renderViolationsTable() {
-  const tbody = document.getElementById("violationsBody");
-  tbody.innerHTML = govViolationsData.map(r => {
-    const badge = r.status === "Critical" ? "badge-high" : r.status === "Penalty" ? "badge-critical" : "badge-ok";
-    return `<tr>
-      <td>${r.company}</td><td>${r.product}</td><td>${r.category}</td>
-      <td>${r.co2}</td><td>${r.threshold}</td><td>${r.excess}</td>
-      <td><span class="${badge}">${r.status}</span></td>
-    </tr>`;
-  }).join("");
-}
-
-function renderGovInsights() {
-  const insights = [
-    { icon:"🔴", title:"Highest Emission Sector", text:"Food products account for 31% of national retail emissions — primarily driven by imported red meats and dairy with long cold-chain transport routes." },
-    { icon:"📉", title:"Positive Trend", text:"National emissions fell 8% from Q1 to Q2 2025, partly attributed to the Plastic Levy introduced in March and supermarket eco-labelling mandates." },
-    { icon:"⚠️", title:"Non-Compliance Hotspot", text:"Sunrise Superstore (Pune) has exceeded emission thresholds for 3 consecutive quarters. Regulatory intervention is recommended under Section 14(b) of the Carbon Act." },
-    { icon:"🌱", title:"Best Practice", text:"EcoMart India and Organic Circle maintain eco-scores above 93, primarily through local sourcing, reusable packaging partnerships, and quarterly emission audits." },
-  ];
-  document.getElementById("govInsights").innerHTML = insights.map(i => `
-    <div class="insight-card">
-      <div class="insight-icon">${i.icon}</div>
-      <div class="insight-title">${i.title}</div>
-      <div class="insight-text">${i.text}</div>
-    </div>
-  `).join("");
-}
-
-function renderGovPolicy() {
-  const container = document.getElementById("govPolicyContainer");
-  container.innerHTML = `
-    <div class="policy-intro">
-      <div class="ai-reco-intro-header">
-        <div class="ai-reco-badge" style="color:var(--gov-accent);background:rgba(61,158,255,0.08);border-color:rgba(61,158,255,0.2)">
-          🏛️ AI POLICY ENGINE · NATIONAL DATA SYNTHESIS
-        </div>
-      </div>
-      <div class="ai-reco-title">Policy Recommendations — FY 2025–26</div>
-      <p class="ai-reco-summary" style="margin-top:12px">
-        The following policy recommendations have been generated by CarbonLens AI based on aggregated emission data
-        from 47 registered retailers across 9 regions. These insights are intended to support legislative planning,
-        enforcement prioritisation, and incentive structuring for the upcoming fiscal cycle.
-      </p>
-    </div>
-    ${[
-      { title:"1. Mandatory Emission Ceiling for Red Meat Products", body:"Three retailers currently exceed the 50,000 kg CO₂ annual threshold for imported red meat categories. We recommend introducing a statutory emission ceiling of 45,000 kg CO₂/year per retailer for Beef and Lamb product lines, with a 12-month grace period and exemptions for small-format stores under 500 sq. metres. This aligns with EU Carbon Border Adjustment Mechanism precedents." },
-      { title:"2. Expanded Plastic Levy to Cover Food Packaging", body:"Current data shows that food packaging (Styrofoam and single-use PET) collectively contributes 18% of measured retail emissions — second only to food products themselves. Extending the existing Plastic Levy framework to include in-store food packaging, with tiered rates based on recyclability ratings, is projected to reduce sector emissions by 11–14% within 18 months." },
-      { title:"3. Preferential Procurement Incentives for High Eco-Score Retailers", body:"Retailers with eco-scores above 85 (currently EcoMart India, Organic Circle, GreenBasket Retail, People's Grocery, Metro Grocers) should receive GST rebates on eco-certified product lines and priority government contract consideration. This creates a market incentive to voluntarily reduce emissions rather than requiring punitive enforcement alone." },
-      { title:"4. Mandatory Quarterly Emission Disclosure for Large-Format Retailers", body:"Retailers with over 1,000 SKUs (currently FreshMart, NaturalFood Co., WholeSale Depot, Sunrise Superstore) should be required to submit quarterly emission disclosures via the CarbonLens national portal. Disclosures should be made publicly accessible to enable civil society accountability and media scrutiny, consistent with Right to Information provisions." },
-    ].map(p => `<div class="policy-card"><div class="policy-card-title">${p.title}</div><div class="policy-body">${p.body}</div></div>`).join("")}
-  `;
+  if (!govStats) return;
+  const viols = govStats.violations || [];
+  const rows  = [['Company','StoreID','Product','Category','CO2_kg','RiskLevel']];
+  viols.forEach(v => rows.push([v.company, v.store_id, v.product, v.category, v.total_emission, v.risk_level]));
+  const csv  = rows.map(r => r.join(',')).join('\n');
+  const blob = new Blob([csv], {type:'text/csv'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = `gov_violations_${Date.now()}.csv`; a.click();
 }

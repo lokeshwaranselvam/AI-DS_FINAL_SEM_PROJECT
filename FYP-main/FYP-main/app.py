@@ -91,28 +91,30 @@ def signup():
         return jsonify({"success": False, "message": "Password must be at least 6 characters"}), 400
 
     db = load_supermarkets()
-    # Check duplicates
     for sm in db["supermarkets"].values():
         if sm["username"] == username:
             return jsonify({"success": False, "message": "Username already exists"}), 400
 
     sm_id = "SM-" + str(uuid.uuid4())[:8].upper()
     record = {
-        "id":           sm_id,
-        "username":     username,
-        "password":     hash_password(password),
-        "organization": org,
-        "email":        email,
-        "registered_at": datetime.now().isoformat(),
-        "total_emission": 0,
-        "total_units":    0,
-        "avg_emission":   0,
-        "last_upload":    None,
-        "risk_breakdown": {"Normal": 0, "Critical": 0, "High-Risk": 0},
+        "id":                 sm_id,
+        "username":           username,
+        "password":           hash_password(password),
+        "organization":       org,
+        "email":              email,
+        "registered_at":      datetime.now().isoformat(),
+        "total_emission":     0,
+        "total_units":        0,
+        "avg_emission":       0,
+        "highest_impact":     "",
+        "last_upload":        None,
+        "risk_breakdown":     {"Normal": 0, "Critical": 0, "High-Risk": 0},
         "category_emissions": {},
+        "source_emissions":   {},
         "high_risk_products": [],
-        "all_products":  [],
-        "compliance_status": "Compliant"
+        "suggestions":        [],
+        "all_products":       [],
+        "compliance_status":  "Compliant"
     }
 
     db["supermarkets"][sm_id] = record
@@ -121,12 +123,12 @@ def signup():
     # Register in gov portal
     gov = load_gov_stores()
     gov_entry = {
-        "store_id":       sm_id,
-        "organization":   org,
-        "email":          email,
-        "username":       username,
-        "registered_at":  datetime.now().isoformat(),
-        "total_emission": 0,
+        "store_id":          sm_id,
+        "organization":      org,
+        "email":             email,
+        "username":          username,
+        "registered_at":     datetime.now().isoformat(),
+        "total_emission":    0,
         "compliance_status": "Compliant",
         "reports_submitted": 0
     }
@@ -167,7 +169,7 @@ def login():
 
     elif role == "government":
         if username == "gov" and password == "gov123":
-            current_user_session["role"]   = "government"
+            current_user_session["role"]    = "government"
             current_user_session["user_id"] = "GOV-001"
             return jsonify({"success": True, "id": "GOV-001", "organization": "Ministry of Environment"})
         return jsonify({"success": False, "message": "Invalid government credentials"}), 401
@@ -238,21 +240,21 @@ def upload_file():
         source_emissions[source]     = source_emissions.get(source, 0) + product_total
 
         product_results.append({
-            "id":               prod_id,
-            "product":          product,
-            "category":         category,
-            "source":           source,
-            "units":            units,
+            "id":                prod_id,
+            "product":           product,
+            "category":          category,
+            "source":            source,
+            "units":             units,
             "emission_per_unit": emission_per_unit,
-            "total_emission":   round(product_total, 2),
-            "risk_level":       risk_level
+            "total_emission":    round(product_total, 2),
+            "risk_level":        risk_level
         })
 
     high_risk_items = [p for p in product_results if p["risk_level"] == "High-Risk"]
     avg_emission    = round(total_emission / total_units, 2) if total_units > 0 else 0
     compliance_status = "Non-Compliant" if total_emission > THRESHOLD else "Compliant"
+    highest_impact  = max_emission_product["name"]
 
-    # Simple AI suggestions (no external module needed)
     suggestions = _generate_suggestions(high_risk_items)
 
     global last_analysis_data
@@ -260,7 +262,7 @@ def upload_file():
         "total_emission":     round(total_emission, 2),
         "total_units":        int(total_units),
         "avg_emission":       avg_emission,
-        "highest_impact":     max_emission_product["name"],
+        "highest_impact":     highest_impact,
         "risk_breakdown":     risk_counts,
         "category_emissions": category_emissions,
         "source_emissions":   source_emissions,
@@ -271,7 +273,7 @@ def upload_file():
         "compliance_status":  compliance_status
     }
 
-    # Persist to supermarket record
+    # Persist to supermarket record (FIX: now saves all fields needed for restoration)
     user_id = current_user_session.get("user_id")
     if user_id and not user_id.startswith("SM-DEMO"):
         db = load_supermarkets()
@@ -280,10 +282,13 @@ def upload_file():
             sm["total_emission"]     = round(total_emission, 2)
             sm["total_units"]        = int(total_units)
             sm["avg_emission"]       = avg_emission
+            sm["highest_impact"]     = highest_impact           # FIX: persist
             sm["last_upload"]        = datetime.now().isoformat()
             sm["risk_breakdown"]     = risk_counts
             sm["category_emissions"] = category_emissions
+            sm["source_emissions"]   = source_emissions         # FIX: persist
             sm["high_risk_products"] = high_risk_items
+            sm["suggestions"]        = suggestions              # FIX: persist
             sm["all_products"]       = product_results
             sm["compliance_status"]  = compliance_status
             db["supermarkets"][user_id] = sm
@@ -306,12 +311,13 @@ def upload_file():
         "total_emission":     round(total_emission, 2),
         "total_units":        int(total_units),
         "avg_emission":       avg_emission,
-        "highest_impact":     max_emission_product["name"],
+        "highest_impact":     highest_impact,
         "risk_breakdown":     risk_counts,
         "category_emissions": category_emissions,
         "source_emissions":   source_emissions,
         "high_risk_report":   high_risk_items,
         "suggestions":        suggestions,
+        "all_products":       product_results,
         "gov_submission":     {"success": True, "message": "Report submitted to government portal"}
     })
 
@@ -329,14 +335,14 @@ def _generate_suggestions(high_risk_items):
         cat = item["category"]
         alt, pct = alternatives.get(cat, ("Eco-Alternative", 30))
         suggestions.append({
-            "original_product":   item["product"],
-            "category":           cat,
+            "original_product":    item["product"],
+            "category":            cat,
             "alternative_product": alt,
             "reduction_potential": item["total_emission"],
-            "reduction_pct":      pct,
-            "risk_analysis":      f"High CO₂ emitter at {item['total_emission']} kg",
-            "confidence":         "High",
-            "narrative":          f"Switching from <strong>{item['product']}</strong> to <strong>{alt}</strong> can reduce emissions by up to {pct}%."
+            "reduction_pct":       pct,
+            "risk_analysis":       f"High CO₂ emitter at {item['total_emission']} kg",
+            "confidence":          "High",
+            "narrative":           f"Switching from <strong>{item['product']}</strong> to <strong>{alt}</strong> can reduce emissions by up to {pct}%."
         })
     return suggestions
 
@@ -399,7 +405,6 @@ def get_government_statistics():
         for cat, val in sm.get("category_emissions", {}).items():
             category_totals[cat] = category_totals.get(cat, 0) + val
 
-    # Top emitters
     top_emitters = sorted(
         [{"organization": sm["organization"], "id": sm["id"],
           "total_emission": sm.get("total_emission", 0),
@@ -408,32 +413,29 @@ def get_government_statistics():
         key=lambda x: x["total_emission"], reverse=True
     )[:10]
 
-    # Violations — high-risk products across all stores
     violations = []
     for sm in supermarkets:
         for prod in sm.get("high_risk_products", []):
             violations.append({
-                "company":       sm["organization"],
-                "store_id":      sm["id"],
-                "product":       prod.get("product"),
-                "category":      prod.get("category"),
+                "company":        sm["organization"],
+                "store_id":       sm["id"],
+                "product":        prod.get("product"),
+                "category":       prod.get("category"),
                 "total_emission": prod.get("total_emission"),
-                "risk_level":    prod.get("risk_level")
+                "risk_level":     prod.get("risk_level")
             })
 
-    avg_reduction = 12  # placeholder YoY
-
     return jsonify({
-        "total_emission":        round(total_emission, 2),
-        "total_stores":          total_stores,
-        "non_compliant_count":   len(non_compliant),
-        "compliant_count":       compliant,
-        "avg_reduction":         avg_reduction,
-        "category_emissions":    category_totals,
-        "top_emitters":          top_emitters,
+        "total_emission":         round(total_emission, 2),
+        "total_stores":           total_stores,
+        "non_compliant_count":    len(non_compliant),
+        "compliant_count":        compliant,
+        "avg_reduction":          12,
+        "category_emissions":     category_totals,
+        "top_emitters":           top_emitters,
         "high_risk_supermarkets": non_compliant,
-        "violations":            violations,
-        "gov_stores":            gov["stores"]
+        "violations":             violations,
+        "gov_stores":             gov["stores"]
     })
 
 
