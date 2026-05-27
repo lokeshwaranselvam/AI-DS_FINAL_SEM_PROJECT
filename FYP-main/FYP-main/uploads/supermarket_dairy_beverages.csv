@@ -1,0 +1,501 @@
+ProductID,Product,Category,ProductionSource,Units_Sold
+P0348,Cottage Cheese,Dairy,Imported (India),264
+P0089,Sour Cream,Dairy,Factory B,339
+P0045,Greek Yogurt,Dairy,Imported (China),599
+P0103,Cheddar Cheese,Dairy,Imported (China),705
+P0428,Cottage Cheese,Dairy,Imported (EU),334
+P0014,Sparkling Water,Beverages,Imported (China),805
+P0439,Coconut Water,Beverages,Imported (USA),775
+P0426,Butter,Dairy,Imported (USA),731
+P0157,Energy Drink,Beverages,Imported (EU),937
+P0497,Energy Drink,Beverages,Local Farm,277
+P0034,Sparkling Water,Beverages,Imported (USA),306
+P0427,Heavy Cream,Dairy,Factory B,716
+P0402,Skimmed Milk,Dairy,Local Farm,607
+P0075,Green Tea,Beverages,Imported (China),164
+P0198,Lemonade,Beverages,Imported (India),392
+P0379,Coconut Water,Beverages,Imported (China),581
+P0326,Butter,Dairy,Local Farm,519
+P0001,Whole Milk,Dairy,Imported (USA),39
+P0159,Coconut Water,Beverages,Imported (India),103
+P0298,Lemonade,Beverages,Local Manufacturer,138
+P0037,Energy Drink,Beverages,Imported (India),189
+P0264,Mozzarella,Dairy,Imported (China),675
+P0209,Sour Cream,Dairy,Imported (EU),656
+P0180,Soda,Beverages,Imported (India),123
+P0134,Sparkling Water,Beverages,Factory A,748
+P0412,Apple Juice,Beverages,Local Farm,732
+P0175,Green Tea,Beverages,Imported (EU),469
+P0232,Apple Juice,Beverages,Imported (USA),830
+P0207,Heavy Cream,Dairy,Factory A,860
+P0260,Soda,Beverages,Imported (EU),791
+P0201,Whole Milk,Dairy,Local Manufacturer,363
+P0055,Green Tea,Beverages,Local Manufacturer,259
+P0442,Skimmed Milk,Dairy,Imported (USA),965
+P0143,Cheddar Cheese,Dairy,Imported (EU),482
+P0420,Soda,Beverages,Imported (China),702
+P0108,Cottage Cheese,Dairy,Imported (USA),751
+P0288,Cottage Cheese,Dairy,Factory A,252
+P0432,Apple Juice,Beverages,Imported (India),927
+P0151,Orange Juice,Beverages,Imported (EU),905
+P0252,Apple Juice,Beverages,Factory A,78
+P0086,Butter,Dairy,Local Manufacturer,639
+P0211,Orange Juice,Beverages,Factory A,74
+P0317,Energy Drink,Beverages,Factory A,616
+P0386,Butter,Dairy,Imported (EU),541
+P0228,Cottage Cheese,Dairy,Imported (EU),926
+P0322,Skimmed Milk,Dairy,Local Farm,981
+P0101,Whole Milk,Dairy,Imported (USA),406
+P0347,Heavy Cream,Dairy,Imported (India),894
+P0224,Mozzarella,Dairy,Imported (China),289
+P0401,Whole Milk,Dairy,Factory B,748
+P0200,Soda,Beverages,Local Farm,375
+P0188,Cottage Cheese,Dairy,Local Farm,657
+P0291,Orange Juice,Beverages,Imported (China),488
+P0099,Coconut Water,Beverages,Factory A,382
+P0358,Lemonade,Beverages,Factory B,230
+P0054,Sparkling Water,Beverages,Imported (India),874
+P0015,Green Tea,Beverages,Local Manufacturer,914
+P0183,Cheddar Cheese,Dairy,Local Farm,254
+P0007,Heavy Cream,Dairy,Imported (India),81
+P0148,Cottage Cheese,Dairy,Factory B,830
+P0078,Lemonade,Beverages,Imported (USA),825
+P0355,Green Tea,Beverages,Local Farm,102
+P0398,Lemonade,Beverages,Imported (USA),825
+P0353,Mineral Water,Beverages,Imported (EU),520
+P0163,Cheddar Cheese,Dairy,Local Farm,434
+P0467,Heavy Cream,Dairy,Imported (USA),907
+P0094,Sparkling Water,Beverages,Imported (China),741
+P0133,Mineral Water,Beverages,Factory A,195
+P0253,Mineral Water,Beverages,Factory B,807
+P0293,Mineral Water,Beverages,Local Manufacturer,77
+P0119,Coconut Water,Beverages,Imported (India),530
+P0385,Greek Yogurt,Dairy,Imported (China),833
+P0304,Mozzarella,Dairy,Factory A,453
+P0019,Coconut Water,Beverages,Local Manufacturer,288
+P0429,Sour Cream,Dairy,Imported (EU),367
+P0161,Whole Milk,Dairy,Imported (EU),915
+P0274,Sparkling Water,Beverages,Local Manufacturer,148
+P0333,Mineral Water,Beverages,Imported (EU),435
+P0480,Soda,Beverages,Imported (USA),745
+P0483,Cheddar Cheese,Dairy,Imported (USA),591
+P0389,Sour Cream,Dairy,Imported (China),176
+P0166,Butter,Dairy,Imported (India),93
+P0010,Ice Cream,Dairy,Factory B,395
+P0100,Soda,Beverages,Imported (China),949
+P0464,Mozzarella,Dairy,Local Farm,866
+P0441,Whole Milk,Dairy,Factory B,857
+P0337,Energy Drink,Beverages,Imported (China),761
+P0144,Mozzarella,Dairy,Imported (USA),806
+P0284,Mozzarella,Dairy,Factory A,822
+P0006,Butter,Dairy,Factory A,589
+P0421,Whole Milk,Dairy,Imported (USA),634
+P0169,Sour Cream,Dairy,Local Manufacturer,869
+P0301,Whole Milk,Dairy,Imported (EU),706
+P0043,Cheddar Cheese,Dairy,Local Farm,480
+P0239,Coconut Water,Beverages,Imported (China),686
+P0490,Ice Cream,Dairy,Factory A,498
+P0064,Mozzarella,Dairy,Factory B,937
+P0366,Butter,Dairy,Imported (USA),754
+P0022,Skimmed Milk,Dairy,Imported (EU),434
+P0221,Whole Milk,Dairy,Factory B,302
+P0484,Mozzarella,Dairy,Factory B,189
+P0399,Coconut Water,Beverages,Local Farm,621
+P0325,Greek Yogurt,Dairy,Imported (India),642
+P0372,Apple Juice,Beverages,Imported (USA),85
+P0283,Cheddar Cheese,Dairy,Factory A,738
+P0369,Sour Cream,Dairy,Local Farm,420
+P0049,Sour Cream,Dairy,Local Manufacturer,424
+P0424,Mozzarella,Dairy,Imported (USA),240
+P0419,Coconut Water,Beverages,Imported (China),569
+P0205,Greek Yogurt,Dairy,Local Farm,370
+P0300,Soda,Beverages,Local Manufacturer,470
+P0313,Mineral Water,Beverages,Factory B,660
+P0110,Ice Cream,Dairy,Local Manufacturer,606
+P0084,Mozzarella,Dairy,Imported (China),861
+P0011,Orange Juice,Beverages,Imported (India),474
+P0257,Energy Drink,Beverages,Factory A,705
+P0204,Mozzarella,Dairy,Imported (China),146
+P0088,Cottage Cheese,Dairy,Local Farm,470
+P0220,Soda,Beverages,Local Farm,781
+P0327,Heavy Cream,Dairy,Imported (USA),667
+P0457,Energy Drink,Beverages,Imported (USA),671
+P0309,Sour Cream,Dairy,Imported (China),967
+P0414,Sparkling Water,Beverages,Factory B,584
+P0197,Energy Drink,Beverages,Imported (EU),54
+P0340,Soda,Beverages,Imported (China),537
+P0250,Ice Cream,Dairy,Local Farm,156
+P0320,Soda,Beverages,Local Farm,855
+P0266,Butter,Dairy,Local Manufacturer,36
+P0290,Ice Cream,Dairy,Imported (China),577
+P0280,Soda,Beverages,Local Manufacturer,573
+P0478,Lemonade,Beverages,Factory A,758
+P0065,Greek Yogurt,Dairy,Imported (China),369
+P0050,Ice Cream,Dairy,Local Farm,999
+P0241,Whole Milk,Dairy,Imported (EU),627
+P0174,Sparkling Water,Beverages,Factory A,787
+P0172,Apple Juice,Beverages,Local Farm,303
+P0302,Skimmed Milk,Dairy,Imported (China),141
+P0028,Cottage Cheese,Dairy,Imported (USA),56
+P0046,Butter,Dairy,Imported (India),597
+P0111,Orange Juice,Beverages,Factory A,948
+P0129,Sour Cream,Dairy,Local Farm,687
+P0392,Apple Juice,Beverages,Imported (China),529
+P0308,Cottage Cheese,Dairy,Factory A,175
+P0268,Cottage Cheese,Dairy,Imported (India),945
+P0071,Orange Juice,Beverages,Local Manufacturer,191
+P0136,Black Coffee,Beverages,Imported (India),383
+P0363,Cheddar Cheese,Dairy,Local Farm,877
+P0004,Mozzarella,Dairy,Imported (China),369
+P0422,Skimmed Milk,Dairy,Imported (EU),206
+P0223,Cheddar Cheese,Dairy,Local Farm,896
+P0418,Lemonade,Beverages,Factory A,480
+P0191,Orange Juice,Beverages,Imported (India),11
+P0498,Lemonade,Beverages,Imported (China),719
+P0397,Energy Drink,Beverages,Local Manufacturer,436
+P0417,Energy Drink,Beverages,Imported (India),331
+P0173,Mineral Water,Beverages,Imported (EU),722
+P0096,Black Coffee,Beverages,Factory A,50
+P0117,Energy Drink,Beverages,Factory A,696
+P0130,Ice Cream,Dairy,Imported (China),907
+P0056,Black Coffee,Beverages,Imported (India),613
+P0003,Cheddar Cheese,Dairy,Imported (USA),953
+P0039,Coconut Water,Beverages,Factory B,522
+P0338,Lemonade,Beverages,Imported (China),418
+P0433,Mineral Water,Beverages,Imported (India),848
+P0162,Skimmed Milk,Dairy,Imported (China),962
+P0255,Green Tea,Beverages,Imported (India),982
+P0486,Butter,Dairy,Imported (India),537
+P0365,Greek Yogurt,Dairy,Factory A,913
+P0013,Mineral Water,Beverages,Imported (China),329
+P0020,Soda,Beverages,Imported (EU),687
+P0344,Mozzarella,Dairy,Imported (EU),263
+P0135,Green Tea,Beverages,Imported (EU),54
+P0016,Black Coffee,Beverages,Local Farm,169
+P0409,Sour Cream,Dairy,Factory A,432
+P0139,Coconut Water,Beverages,Imported (EU),249
+P0430,Ice Cream,Dairy,Imported (USA),304
+P0184,Mozzarella,Dairy,Imported (India),664
+P0140,Soda,Beverages,Factory B,326
+P0491,Orange Juice,Beverages,Imported (China),968
+P0182,Skimmed Milk,Dairy,Imported (USA),134
+P0091,Orange Juice,Beverages,Factory A,990
+P0044,Mozzarella,Dairy,Local Manufacturer,892
+P0356,Black Coffee,Beverages,Imported (India),527
+P0187,Heavy Cream,Dairy,Imported (EU),621
+P0318,Lemonade,Beverages,Factory A,185
+P0449,Sour Cream,Dairy,Local Manufacturer,433
+P0334,Sparkling Water,Beverages,Imported (EU),485
+P0367,Heavy Cream,Dairy,Imported (China),792
+P0087,Heavy Cream,Dairy,Imported (India),483
+P0176,Black Coffee,Beverages,Local Farm,937
+P0436,Black Coffee,Beverages,Local Farm,304
+P0310,Ice Cream,Dairy,Factory B,364
+P0434,Sparkling Water,Beverages,Imported (China),987
+P0248,Cottage Cheese,Dairy,Imported (India),382
+P0146,Butter,Dairy,Imported (India),999
+P0489,Sour Cream,Dairy,Local Manufacturer,199
+P0059,Coconut Water,Beverages,Imported (USA),773
+P0437,Energy Drink,Beverages,Local Manufacturer,364
+P0051,Orange Juice,Beverages,Imported (China),185
+P0456,Black Coffee,Beverages,Imported (USA),338
+P0076,Black Coffee,Beverages,Imported (EU),79
+P0261,Whole Milk,Dairy,Local Manufacturer,597
+P0222,Skimmed Milk,Dairy,Imported (China),892
+P0324,Mozzarella,Dairy,Factory B,795
+P0150,Ice Cream,Dairy,Imported (USA),63
+P0240,Soda,Beverages,Imported (USA),323
+P0406,Butter,Dairy,Local Manufacturer,205
+P0005,Greek Yogurt,Dairy,Local Farm,195
+P0265,Greek Yogurt,Dairy,Imported (USA),265
+P0319,Coconut Water,Beverages,Imported (China),872
+P0057,Energy Drink,Beverages,Imported (India),546
+P0145,Greek Yogurt,Dairy,Imported (India),524
+P0364,Mozzarella,Dairy,Local Manufacturer,451
+P0342,Skimmed Milk,Dairy,Factory B,487
+P0081,Whole Milk,Dairy,Local Manufacturer,327
+P0292,Apple Juice,Beverages,Factory A,636
+P0244,Mozzarella,Dairy,Imported (EU),53
+P0499,Coconut Water,Beverages,Factory B,73
+P0346,Butter,Dairy,Local Farm,307
+P0357,Energy Drink,Beverages,Imported (EU),999
+P0121,Whole Milk,Dairy,Imported (China),326
+P0185,Greek Yogurt,Dairy,Imported (EU),74
+P0332,Apple Juice,Beverages,Local Farm,171
+P0026,Butter,Dairy,Imported (USA),704
+P0394,Sparkling Water,Beverages,Imported (USA),496
+P0128,Cottage Cheese,Dairy,Local Manufacturer,529
+P0226,Butter,Dairy,Imported (China),457
+P0132,Apple Juice,Beverages,Imported (India),167
+P0390,Ice Cream,Dairy,Imported (India),641
+P0067,Heavy Cream,Dairy,Local Manufacturer,159
+P0477,Energy Drink,Beverages,Local Manufacturer,348
+P0465,Greek Yogurt,Dairy,Imported (India),816
+P0167,Heavy Cream,Dairy,Imported (China),239
+P0137,Energy Drink,Beverages,Factory B,464
+P0323,Cheddar Cheese,Dairy,Imported (USA),676
+P0256,Black Coffee,Beverages,Local Farm,629
+P0073,Mineral Water,Beverages,Imported (EU),707
+P0471,Orange Juice,Beverages,Imported (China),301
+P0083,Cheddar Cheese,Dairy,Local Farm,68
+P0351,Orange Juice,Beverages,Imported (China),204
+P0062,Skimmed Milk,Dairy,Factory A,88
+P0249,Sour Cream,Dairy,Factory A,985
+P0102,Skimmed Milk,Dairy,Imported (India),803
+P0053,Mineral Water,Beverages,Imported (China),100
+P0181,Whole Milk,Dairy,Imported (USA),253
+P0316,Black Coffee,Beverages,Local Manufacturer,524
+P0373,Mineral Water,Beverages,Imported (India),526
+P0063,Cheddar Cheese,Dairy,Local Manufacturer,553
+P0235,Green Tea,Beverages,Imported (India),626
+P0123,Cheddar Cheese,Dairy,Factory B,359
+P0314,Sparkling Water,Beverages,Imported (USA),138
+P0384,Mozzarella,Dairy,Local Farm,150
+P0396,Black Coffee,Beverages,Imported (China),699
+P0443,Cheddar Cheese,Dairy,Imported (USA),150
+P0247,Heavy Cream,Dairy,Local Farm,86
+P0453,Mineral Water,Beverages,Factory A,426
+P0109,Sour Cream,Dairy,Factory A,351
+P0008,Cottage Cheese,Dairy,Factory A,768
+P0156,Black Coffee,Beverages,Factory A,289
+P0171,Orange Juice,Beverages,Factory A,150
+P0107,Heavy Cream,Dairy,Imported (India),300
+P0246,Butter,Dairy,Imported (India),291
+P0487,Heavy Cream,Dairy,Imported (China),98
+P0378,Lemonade,Beverages,Imported (China),823
+P0403,Cheddar Cheese,Dairy,Imported (EU),184
+P0021,Whole Milk,Dairy,Imported (India),507
+P0381,Whole Milk,Dairy,Factory A,213
+P0138,Lemonade,Beverages,Imported (USA),780
+P0027,Heavy Cream,Dairy,Imported (EU),549
+P0098,Lemonade,Beverages,Imported (EU),459
+P0048,Cottage Cheese,Dairy,Imported (India),306
+P0190,Ice Cream,Dairy,Factory A,308
+P0231,Orange Juice,Beverages,Imported (EU),386
+P0041,Whole Milk,Dairy,Imported (India),892
+P0170,Ice Cream,Dairy,Imported (China),820
+P0105,Greek Yogurt,Dairy,Imported (China),77
+P0408,Cottage Cheese,Dairy,Imported (China),438
+P0125,Greek Yogurt,Dairy,Factory B,150
+P0199,Coconut Water,Beverages,Imported (USA),775
+P0375,Green Tea,Beverages,Imported (USA),855
+P0272,Apple Juice,Beverages,Imported (USA),720
+P0493,Mineral Water,Beverages,Imported (USA),402
+P0312,Apple Juice,Beverages,Local Manufacturer,266
+P0416,Black Coffee,Beverages,Imported (EU),548
+P0362,Skimmed Milk,Dairy,Imported (EU),302
+P0450,Ice Cream,Dairy,Imported (China),744
+P0440,Soda,Beverages,Imported (EU),229
+P0116,Black Coffee,Beverages,Imported (China),842
+P0343,Cheddar Cheese,Dairy,Local Manufacturer,283
+P0243,Cheddar Cheese,Dairy,Imported (EU),369
+P0370,Ice Cream,Dairy,Local Farm,593
+P0095,Green Tea,Beverages,Local Manufacturer,526
+P0380,Soda,Beverages,Imported (China),783
+P0474,Sparkling Water,Beverages,Factory A,881
+P0438,Lemonade,Beverages,Imported (EU),681
+P0461,Whole Milk,Dairy,Local Farm,945
+P0214,Sparkling Water,Beverages,Local Farm,820
+P0321,Whole Milk,Dairy,Local Farm,93
+P0269,Sour Cream,Dairy,Local Manufacturer,278
+P0475,Green Tea,Beverages,Imported (EU),289
+P0400,Soda,Beverages,Imported (EU),281
+P0458,Lemonade,Beverages,Local Farm,939
+P0254,Sparkling Water,Beverages,Imported (China),380
+P0285,Greek Yogurt,Dairy,Imported (China),530
+P0219,Coconut Water,Beverages,Imported (EU),269
+P0090,Ice Cream,Dairy,Imported (EU),523
+P0303,Cheddar Cheese,Dairy,Factory A,796
+P0286,Butter,Dairy,Factory B,134
+P0445,Greek Yogurt,Dairy,Factory B,258
+P0141,Whole Milk,Dairy,Imported (EU),935
+P0154,Sparkling Water,Beverages,Local Manufacturer,301
+P0212,Apple Juice,Beverages,Imported (EU),47
+P0481,Whole Milk,Dairy,Factory A,24
+P0435,Green Tea,Beverages,Factory A,307
+P0074,Sparkling Water,Beverages,Imported (China),894
+P0155,Green Tea,Beverages,Local Manufacturer,791
+P0122,Skimmed Milk,Dairy,Factory A,983
+P0165,Greek Yogurt,Dairy,Imported (China),251
+P0336,Black Coffee,Beverages,Factory A,330
+P0296,Black Coffee,Beverages,Imported (India),797
+P0164,Mozzarella,Dairy,Local Farm,415
+P0295,Green Tea,Beverages,Imported (EU),548
+P0330,Ice Cream,Dairy,Imported (India),314
+P0149,Sour Cream,Dairy,Factory A,903
+P0496,Black Coffee,Beverages,Imported (China),319
+P0072,Apple Juice,Beverages,Imported (EU),485
+P0463,Cheddar Cheese,Dairy,Factory A,966
+P0405,Greek Yogurt,Dairy,Factory B,42
+P0376,Black Coffee,Beverages,Local Manufacturer,141
+P0120,Soda,Beverages,Imported (China),28
+P0225,Greek Yogurt,Dairy,Local Manufacturer,828
+P0206,Butter,Dairy,Imported (China),843
+P0023,Cheddar Cheese,Dairy,Imported (USA),230
+P0126,Butter,Dairy,Factory A,89
+P0025,Greek Yogurt,Dairy,Imported (India),123
+P0307,Heavy Cream,Dairy,Factory A,321
+P0444,Mozzarella,Dairy,Local Manufacturer,640
+P0018,Lemonade,Beverages,Local Farm,700
+P0305,Greek Yogurt,Dairy,Local Farm,861
+P0052,Apple Juice,Beverages,Imported (EU),861
+P0035,Green Tea,Beverages,Imported (China),132
+P0431,Orange Juice,Beverages,Local Manufacturer,597
+P0124,Mozzarella,Dairy,Imported (EU),206
+P0009,Sour Cream,Dairy,Local Farm,103
+P0485,Greek Yogurt,Dairy,Imported (India),856
+P0215,Green Tea,Beverages,Factory B,917
+P0377,Energy Drink,Beverages,Local Manufacturer,413
+P0393,Mineral Water,Beverages,Imported (EU),735
+P0446,Butter,Dairy,Local Farm,695
+P0097,Energy Drink,Beverages,Factory B,734
+P0142,Skimmed Milk,Dairy,Factory B,386
+P0080,Soda,Beverages,Local Farm,370
+P0178,Lemonade,Beverages,Imported (USA),230
+P0236,Black Coffee,Beverages,Factory A,568
+P0460,Soda,Beverages,Factory B,557
+P0118,Lemonade,Beverages,Local Manufacturer,671
+P0195,Green Tea,Beverages,Imported (China),79
+P0273,Mineral Water,Beverages,Imported (EU),214
+P0218,Lemonade,Beverages,Imported (India),844
+P0279,Coconut Water,Beverages,Imported (China),736
+P0413,Mineral Water,Beverages,Factory A,541
+P0238,Lemonade,Beverages,Local Manufacturer,91
+P0153,Mineral Water,Beverages,Local Manufacturer,738
+P0410,Ice Cream,Dairy,Factory B,430
+P0407,Heavy Cream,Dairy,Local Farm,461
+P0115,Green Tea,Beverages,Imported (India),668
+P0066,Butter,Dairy,Factory A,251
+P0451,Orange Juice,Beverages,Imported (EU),112
+P0202,Skimmed Milk,Dairy,Factory B,760
+P0466,Butter,Dairy,Imported (EU),200
+P0092,Apple Juice,Beverages,Local Farm,471
+P0488,Cottage Cheese,Dairy,Imported (India),695
+P0179,Coconut Water,Beverages,Factory A,571
+P0335,Green Tea,Beverages,Factory B,358
+P0479,Coconut Water,Beverages,Imported (EU),673
+P0277,Energy Drink,Beverages,Imported (EU),99
+P0339,Coconut Water,Beverages,Factory A,788
+P0350,Ice Cream,Dairy,Imported (China),966
+P0454,Sparkling Water,Beverages,Imported (EU),498
+P0193,Mineral Water,Beverages,Imported (India),201
+P0194,Sparkling Water,Beverages,Local Manufacturer,546
+P0230,Ice Cream,Dairy,Factory A,518
+P0196,Black Coffee,Beverages,Local Farm,409
+P0495,Green Tea,Beverages,Imported (USA),986
+P0216,Black Coffee,Beverages,Local Farm,333
+P0331,Orange Juice,Beverages,Imported (EU),84
+P0374,Sparkling Water,Beverages,Imported (EU),792
+P0329,Sour Cream,Dairy,Factory B,834
+P0070,Ice Cream,Dairy,Factory A,788
+P0093,Mineral Water,Beverages,Local Manufacturer,840
+P0210,Ice Cream,Dairy,Factory A,840
+P0147,Heavy Cream,Dairy,Factory A,846
+P0017,Energy Drink,Beverages,Factory A,782
+P0469,Sour Cream,Dairy,Imported (USA),591
+P0036,Black Coffee,Beverages,Local Farm,519
+P0031,Orange Juice,Beverages,Factory B,318
+P0278,Lemonade,Beverages,Imported (China),693
+P0033,Mineral Water,Beverages,Factory A,792
+P0359,Coconut Water,Beverages,Imported (China),59
+P0177,Energy Drink,Beverages,Local Manufacturer,29
+P0217,Energy Drink,Beverages,Imported (USA),537
+P0024,Mozzarella,Dairy,Local Manufacturer,363
+P0038,Lemonade,Beverages,Factory A,399
+P0297,Energy Drink,Beverages,Imported (India),853
+P0462,Skimmed Milk,Dairy,Factory A,437
+P0382,Skimmed Milk,Dairy,Imported (India),522
+P0002,Skimmed Milk,Dairy,Factory A,289
+P0131,Orange Juice,Beverages,Factory A,621
+P0203,Cheddar Cheese,Dairy,Local Manufacturer,800
+P0012,Apple Juice,Beverages,Imported (China),171
+P0371,Orange Juice,Beverages,Factory B,381
+P0500,Soda,Beverages,Local Manufacturer,486
+P0345,Greek Yogurt,Dairy,Factory A,109
+P0237,Energy Drink,Beverages,Imported (USA),338
+P0287,Heavy Cream,Dairy,Factory B,821
+P0030,Ice Cream,Dairy,Local Farm,17
+P0447,Heavy Cream,Dairy,Factory B,663
+P0234,Sparkling Water,Beverages,Imported (India),90
+P0472,Apple Juice,Beverages,Imported (EU),666
+P0263,Cheddar Cheese,Dairy,Imported (China),417
+P0068,Cottage Cheese,Dairy,Imported (USA),212
+P0476,Black Coffee,Beverages,Factory B,838
+P0029,Sour Cream,Dairy,Factory B,414
+P0415,Green Tea,Beverages,Imported (China),688
+P0452,Apple Juice,Beverages,Factory A,15
+P0262,Skimmed Milk,Dairy,Factory A,552
+P0047,Heavy Cream,Dairy,Imported (India),736
+P0251,Orange Juice,Beverages,Imported (EU),45
+P0299,Coconut Water,Beverages,Imported (China),667
+P0368,Cottage Cheese,Dairy,Imported (India),384
+P0106,Butter,Dairy,Imported (China),106
+P0494,Sparkling Water,Beverages,Factory B,467
+P0060,Soda,Beverages,Imported (China),236
+P0227,Heavy Cream,Dairy,Imported (India),771
+P0267,Heavy Cream,Dairy,Factory A,521
+P0168,Cottage Cheese,Dairy,Local Farm,336
+P0085,Greek Yogurt,Dairy,Imported (USA),88
+P0077,Energy Drink,Beverages,Imported (EU),462
+P0275,Green Tea,Beverages,Local Manufacturer,472
+P0294,Sparkling Water,Beverages,Imported (USA),417
+P0104,Mozzarella,Dairy,Local Farm,818
+P0259,Coconut Water,Beverages,Imported (China),390
+P0281,Whole Milk,Dairy,Imported (USA),922
+P0425,Greek Yogurt,Dairy,Imported (USA),799
+P0032,Apple Juice,Beverages,Factory B,795
+P0058,Lemonade,Beverages,Local Manufacturer,415
+P0289,Sour Cream,Dairy,Imported (EU),36
+P0040,Soda,Beverages,Imported (China),83
+P0186,Butter,Dairy,Local Manufacturer,866
+P0492,Apple Juice,Beverages,Factory B,16
+P0271,Orange Juice,Beverages,Imported (EU),229
+P0229,Sour Cream,Dairy,Imported (India),357
+P0270,Ice Cream,Dairy,Imported (USA),730
+P0042,Skimmed Milk,Dairy,Local Farm,456
+P0404,Mozzarella,Dairy,Imported (India),161
+P0448,Cottage Cheese,Dairy,Factory B,63
+P0306,Butter,Dairy,Local Manufacturer,540
+P0387,Heavy Cream,Dairy,Imported (EU),162
+P0349,Sour Cream,Dairy,Factory A,843
+P0127,Heavy Cream,Dairy,Imported (USA),874
+P0391,Orange Juice,Beverages,Imported (USA),617
+P0112,Apple Juice,Beverages,Imported (China),327
+P0423,Cheddar Cheese,Dairy,Factory B,295
+P0341,Whole Milk,Dairy,Local Manufacturer,336
+P0411,Orange Juice,Beverages,Imported (EU),903
+P0276,Black Coffee,Beverages,Factory A,930
+P0388,Cottage Cheese,Dairy,Factory A,345
+P0242,Skimmed Milk,Dairy,Imported (India),180
+P0468,Cottage Cheese,Dairy,Local Farm,19
+P0282,Skimmed Milk,Dairy,Imported (USA),881
+P0360,Soda,Beverages,Local Farm,298
+P0213,Mineral Water,Beverages,Imported (USA),216
+P0192,Apple Juice,Beverages,Imported (China),256
+P0311,Orange Juice,Beverages,Imported (USA),876
+P0383,Cheddar Cheese,Dairy,Local Farm,56
+P0233,Mineral Water,Beverages,Local Manufacturer,754
+P0079,Coconut Water,Beverages,Imported (USA),615
+P0245,Greek Yogurt,Dairy,Imported (China),639
+P0069,Sour Cream,Dairy,Factory A,626
+P0113,Mineral Water,Beverages,Imported (India),142
+P0114,Sparkling Water,Beverages,Local Manufacturer,327
+P0315,Green Tea,Beverages,Imported (USA),639
+P0189,Sour Cream,Dairy,Factory B,745
+P0152,Apple Juice,Beverages,Imported (China),577
+P0482,Skimmed Milk,Dairy,Imported (China),819
+P0470,Ice Cream,Dairy,Local Manufacturer,960
+P0328,Cottage Cheese,Dairy,Imported (USA),504
+P0061,Whole Milk,Dairy,Imported (China),807
+P0354,Sparkling Water,Beverages,Imported (USA),519
+P0160,Soda,Beverages,Factory B,846
+P0395,Green Tea,Beverages,Local Farm,387
+P0361,Whole Milk,Dairy,Imported (EU),621
+P0455,Green Tea,Beverages,Factory B,784
+P0459,Coconut Water,Beverages,Local Manufacturer,677
+P0473,Mineral Water,Beverages,Imported (EU),920
+P0258,Lemonade,Beverages,Imported (EU),981
+P0352,Apple Juice,Beverages,Factory A,520
+P0208,Cottage Cheese,Dairy,Imported (EU),722
+P0082,Skimmed Milk,Dairy,Imported (EU),472
+P0158,Lemonade,Beverages,Factory A,860

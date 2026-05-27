@@ -1,3 +1,54 @@
 {
-  "stores": []
+  "stores": [
+    {
+      "store_id": "SM-6396861B",
+      "organization": "final project stores",
+      "email": "lokeshai2005@gmail.com",
+      "username": "final_project",
+      "registered_at": "2026-05-27T06:13:31.554678",
+      "total_emission": 236724.8,
+      "compliance_status": "Non-Compliant",
+      "reports_submitted": 1,
+      "last_upload": "2026-05-27T06:15:51.959549",
+      "category_emissions": {
+        "Textile": 53068.0,
+        "Packaging": 0.0,
+        "Electronics": 107428.19999999998,
+        "Transport": 0.0,
+        "Dairy": 18606.699999999997,
+        "Food": 23013.9,
+        "Plastic": 34608.0
+      },
+      "risk_breakdown": {
+        "Normal": 300,
+        "Critical": 74,
+        "High-Risk": 126
+      }
+    },
+    {
+      "store_id": "SM-A6C74F17",
+      "organization": "loki store",
+      "email": "lokeshai2005@gmail.com",
+      "username": "loki",
+      "registered_at": "2026-05-27T09:49:23.843210",
+      "total_emission": 655465.3,
+      "compliance_status": "Non-Compliant",
+      "reports_submitted": 2,
+      "last_upload": "2026-05-27T09:50:02.297195",
+      "category_emissions": {
+        "Dairy": 64881.200000000004,
+        "Packaging": 0.0,
+        "Electronics": 256225.40000000005,
+        "Transport": 0.0,
+        "Food": 77389.19999999997,
+        "Plastic": 128985.5,
+        "Textile": 127984.0
+      },
+      "risk_breakdown": {
+        "Normal": 151,
+        "Critical": 27,
+        "High-Risk": 322
+      }
+    }
+  ]
 }
